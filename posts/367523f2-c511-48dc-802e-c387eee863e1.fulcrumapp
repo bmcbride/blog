@@ -1,11 +1,11 @@
 {
-  "id": "3f7d98e9-b714-4053-b472-a58023bf5aad",
+  "id": "52b2d255-c5a1-4cc0-8afb-f37861626622",
   "type": "form.update",
   "owner_id": "6b762e4e-4f77-40ed-9eec-6238071e403d",
   "data": {
     "id": "367523f2-c511-48dc-802e-c387eee863e1",
     "name": "GitHub Sync Test",
-    "description": "2 spaces to prettify",
+    "description": "",
     "bounding_box": null,
     "record_title_key": "3354",
     "title_field_keys": [
@@ -121,6 +121,6 @@
       }
     ],
     "created_at": "2016-02-02T02:02:38Z",
-    "updated_at": "2016-02-02T02:46:05Z"
+    "updated_at": "2016-02-02T02:52:55Z"
   }
 }
