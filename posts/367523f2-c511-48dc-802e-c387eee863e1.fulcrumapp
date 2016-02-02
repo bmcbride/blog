@@ -1,11 +1,11 @@
 {
-	"id": "d501913c-095d-4082-bd74-37784774c57b",
+	"id": "473598af-3e01-4137-95a5-304e7efad2a0",
 	"type": "form.update",
 	"owner_id": "6b762e4e-4f77-40ed-9eec-6238071e403d",
 	"data": {
 		"id": "367523f2-c511-48dc-802e-c387eee863e1",
 		"name": "GitHub Sync Test",
-		"description": null,
+		"description": "Add a description",
 		"bounding_box": null,
 		"record_title_key": "3354",
 		"title_field_keys": [
@@ -136,6 +136,6 @@
 			}
 		],
 		"created_at": "2016-02-02T02:02:38Z",
-		"updated_at": "2016-02-02T02:34:22Z"
+		"updated_at": "2016-02-02T02:35:36Z"
 	}
 }
