@@ -1,181 +1,183 @@
 {
-  "id": "3ab4a7fe-6b0f-4d0a-ba0f-0fd8eb3c966a",
-  "name": "UTM Calc Test",
-  "description": null,
-  "bounding_box": null,
-  "record_title_key": "8c27",
-  "title_field_keys": [
-    "8c27"
-  ],
-  "status_field": {
-    "type": "StatusField",
-    "label": "Status",
-    "key": "@status",
-    "data_name": "status",
-    "default_value": "",
-    "enabled": false,
-    "read_only": false,
-    "hidden": false,
-    "description": "",
-    "choices": [],
-    "required": false,
-    "disabled": false
-  },
-  "auto_assign": false,
-  "hidden_on_dashboard": false,
-  "record_count": 1,
-  "geometry_types": [
-    "Point"
-  ],
-  "geometry_required": false,
-  "elements": [
-    {
-      "type": "CalculatedField",
-      "key": "8c27",
-      "label": "utmconv.js",
-      "description": null,
-      "required": false,
-      "disabled": false,
-      "hidden": true,
-      "data_name": "utmconvjs",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": [],
-      "expression": "/* \n * JS functions for converting between UTM and geographic coordinates and\n * vice versa.\n * \n * @author Po Shan Cheah http://mortonfox.com\n *\n * Based on http://www.uwgb.edu/dutchs/UsefulData/UTMFormulas.htm\n * by Dr. Steve Dutch.\n *\n * This program is free software: you can redistribute it and/or modify it\n * under the terms of the GNU Lesser General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or (at your\n * option) any later version.\n *\n * This program is distributed in the hope that it will be useful, but WITHOUT\n * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or\n * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public\n * License for more details.\n *\n * You should have received a copy of the GNU Lesser General Public License\n * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n */\n/*jslint vars: true, white: true */\n\nvar UTMConv=function(){\"use strict\";function t(t,a,i){this.utmz=t,this.easting=a,this.northing=i}function a(t,a,i){this.latd=t,this.lngd=a,this.datum=i||\"wgs84\"}function i(t,a,i,n,r,h,s){this.datum=s||\"wgs84\",this.latdir=t,this.latdeg=a,this.latmin=i,this.lngdir=n,this.lngdeg=r,this.lngmin=h}var n={wgs84:{eqrad:6378137,flat:298.2572236},nad83:{eqrad:6378137,flat:298.2572236},grs80:{eqrad:6378137,flat:298.2572215},wgs72:{eqrad:6378135,flat:298.2597208},aust1965:{eqrad:6378160,flat:298.2497323},krasovsky1940:{eqrad:6378245,flat:298.2997381},na1927:{eqrad:6378206.4,flat:294.9786982},intl1924:{eqrad:6378388,flat:296.9993621},hayford1909:{eqrad:6378388,flat:296.9993621},clarke1880:{eqrad:6378249.1,flat:293.4660167},clarke1866:{eqrad:6378206.4,flat:294.9786982},airy1830:{eqrad:6377563.4,flat:299.3247788},bessel1841:{eqrad:6377397.2,flat:299.1527052},everest1830:{eqrad:6377276.3,flat:300.8021499}};return t.prototype.toString=function(){return\"Zone \"+this.utmz+\" Easting \"+this.easting+\" Northing \"+this.northing},a.prototype.calc_utmz=function(){return 1+Math.floor((this.lngd+180)/6)},a.prototype.toString=function(){return this.latd+\", \"+this.lngd},a.prototype.to_utm=function(a){var i=n[this.datum].eqrad,r=1/n[this.datum].flat,h=Math.PI/180,s=.9996,o=i*(1-r),e=Math.sqrt(1-o/i*(o/i)),d=this.latd*h;a=a||this.calc_utmz();var l=3+6*(a-1)-180,g=1-o/i*(o/i),u=e*e/(1-e*e),M=i/Math.sqrt(1-Math.pow(e*Math.sin(d),2)),f=Math.pow(Math.tan(d),2),p=u*Math.pow(Math.cos(d),2),c=(this.lngd-l)*h*Math.cos(d),m=d*(1-g*(.25+g*(3/64+5*g/256)));m-=Math.sin(2*d)*(g*(3/8+g*(3/32+45*g/1024))),m+=Math.sin(4*d)*(g*g*(15/256+45*g/1024)),m-=Math.sin(6*d)*(g*g*g*(35/3072)),m*=i;var q=0,w=s*M*c*(1+c*c*((1-f+p)/6+c*c*(5-18*f+f*f+72*p-58*u)/120));w+=5e5;var v=s*(m-q+M*Math.tan(d)*(c*c*(.5+c*c*((5-f+9*p+4*p*p)/24+c*c*(61-58*f+f*f+600*p-330*u)/720))));return new t(a,w,v)},t.prototype.to_degmin=function(t){return this.to_deg(t).to_degmin()},t.prototype.to_deg=function(t){t=t||\"wgs84\";var i=n[t].eqrad,r=1/n[t].flat,h=Math.PI/180,s=.9996,o=i*(1-r),e=Math.sqrt(1-o/i*(o/i)),d=1-o/i*(o/i),l=e*e/(1-e*e),g=this.easting,u=this.northing,M=3+6*(this.utmz-1)-180,f=(1-Math.sqrt(1-e*e))/(1+Math.sqrt(1-e*e)),p=0,c=p+u/s,m=c/(i*(1-d*(.25+d*(3/64+5*d/256)))),q=m+f*(1.5-27*f*f/32)*Math.sin(2*m)+f*f*(21/16-55*f*f/32)*Math.sin(4*m);q+=f*f*f*(151*Math.sin(6*m)/96+f*Math.sin(8*m)*1097/512);var w=l*Math.pow(Math.cos(q),2),v=Math.pow(Math.tan(q),2),y=i/Math.sqrt(1-Math.pow(e*Math.sin(q),2)),_=y*(1-e*e)/(1-Math.pow(e*Math.sin(q),2)),z=(g-5e5)/(y*s),S=z*z*(.5-z*z*(5+3*v+10*w-4*w*w-9*l)/24);S+=Math.pow(z,6)*(61+90*v+298*w+45*v*v-252*l-3*w*w)/720,S=q-y*Math.tan(q)/_*S;var k=z*(1+z*z*((-1-2*v-w)/6+z*z*(5-2*w+28*v-3*w*w+8*l+24*v*v)/120))/Math.cos(q),C=M+k/h;return new a(S/h,C,t)},a.prototype.to_degmin=function(){var t=this.latd,a=this.lngd,n=\"N\";0>t&&(n=\"S\",t=-t);var r=Math.floor(t),h=60*(t-r),s=\"E\";0>a&&(s=\"W\",a=-a);var o=Math.floor(a),e=60*(a-o);return new i(n,r,h,s,o,e,this.datum)},i.prototype.to_utm=function(t){return this.to_deg().to_utm(t)},i.prototype.to_deg=function(){var t=this.latdeg+this.latmin/60;(\"S\"===this.latdir||\"s\"===this.latdir)&&(t=-t);var i=this.lngdeg+this.lngmin/60;return(\"W\"===this.lngdir||\"w\"===this.lngdir)&&(i=-i),new a(t,i,this.datum)},i.prototype.toString=function(){return this.latdir+\" \"+this.latdeg+\" \"+this.latmin+\" \"+this.lngdir+\" \"+this.lngdeg+\" \"+this.lngmin},{UTMCoords:t,DegCoords:a,DegMinCoords:i}}();\n\nthis.UTMConv = UTMConv;\nSETRESULT(null);",
-      "display": {
-        "style": "text",
-        "currency": null
-      },
-      "default_values": null
-    },
-    {
-      "type": "TextField",
-      "key": "253b",
-      "label": "Name",
-      "description": null,
-      "required": false,
-      "disabled": false,
+  "form": {
+    "id": "3ab4a7fe-6b0f-4d0a-ba0f-0fd8eb3c966a",
+    "name": "UTM Calc Test",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "8c27",
+    "title_field_keys": [
+      "8c27"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
       "hidden": false,
-      "data_name": "name",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": null,
-      "numeric": false,
-      "pattern": null,
-      "pattern_description": null,
-      "min_length": null,
-      "max_length": null
-    },
-    {
-      "type": "CalculatedField",
-      "key": "3a7e",
-      "label": "Latitude",
-      "description": null,
+      "description": "",
+      "choices": [],
       "required": false,
-      "disabled": false,
-      "hidden": false,
-      "data_name": "latitude",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": [],
-      "expression": "LATITUDE()",
-      "display": {
-        "style": "text",
-        "currency": null
-      },
-      "default_values": null
+      "disabled": false
     },
-    {
-      "type": "CalculatedField",
-      "key": "96ad",
-      "label": "Longitude",
-      "description": null,
-      "required": false,
-      "disabled": false,
-      "hidden": false,
-      "data_name": "longitude",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": [],
-      "expression": "LONGITUDE()",
-      "display": {
-        "style": "text",
-        "currency": null
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 1,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "elements": [
+      {
+        "type": "CalculatedField",
+        "key": "8c27",
+        "label": "utmconv.js",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": true,
+        "data_name": "utmconvjs",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "/* \n * JS functions for converting between UTM and geographic coordinates and\n * vice versa.\n * \n * @author Po Shan Cheah http://mortonfox.com\n *\n * Based on http://www.uwgb.edu/dutchs/UsefulData/UTMFormulas.htm\n * by Dr. Steve Dutch.\n *\n * This program is free software: you can redistribute it and/or modify it\n * under the terms of the GNU Lesser General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or (at your\n * option) any later version.\n *\n * This program is distributed in the hope that it will be useful, but WITHOUT\n * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or\n * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public\n * License for more details.\n *\n * You should have received a copy of the GNU Lesser General Public License\n * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n */\n/*jslint vars: true, white: true */\n\nvar UTMConv=function(){\"use strict\";function t(t,a,i){this.utmz=t,this.easting=a,this.northing=i}function a(t,a,i){this.latd=t,this.lngd=a,this.datum=i||\"wgs84\"}function i(t,a,i,n,r,h,s){this.datum=s||\"wgs84\",this.latdir=t,this.latdeg=a,this.latmin=i,this.lngdir=n,this.lngdeg=r,this.lngmin=h}var n={wgs84:{eqrad:6378137,flat:298.2572236},nad83:{eqrad:6378137,flat:298.2572236},grs80:{eqrad:6378137,flat:298.2572215},wgs72:{eqrad:6378135,flat:298.2597208},aust1965:{eqrad:6378160,flat:298.2497323},krasovsky1940:{eqrad:6378245,flat:298.2997381},na1927:{eqrad:6378206.4,flat:294.9786982},intl1924:{eqrad:6378388,flat:296.9993621},hayford1909:{eqrad:6378388,flat:296.9993621},clarke1880:{eqrad:6378249.1,flat:293.4660167},clarke1866:{eqrad:6378206.4,flat:294.9786982},airy1830:{eqrad:6377563.4,flat:299.3247788},bessel1841:{eqrad:6377397.2,flat:299.1527052},everest1830:{eqrad:6377276.3,flat:300.8021499}};return t.prototype.toString=function(){return\"Zone \"+this.utmz+\" Easting \"+this.easting+\" Northing \"+this.northing},a.prototype.calc_utmz=function(){return 1+Math.floor((this.lngd+180)/6)},a.prototype.toString=function(){return this.latd+\", \"+this.lngd},a.prototype.to_utm=function(a){var i=n[this.datum].eqrad,r=1/n[this.datum].flat,h=Math.PI/180,s=.9996,o=i*(1-r),e=Math.sqrt(1-o/i*(o/i)),d=this.latd*h;a=a||this.calc_utmz();var l=3+6*(a-1)-180,g=1-o/i*(o/i),u=e*e/(1-e*e),M=i/Math.sqrt(1-Math.pow(e*Math.sin(d),2)),f=Math.pow(Math.tan(d),2),p=u*Math.pow(Math.cos(d),2),c=(this.lngd-l)*h*Math.cos(d),m=d*(1-g*(.25+g*(3/64+5*g/256)));m-=Math.sin(2*d)*(g*(3/8+g*(3/32+45*g/1024))),m+=Math.sin(4*d)*(g*g*(15/256+45*g/1024)),m-=Math.sin(6*d)*(g*g*g*(35/3072)),m*=i;var q=0,w=s*M*c*(1+c*c*((1-f+p)/6+c*c*(5-18*f+f*f+72*p-58*u)/120));w+=5e5;var v=s*(m-q+M*Math.tan(d)*(c*c*(.5+c*c*((5-f+9*p+4*p*p)/24+c*c*(61-58*f+f*f+600*p-330*u)/720))));return new t(a,w,v)},t.prototype.to_degmin=function(t){return this.to_deg(t).to_degmin()},t.prototype.to_deg=function(t){t=t||\"wgs84\";var i=n[t].eqrad,r=1/n[t].flat,h=Math.PI/180,s=.9996,o=i*(1-r),e=Math.sqrt(1-o/i*(o/i)),d=1-o/i*(o/i),l=e*e/(1-e*e),g=this.easting,u=this.northing,M=3+6*(this.utmz-1)-180,f=(1-Math.sqrt(1-e*e))/(1+Math.sqrt(1-e*e)),p=0,c=p+u/s,m=c/(i*(1-d*(.25+d*(3/64+5*d/256)))),q=m+f*(1.5-27*f*f/32)*Math.sin(2*m)+f*f*(21/16-55*f*f/32)*Math.sin(4*m);q+=f*f*f*(151*Math.sin(6*m)/96+f*Math.sin(8*m)*1097/512);var w=l*Math.pow(Math.cos(q),2),v=Math.pow(Math.tan(q),2),y=i/Math.sqrt(1-Math.pow(e*Math.sin(q),2)),_=y*(1-e*e)/(1-Math.pow(e*Math.sin(q),2)),z=(g-5e5)/(y*s),S=z*z*(.5-z*z*(5+3*v+10*w-4*w*w-9*l)/24);S+=Math.pow(z,6)*(61+90*v+298*w+45*v*v-252*l-3*w*w)/720,S=q-y*Math.tan(q)/_*S;var k=z*(1+z*z*((-1-2*v-w)/6+z*z*(5-2*w+28*v-3*w*w+8*l+24*v*v)/120))/Math.cos(q),C=M+k/h;return new a(S/h,C,t)},a.prototype.to_degmin=function(){var t=this.latd,a=this.lngd,n=\"N\";0>t&&(n=\"S\",t=-t);var r=Math.floor(t),h=60*(t-r),s=\"E\";0>a&&(s=\"W\",a=-a);var o=Math.floor(a),e=60*(a-o);return new i(n,r,h,s,o,e,this.datum)},i.prototype.to_utm=function(t){return this.to_deg().to_utm(t)},i.prototype.to_deg=function(){var t=this.latdeg+this.latmin/60;(\"S\"===this.latdir||\"s\"===this.latdir)&&(t=-t);var i=this.lngdeg+this.lngmin/60;return(\"W\"===this.lngdir||\"w\"===this.lngdir)&&(i=-i),new a(t,i,this.datum)},i.prototype.toString=function(){return this.latdir+\" \"+this.latdeg+\" \"+this.latmin+\" \"+this.lngdir+\" \"+this.lngdeg+\" \"+this.lngmin},{UTMCoords:t,DegCoords:a,DegMinCoords:i}}();\n\nthis.UTMConv = UTMConv;\nSETRESULT(null);",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
       },
-      "default_values": null
-    },
-    {
-      "type": "CalculatedField",
-      "key": "9bd3",
-      "label": "UTM Zone",
-      "description": null,
-      "required": false,
-      "disabled": false,
-      "hidden": false,
-      "data_name": "utm_zone",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": [],
-      "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.utmz);\n} else {\n  SETRESULT(\"No location set...\");\n}",
-      "display": {
-        "style": "text",
-        "currency": null
+      {
+        "type": "TextField",
+        "key": "253b",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null
       },
-      "default_values": null
-    },
-    {
-      "type": "CalculatedField",
-      "key": "1a88",
-      "label": "UTM Easting",
-      "description": null,
-      "required": false,
-      "disabled": false,
-      "hidden": false,
-      "data_name": "utm_easting",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": [],
-      "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.easting);\n} else {\n  SETRESULT(\"No location set...\");\n}",
-      "display": {
-        "style": "text",
-        "currency": null
+      {
+        "type": "CalculatedField",
+        "key": "3a7e",
+        "label": "Latitude",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "latitude",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "LATITUDE()",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
       },
-      "default_values": null
-    },
-    {
-      "type": "CalculatedField",
-      "key": "4c56",
-      "label": "UTM Northing",
-      "description": null,
-      "required": false,
-      "disabled": false,
-      "hidden": false,
-      "data_name": "utm_northing",
-      "default_value": null,
-      "visible_conditions_type": null,
-      "visible_conditions": null,
-      "required_conditions_type": null,
-      "required_conditions": [],
-      "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.northing);\n} else {\n  SETRESULT(\"No location set...\");\n}",
-      "display": {
-        "style": "text",
-        "currency": null
+      {
+        "type": "CalculatedField",
+        "key": "96ad",
+        "label": "Longitude",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "longitude",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "LONGITUDE()",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
       },
-      "default_values": null
-    }
-  ],
-  "created_at": "2016-01-19T17:26:43Z",
-  "updated_at": "2016-02-02T03:02:36Z"
+      {
+        "type": "CalculatedField",
+        "key": "9bd3",
+        "label": "UTM Zone",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "utm_zone",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.utmz);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
+      },
+      {
+        "type": "CalculatedField",
+        "key": "1a88",
+        "label": "UTM Easting",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "utm_easting",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.easting);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
+      },
+      {
+        "type": "CalculatedField",
+        "key": "4c56",
+        "label": "UTM Northing",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "utm_northing",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.northing);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
+      }
+    ],
+    "created_at": "2016-01-19T17:26:43Z",
+    "updated_at": "2016-02-02T03:07:38Z"
+  }
 }
