@@ -1,0 +1,686 @@
+{
+  "form": {
+    "id": "306bfa74-17f5-4f2d-8ee0-9a61157cc26c",
+    "name": "Fintex GW Gauging Form",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "391b",
+    "title_field_keys": [
+      "391b"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "elements": [
+      {
+        "type": "ChoiceField",
+        "key": "391b",
+        "label": "Technician",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "technician",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "Josh Ward",
+            "value": "Josh Ward"
+          },
+          {
+            "label": "Audrey Eljuri",
+            "value": "Audrey Eljuri"
+          },
+          {
+            "label": "John Allen",
+            "value": "John Allen"
+          },
+          {
+            "label": "Brandon Rapp",
+            "value": "Brandon Rapp"
+          },
+          {
+            "label": "TJ Chandler",
+            "value": "TJ Chandler"
+          }
+        ]
+      },
+      {
+        "type": "TextField",
+        "key": "3081",
+        "label": "Job#/Task#",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "jobtask",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "04f8",
+        "label": "Client Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "client_name",
+        "default_value": "Holly Energy Partners",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "77ff",
+        "label": "Site Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "site_name",
+        "default_value": "Fintex",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "f238",
+        "label": "Project Manager",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "project_manager",
+        "default_value": "Bryan GIlbert",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "Repeatable",
+        "key": "b2c8",
+        "label": "Monitoring Wells",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "monitoring_wells",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "63c3",
+            "label": "Well ID",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "well_id",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "TextField",
+            "key": "7357",
+            "label": "Top of Casing",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "top_of_casing",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "decimal",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "TextField",
+            "key": "7ad9",
+            "label": "Top of Screen",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "top_of_screen",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "decimal",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "Repeatable",
+            "key": "22e7",
+            "label": "Gauging Form",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "gauging_form",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "elements": [
+              {
+                "type": "TimeField",
+                "key": "f19e",
+                "label": "Time",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "time_gauge",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null
+              },
+              {
+                "type": "DateTimeField",
+                "key": "153e",
+                "label": "Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "date_gauge",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null
+              },
+              {
+                "type": "YesNoField",
+                "key": "20cc",
+                "label": "Does well contain NAPL?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "does_well_contain_napl",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "2403",
+                "label": "Does well contain water?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "does_well_contain_water",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false
+              },
+              {
+                "type": "TextField",
+                "key": "74fa",
+                "label": "Depth to Product",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "depth_to_product",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "20cc",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "20cc",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "TextField",
+                "key": "57cc",
+                "label": "Depth to Water",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "depth_to_water",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "2403",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "2403",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "TextField",
+                "key": "8c3e",
+                "label": "Total Depth",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "total_depth",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "20cc",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "20cc",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "CalculatedField",
+                "key": "293e",
+                "label": "Product Thickness",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "product_thickness",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "20cc",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "$depth_to_water-$depth_to_product",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null
+              },
+              {
+                "type": "TextField",
+                "key": "3d6c",
+                "label": "Notes",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "notes",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "PhotoField",
+                "key": "95da",
+                "label": "Photos",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "photos",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "min_length": null,
+                "max_length": null
+              }
+            ],
+            "title_field_key": null,
+            "title_field_keys": [
+              "20cc"
+            ],
+            "geometry_types": [],
+            "geometry_required": false,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "Repeatable",
+            "key": "ad5f",
+            "label": "Purge Form",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "purge_form",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "elements": [
+              {
+                "type": "DateTimeField",
+                "key": "8c4e",
+                "label": "Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "date_purge",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null
+              },
+              {
+                "type": "TextField",
+                "key": "c5ba",
+                "label": "Static Depth to Water",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "static_depth_to_water",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "TextField",
+                "key": "2aa3",
+                "label": "Total Purge Volume",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "total_purge_volume",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "CalculatedField",
+                "key": "608e",
+                "label": "Total Depth",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "total_depth_purge",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "if ($gauging_form.length > 0) {\n  REPEATABLEVALUES($gauging_form,'total_depth').slice(-1)[0];\n} else {\n  SETRESULT(null);\n}",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null
+              },
+              {
+                "type": "TextField",
+                "key": "1b3f",
+                "label": "Pump Intake Depth",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "pump_intake_depth",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "Repeatable",
+                "key": "3ceb",
+                "label": "Purge Intervals",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "purge_intervals",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "elements": [
+                  {
+                    "type": "TimeField",
+                    "key": "132b",
+                    "label": "Time",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "time_purge_interval",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null
+                  }
+                ],
+                "title_field_key": null,
+                "title_field_keys": [
+                  "132b"
+                ],
+                "geometry_types": [
+                  "Point"
+                ],
+                "geometry_required": false,
+                "min_length": null,
+                "max_length": null
+              }
+            ],
+            "title_field_key": null,
+            "title_field_keys": [
+              "8c4e"
+            ],
+            "geometry_types": [],
+            "geometry_required": false,
+            "min_length": null,
+            "max_length": null
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "63c3"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      }
+    ],
+    "created_at": "2016-02-05T21:04:12Z",
+    "updated_at": "2016-02-05T21:04:12Z"
+  }
+}
