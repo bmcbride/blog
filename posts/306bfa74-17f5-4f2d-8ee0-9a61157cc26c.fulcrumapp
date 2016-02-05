@@ -24,7 +24,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -615,6 +615,26 @@
                 "max_length": null
               },
               {
+                "type": "TextField",
+                "key": "e29d",
+                "label": "Code2",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "code2",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null
+              },
+              {
                 "type": "CalculatedField",
                 "key": "608e",
                 "label": "Total Depth",
@@ -628,7 +648,7 @@
                 "visible_conditions": null,
                 "required_conditions_type": null,
                 "required_conditions": [],
-                "expression": "if ($gauging_form.length > 0) {\n  REPEATABLEVALUES($gauging_form,'total_depth').slice(-1)[0];\n} else {\n  SETRESULT(null);\n}",
+                "expression": "eval($code2)",
                 "display": {
                   "style": "number",
                   "currency": null
@@ -722,6 +742,6 @@
       }
     ],
     "created_at": "2016-02-05T21:04:12Z",
-    "updated_at": "2016-02-05T21:04:45Z"
+    "updated_at": "2016-02-05T21:09:53Z"
   }
 }
