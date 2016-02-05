@@ -151,47 +151,6 @@
         "max_length": null
       },
       {
-        "type": "TextField",
-        "key": "4b19",
-        "label": "code3",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code3",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null
-      },
-      {
-        "type": "CalculatedField",
-        "key": "df4a",
-        "label": "eval3",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval3",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code3)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null
-      },
-      {
         "type": "Repeatable",
         "key": "b2c8",
         "label": "Monitoring Wells",
@@ -290,34 +249,13 @@
           },
           {
             "type": "CalculatedField",
-            "key": "6736",
-            "label": "Eval",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "eval",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": [],
-            "expression": "eval($code)",
-            "display": {
-              "style": "text",
-              "currency": null
-            },
-            "default_values": null
-          },
-          {
-            "type": "CalculatedField",
             "key": "e405",
-            "label": "test",
+            "label": "Last Total Depth",
             "description": null,
             "required": false,
             "disabled": false,
-            "hidden": false,
-            "data_name": "test",
+            "hidden": true,
+            "data_name": "last_total_depth",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -677,26 +615,6 @@
                 "max_length": null
               },
               {
-                "type": "TextField",
-                "key": "e29d",
-                "label": "Code2",
-                "description": null,
-                "required": false,
-                "disabled": false,
-                "hidden": false,
-                "data_name": "code2",
-                "default_value": null,
-                "visible_conditions_type": null,
-                "visible_conditions": null,
-                "required_conditions_type": null,
-                "required_conditions": null,
-                "numeric": false,
-                "pattern": null,
-                "pattern_description": null,
-                "min_length": null,
-                "max_length": null
-              },
-              {
                 "type": "CalculatedField",
                 "key": "608e",
                 "label": "Total Depth",
@@ -710,7 +628,7 @@
                 "visible_conditions": null,
                 "required_conditions_type": null,
                 "required_conditions": [],
-                "expression": "eval($code2)",
+                "expression": "$last_total_depth",
                 "display": {
                   "style": "number",
                   "currency": null
@@ -804,6 +722,6 @@
       }
     ],
     "created_at": "2016-02-05T21:04:12Z",
-    "updated_at": "2016-02-05T21:37:06Z"
+    "updated_at": "2016-02-05T21:40:50Z"
   }
 }
