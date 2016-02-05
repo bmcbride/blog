@@ -228,6 +228,47 @@
             "max_length": null
           },
           {
+            "type": "TextField",
+            "key": "d3e5",
+            "label": "Code",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "code",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "CalculatedField",
+            "key": "6736",
+            "label": "Eval",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "eval",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "eval($code)",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null
+          },
+          {
             "type": "Repeatable",
             "key": "22e7",
             "label": "Gauging Form",
@@ -681,6 +722,6 @@
       }
     ],
     "created_at": "2016-02-05T21:04:12Z",
-    "updated_at": "2016-02-05T21:04:12Z"
+    "updated_at": "2016-02-05T21:04:45Z"
   }
 }
