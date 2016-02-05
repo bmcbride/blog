@@ -151,6 +151,47 @@
         "max_length": null
       },
       {
+        "type": "TextField",
+        "key": "4b19",
+        "label": "code3",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code3",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "CalculatedField",
+        "key": "df4a",
+        "label": "eval3",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval3",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code3)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null
+      },
+      {
         "type": "Repeatable",
         "key": "b2c8",
         "label": "Monitoring Wells",
@@ -742,6 +783,6 @@
       }
     ],
     "created_at": "2016-02-05T21:04:12Z",
-    "updated_at": "2016-02-05T21:09:53Z"
+    "updated_at": "2016-02-05T21:14:34Z"
   }
 }
