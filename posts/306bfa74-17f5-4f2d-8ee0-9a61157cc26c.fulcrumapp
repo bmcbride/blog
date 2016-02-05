@@ -228,26 +228,6 @@
             "max_length": null
           },
           {
-            "type": "TextField",
-            "key": "d3e5",
-            "label": "Code",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "code",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": null,
-            "numeric": false,
-            "pattern": null,
-            "pattern_description": null,
-            "min_length": null,
-            "max_length": null
-          },
-          {
             "type": "CalculatedField",
             "key": "e405",
             "label": "Last Total Depth",
@@ -263,7 +243,7 @@
             "required_conditions": [],
             "expression": "REPEATABLEVALUES($gauging_form,'total_depth').slice(-1)[0]",
             "display": {
-              "style": "text",
+              "style": "number",
               "currency": null
             },
             "default_values": null
@@ -722,6 +702,6 @@
       }
     ],
     "created_at": "2016-02-05T21:04:12Z",
-    "updated_at": "2016-02-05T21:40:50Z"
+    "updated_at": "2016-02-05T21:42:28Z"
   }
 }
