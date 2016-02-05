@@ -323,7 +323,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "INSPECT(REPEATABLEVALUES($gauging_form,'total_depth').slice(-1)[0])",
+            "expression": "REPEATABLEVALUES($gauging_form,'total_depth').slice(-1)[0]",
             "display": {
               "style": "text",
               "currency": null
@@ -804,6 +804,6 @@
       }
     ],
     "created_at": "2016-02-05T21:04:12Z",
-    "updated_at": "2016-02-05T21:31:46Z"
+    "updated_at": "2016-02-05T21:37:06Z"
   }
 }
