@@ -1,8 +1,8 @@
 {
   "form": {
     "id": "d951065b-a30f-49d6-961d-e3d08ead4b4d",
-    "name": "Bryan Github test",
-    "description": null,
+    "name": "Bryan Github test 2",
+    "description": "Blah Blah",
     "bounding_box": null,
     "record_title_key": "82c2",
     "title_field_keys": [
@@ -52,31 +52,9 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
-      },
-      {
-        "type": "TextField",
-        "key": "bd1d",
-        "label": "Age",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "age",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": true,
-        "format": "decimal",
-        "min": null,
-        "max": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-09T16:18:54Z",
-    "updated_at": "2016-02-09T16:18:54Z"
+    "updated_at": "2016-02-09T16:19:34Z"
   }
 }
