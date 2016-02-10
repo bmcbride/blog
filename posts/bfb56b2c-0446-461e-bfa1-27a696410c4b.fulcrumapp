@@ -13,12 +13,23 @@
       "label": "Status",
       "key": "@status",
       "data_name": "status",
-      "default_value": "",
-      "enabled": false,
+      "default_value": "Enabled",
+      "enabled": true,
       "read_only": false,
-      "hidden": false,
+      "hidden": true,
       "description": "",
-      "choices": [],
+      "choices": [
+        {
+          "label": "Enabled",
+          "value": "Enabled",
+          "color": "#2D5D00"
+        },
+        {
+          "label": "Disabled",
+          "value": "Disabled",
+          "color": "#CB0D0C"
+        }
+      ],
       "required": false,
       "disabled": false,
       "default_previous_value": false
@@ -28,7 +39,7 @@
     "record_count": 0,
     "geometry_types": [],
     "geometry_required": false,
-    "script": null,
+    "script": "ON('change', 'functional', function(event) {\n  if ($functional == 'yes') {\n    SETSTATUS('Enabled')\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -50,9 +61,38 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "e1dd",
+        "label": "Functional",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "functional",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-09T22:46:59Z",
-    "updated_at": "2016-02-09T22:46:59Z"
+    "updated_at": "2016-02-10T14:50:42Z"
   }
 }
