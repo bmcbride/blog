@@ -36,10 +36,10 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [],
     "geometry_required": false,
-    "script": "ON('change', 'functional', function(event) {\n  if ($functional == 'yes') {\n    SETSTATUS('Enabled')\n  } else if ($functional == 'no') {\n    SETSTATUS('Disabled')\n  }\n});",
+    "script": "ON('change', 'functional', function(event) {\n  if ($functional == 'yes') {\n    SETSTATUS('Enabled')\n  } else if ($functional == 'no') {\n    SETSTATUS('Disabled')\n  }\n});\n\nON('load-record', function(event) {\n  if ($role == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if ($role == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -90,9 +90,98 @@
         },
         "neutral_enabled": false,
         "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "13a6",
+        "label": "Role",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "role",
+        "default_value": "Tech",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "Tech",
+            "value": "Tech"
+          },
+          {
+            "label": "Admin",
+            "value": "Admin"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "Section",
+        "key": "940b",
+        "label": "Admin Info",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "admin_info",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "812c",
+            "label": "Secret Text",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "secret_text",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "e5f0",
+            "label": "Secret Number",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "secret_number",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "integer",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
       }
     ],
     "created_at": "2016-02-09T22:46:59Z",
-    "updated_at": "2016-02-10T14:52:27Z"
+    "updated_at": "2016-02-10T15:27:49Z"
   }
 }
