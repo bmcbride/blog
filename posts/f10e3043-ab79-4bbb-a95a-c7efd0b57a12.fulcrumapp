@@ -37,12 +37,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": true,
-    "script": "ON('save-record', function(event) {\n  var questions = [\n    $11_are_the_driving_directions_adequate_to_find_the_facility,\n    $12_are_all_the_petroleum_bulk_storage_containers_labeled_do_the_tank_labels_correspond_with_the_tanks_that_are_shown_on_the_facility_drawing,\n    $13_are_the_tanks_accurately_depicted_on_the_facility_drawing_and_match_the_tank_summary_table_of_the_plan,\n    $14_is_the_secondary_containment_accurately_depicted_on_the_facility_drawing,\n    $15_is_the_direction_or_flow_off_site_accurately_depicted_on_the_facility_drawing,\n    $16_does_the_facility_drawing_have_the_direction_of_north_accurately_shown,\n    $17_does_the_plan_provide_an_accurate_description_and_location_of_the_nearest_water_feature\n  ];\n  SETSTATUS('Yes');\n  for (var i = 0; i < questions.length; i++) {\n    if (questions[i] == 'no') {\n      SETSTATUS('No');\n    }\n  }\n});",
+    "script": "ON('save-record', function(event) {\n  var questions = [\n    $11_are_the_driving_directions_adequate_to_find_the_facility,\n    $12_are_all_the_petroleum_bulk_storage_containers_labeled_do_the_tank_labels_correspond_with_the_tanks_that_are_shown_on_the_facility_drawing,\n    $13_are_the_tanks_accurately_depicted_on_the_facility_drawing_and_match_the_tank_summary_table_of_the_plan,\n    $14_is_the_secondary_containment_accurately_depicted_on_the_facility_drawing,\n    $15_is_the_direction_or_flow_off_site_accurately_depicted_on_the_facility_drawing,\n    $16_does_the_facility_drawing_have_the_direction_of_north_accurately_shown,\n    $17_does_the_plan_provide_an_accurate_description_and_location_of_the_nearest_water_feature,\n    $21_tanks_surface_do_not_show_any_indication_or_signs_of_leakage,\n    $22_tanks_are_free_of_damage_deterioration_or_corrosion,\n    $23_bolts_gaskets_or_seams_are_in_place_showing_no_signs_of_damage,\n    $24_aboveground_tank_supports_elevated_tanks_on_cradles_are_in_good_condition_not_deteriorated_or_buckled,\n    $25_aboveground_tank_foundations_have_no_signs_of_erosion_or_settling,\n    $26_floor_inside_containment_is_free_of_standing_produced_fluids_or_ground_saturation_areas_if_applicable,\n    $27_level_gauges_or_alarms_are_operative_visually_observed_to_be_free_of_damage_missing_parts_or_leaks,\n    $28_top_of_tank_over_flow_line_valves_are_kept_closed,\n    $29_tank_area_free_of_excessive_trash_or_vegetation,\n    $210_equipment_protectors_are_properly_placed_and_all_labelssigns_are_visible_and_legible,\n    $31_tank_berm_height_meets_requirement,\n    $32_tank_berm_is_not_breached_damaged_eroded_or_does_not_have_excessive_vegetation,\n    $33_secondary_containment_berm_drainage_valves_are_closed_showing_no_signs_of_damage_drainage_pipes_are_not_clogged_with_accumulated_debris,\n    $34_all_ancillary_containers_are_sitting_on_properly_sized_secondary_containment_is_compatible_with_the_tank_contents,\n    $41_loadingunloading_lines_are_free_from_damage_or_deterioration_all_gaskets_camlocks_connecting_collars_are_in_place_and_properly_working,\n    $42_all_connections_are_capped_or_blank_flanked_when_not_in_use,\n    $43_catch_pans_and_load_line_covers_are_properly_maintained_and_routinely_emptiedfree_of_debris_lead_out_valve_is_centered_in_catch_pan_pumpkin,\n    $44_soil_around_load_lines_is_free_of_standing_liquids_or_ground_saturationstains,\n    $51_valve_seals_or_gaskets_are_intact_and_not_leaking,\n    $52_equipment_piping_or_supports_are_free_from_damage_or_deterioration,\n    $53_buried_equipment_pipelines_are_not_exposed,\n    $54_buried_equipment_pipelines_show_no_evidence_of_leakage_at_surface,\n    $61_road_ditch_or_area_surrounding_tank_battery_batteries_or_wellhead_is_free_from_any_signs_of_an_oil_or_saltwater_release\n  ];\n  SETSTATUS('Yes');\n  for (var i = 0; i < questions.length; i++) {\n    if (questions[i] == 'no') {\n      SETSTATUS('No');\n    }\n  }\n});",
     "elements": [
       {
         "type": "AddressField",
@@ -1468,6 +1468,6 @@
       }
     ],
     "created_at": "2016-02-11T18:27:00Z",
-    "updated_at": "2016-02-11T18:58:17Z"
+    "updated_at": "2016-02-11T19:05:46Z"
   }
 }
