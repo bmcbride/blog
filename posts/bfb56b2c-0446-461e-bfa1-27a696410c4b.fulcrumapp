@@ -37,7 +37,9 @@
     "auto_assign": false,
     "hidden_on_dashboard": false,
     "record_count": 1,
-    "geometry_types": [],
+    "geometry_types": [
+      "Point"
+    ],
     "geometry_required": false,
     "script": "ON('change', 'functional', function(event) {\n  if ($functional == 'yes') {\n    SETSTATUS('Enabled')\n  } else if ($functional == 'no') {\n    SETSTATUS('Disabled')\n  }\n});\n\nON('change', 'role', function(event) {\n  if (CHOICEVALUE($role) == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if (CHOICEVALUE($role) == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});\n\nON('load-record', function(event) {\n  if (CHOICEVALUE($role) == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if (CHOICEVALUE($role) == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});",
     "elements": [
@@ -225,6 +227,6 @@
       }
     ],
     "created_at": "2016-02-09T22:46:59Z",
-    "updated_at": "2016-02-11T16:45:01Z"
+    "updated_at": "2016-02-11T16:48:17Z"
   }
 }
