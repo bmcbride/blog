@@ -66,7 +66,7 @@
         "key": "13ee",
         "label": "Name of Facility",
         "description": null,
-        "required": true,
+        "required": false,
         "disabled": false,
         "hidden": false,
         "data_name": "name_of_facility",
@@ -87,7 +87,7 @@
         "key": "1997",
         "label": "Property Number",
         "description": null,
-        "required": true,
+        "required": false,
         "disabled": false,
         "hidden": false,
         "data_name": "property_number",
@@ -109,7 +109,7 @@
         "key": "282a",
         "label": "High level view of the site - Take a picture from every corner of the site",
         "description": "Start from the gate and move to the corner placed on your right",
-        "required": true,
+        "required": false,
         "disabled": false,
         "hidden": false,
         "data_name": "high_level_view_of_the_site_take_a_picture_from_every_corner_of_the_site",
@@ -1410,7 +1410,7 @@
             "key": "dc93",
             "label": "Signature",
             "description": null,
-            "required": true,
+            "required": false,
             "disabled": false,
             "hidden": false,
             "data_name": "signature",
@@ -1425,6 +1425,6 @@
       }
     ],
     "created_at": "2016-02-11T18:27:00Z",
-    "updated_at": "2016-02-11T18:28:21Z"
+    "updated_at": "2016-02-11T18:30:37Z"
   }
 }
