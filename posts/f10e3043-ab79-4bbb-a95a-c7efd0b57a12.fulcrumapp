@@ -42,7 +42,7 @@
       "Point"
     ],
     "geometry_required": true,
-    "script": "var questions = [\n  $11_are_the_driving_directions_adequate_to_find_the_facility,\n  $12_are_all_the_petroleum_bulk_storage_containers_labeled_do_the_tank_labels_correspond_with_the_tanks_that_are_shown_on_the_facility_drawing,\n  $13_are_the_tanks_accurately_depicted_on_the_facility_drawing_and_match_the_tank_summary_table_of_the_plan,\n  $14_is_the_secondary_containment_accurately_depicted_on_the_facility_drawing,\n  $15_is_the_direction_or_flow_off_site_accurately_depicted_on_the_facility_drawing,\n  $16_does_the_facility_drawing_have_the_direction_of_north_accurately_shown,\n  $17_does_the_plan_provide_an_accurate_description_and_location_of_the_nearest_water_feature\n];\n\nON('validate-record', function(event) {\n  for (var i = 0; i < questions.length; i++) {\n    if (questions[i] == 'no') {\n      SETSTATUS('No');\n    }\n  }\n});",
+    "script": "ON('save-record', function(event) {\n  var questions = [\n    $11_are_the_driving_directions_adequate_to_find_the_facility,\n    $12_are_all_the_petroleum_bulk_storage_containers_labeled_do_the_tank_labels_correspond_with_the_tanks_that_are_shown_on_the_facility_drawing,\n    $13_are_the_tanks_accurately_depicted_on_the_facility_drawing_and_match_the_tank_summary_table_of_the_plan,\n    $14_is_the_secondary_containment_accurately_depicted_on_the_facility_drawing,\n    $15_is_the_direction_or_flow_off_site_accurately_depicted_on_the_facility_drawing,\n    $16_does_the_facility_drawing_have_the_direction_of_north_accurately_shown,\n    $17_does_the_plan_provide_an_accurate_description_and_location_of_the_nearest_water_feature\n  ];\n  SETSTATUS('Yes');\n  for (var i = 0; i < questions.length; i++) {\n    if (questions[i] == 'no') {\n      SETSTATUS('No');\n    }\n  }\n});",
     "elements": [
       {
         "type": "AddressField",
@@ -1468,6 +1468,6 @@
       }
     ],
     "created_at": "2016-02-11T18:27:00Z",
-    "updated_at": "2016-02-11T18:45:34Z"
+    "updated_at": "2016-02-11T18:58:17Z"
   }
 }
