@@ -1,0 +1,1942 @@
+{
+  "form": {
+    "id": "337b875f-290d-4dbc-be72-7db8930642fd",
+    "name": "SPCC",
+    "description": "",
+    "bounding_box": null,
+    "record_title_key": "13ee",
+    "title_field_keys": [
+      "13ee",
+      "e72d"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Yes",
+      "enabled": true,
+      "read_only": true,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "No",
+          "value": "No",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Yes",
+          "value": "Yes",
+          "color": "#87D30F"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": true,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": true,
+    "script": "ON('load-record', function(event) {\n  if (USERFULLNAME() == 'Joe Fulco') {\n    SETHIDDEN('site_visit_checklist', true)\n  } else if (USERFULLNAME() == 'Kevin Mayer') {\n    SETHIDDEN('administrative_checklist', true)\n  }\n});\n\nON('save-record', function(event) {\n  var questions = [\n    $11_adequate_driving_directions,\n    $12_containers_labeled_labels_correspond_with_tanks_on_drawing,\n    $13_tanks_accurately_depicted_on_drawing_and_match_plan_table,\n    $14_secondary_containment_accurately_depicted_on_drawing,\n    $15_direction_off_site_accurate_on_drawing,\n    $16_north_direction_accurate_on_drawing,\n    $17_accurate_description_and_location_of_nearest_water_feature,\n    $21_tanks_do_not_show_leakage,\n    $22_tanks_free_of_damage_deterioration_or_corrosion,\n    $23_bolts_gaskets_or_seams_in_place_and_no_damage_signs,\n    $24_aboveground_tank_supports_in_good_condition,\n    $25_aboveground_tank_foundations_no_signs_of_erosion_or_settling,\n    $26_floor_inside_containment_free_of_standing_produced_fluids_or_ground_saturation_areas,\n    $27_level_gauges_or_alarms_operative,\n    $28_top_of_tank_over_flow_line_valves_kept_closed,\n    $29_tank_area_free_of_trash_or_vegetation,\n    $210_equipment_protectors_and_labelsigns_properly_placed,\n    $31_tank_berm_height_meets_requirement,\n    $32_tank_berm_not_damaged,\n    $33_secondary_containment_berm_drainage_valves_closed_no_signs_of_damage_and_drainage_pipes_not_clogged,\n    $34_all_ancillary_containers_are_sitting_on_properly_sized_secondary_containment,\n    $41_loading_unloading_lines_free_from_damage,\n    $42_all_connections_capped_or_blank_flanked_when_not_in_use,\n    $43_catch_pans_and_load_line_covers_properly_maintained,\n    $44_soil_around_load_lines_is_free_of_standing_liquids_or_ground_saturationstains,\n    $51_valve_seals_or_gaskets_intact_and_not_leaking,\n    $52_equipment_piping_or_supports_free_from_damage_or_deterioration,\n    $53_buried_equipment_pipelines_not_exposed,\n    $54_buried_equipment_pipelines_show_no_evidence_of_leakage,\n    $61_road_ditch_or_area_surrounding_tank_battery_free_from_oil_or_saltwater_release\n  ];\n  SETSTATUS('Yes');\n  for (var i = 0; i < questions.length; i++) {\n    if (questions[i] == 'no') {\n      SETSTATUS('No');\n    }\n  }\n});",
+    "elements": [
+      {
+        "type": "Section",
+        "key": "a817",
+        "label": "Site Visit Checklist",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "site_visit_checklist",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "AddressField",
+            "key": "e72d",
+            "label": "Location",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "location",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "auto_populate": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "13ee",
+            "label": "Name of Facility",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "name_of_facility",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "1997",
+            "label": "Property Number",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "property_number",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "integer",
+            "min": 6,
+            "max": 6,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "282a",
+            "label": "High level view of the site - Take a picture from every corner of the site",
+            "description": "Start from the gate and move to the corner placed on your right",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "high_level_view_of_the_site_take_a_picture_from_every_corner_of_the_site",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": 4,
+            "max_length": null
+          },
+          {
+            "type": "Section",
+            "key": "99c4",
+            "label": "1.0 On-Site Screening",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "10_on_site_screening",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "d5ea",
+                "label": "1.1 Are the driving directions adequate to find the facility?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "11_adequate_driving_directions",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "513a",
+                "label": "1.2 Are all the petroleum bulk storage containers labeled? Do the tank labels correspond with the tanks that are shown on the facility drawing?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "12_containers_labeled_labels_correspond_with_tanks_on_drawing",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "35aa",
+                "label": "1.3 Are the tanks accurately depicted on the facility drawing and match the Tank Summary table of the plan?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "13_tanks_accurately_depicted_on_drawing_and_match_plan_table",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "4ac7",
+                "label": "1.4 Is the secondary containment accurately depicted on the facility drawing?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "14_secondary_containment_accurately_depicted_on_drawing",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "edbd",
+                "label": "1.5 Is the direction or flow off site accurately depicted on the facility drawing?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "15_direction_off_site_accurate_on_drawing",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "8bc1",
+                "label": "1.6 Does the facility drawing have the direction of North accurately shown?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "16_north_direction_accurate_on_drawing",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "a8c9",
+                "label": "1.7 Does the plan provide an accurate description and location of the nearest water feature?",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "17_accurate_description_and_location_of_nearest_water_feature",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "0241",
+            "label": "2.0 Storage tanks/containers and separation equipment",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "20_storage_tankscontainers_and_separation_equipment",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "8570",
+                "label": "2.1 Tanks surface do not show any indication or signs of leakage",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "21_tanks_do_not_show_leakage",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "75d5",
+                "label": "Picture of leakage",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "picture_of_leakage",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "8570",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "8570",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "YesNoField",
+                "key": "de86",
+                "label": "2.2 Tanks are free of damage, deterioration, or corrosion",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "22_tanks_free_of_damage_deterioration_or_corrosion",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "6a58",
+                "label": "Picture of damage/deterioration/corrosion",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "picture_of_damagedeteriorationcorrosion",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "de86",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "de86",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "YesNoField",
+                "key": "6c18",
+                "label": "2.3 Bolts, gaskets, or seams are in place showing no signs of damage",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "23_bolts_gaskets_or_seams_in_place_and_no_damage_signs",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "c5be",
+                "label": "Picture of damaged bolt/gasket/seam",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "picture_of_damaged_boltgasketseam",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "6c18",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "642b",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "YesNoField",
+                "key": "642b",
+                "label": "2.4 Aboveground tank supports (elevated tanks on cradles) are in good condition, not deteriorated or buckled",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "24_aboveground_tank_supports_in_good_condition",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "a154",
+                "label": "Picture of deteriorated/buckled tank support",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "picture_of_deterioratedbuckled_tank_support",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "642b",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "642b",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null
+              },
+              {
+                "type": "YesNoField",
+                "key": "1dc0",
+                "label": "2.5 Aboveground tank foundations have no signs of erosion or settling",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "25_aboveground_tank_foundations_no_signs_of_erosion_or_settling",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "c616",
+                "label": "2.6 Floor inside containment is free of standing produced fluids or ground saturation areas if applicable",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "26_floor_inside_containment_free_of_standing_produced_fluids_or_ground_saturation_areas",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "0b93",
+                "label": "Contamination depth",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "contamination_depth",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "c616",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "c616",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "numeric": true,
+                "format": "decimal",
+                "min": 0,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "3d67",
+                "label": "Contamination location",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "contamination_location",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "c616",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "c616",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "e2a3",
+                "label": "2.7 Level gauges or alarms are operative, visually observed to be free of damage, missing parts, or leaks",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "27_level_gauges_or_alarms_operative",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "1158",
+                "label": "2.8 Top of tank over flow line valves are kept closed",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "28_top_of_tank_over_flow_line_valves_kept_closed",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "5f4f",
+                "label": "2.9 Tank area free of excessive trash or vegetation",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "29_tank_area_free_of_trash_or_vegetation",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "912d",
+                "label": "2.10 Equipment protectors are properly placed, and all labels/signs are visible and legible",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "210_equipment_protectors_and_labelsigns_properly_placed",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "fe5f",
+            "label": "3.0 Secondary containment",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "30_secondary_containment",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "c262",
+                "label": "3.1 Tank berm height meets requirement",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "31_tank_berm_height_meets_requirement",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "108d",
+                "label": "Current height",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "current_height",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "c262",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "c262",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "numeric": true,
+                "format": "decimal",
+                "min": 0,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "3f8a",
+                "label": "Required height",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "required_height",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "c262",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "required_conditions_type": "all",
+                "required_conditions": [
+                  {
+                    "field_key": "c262",
+                    "operator": "equal_to",
+                    "value": "no"
+                  }
+                ],
+                "numeric": true,
+                "format": "decimal",
+                "min": 0,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "6ae6",
+                "label": "3.2 Tank berm is not breached, damaged, eroded, or does not have excessive vegetation",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "32_tank_berm_not_damaged",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "761a",
+                "label": "3.3 Secondary containment berm drainage valves are closed, showing no signs of damage; drainage pipe(s) are not clogged with accumulated debris",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "33_secondary_containment_berm_drainage_valves_closed_no_signs_of_damage_and_drainage_pipes_not_clogged",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "43ca",
+                "label": "3.4 All ancillary containers are sitting on properly sized secondary containment which is compatible with the tank contents",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "34_all_ancillary_containers_are_sitting_on_properly_sized_secondary_containment",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "f615",
+            "label": "4.0 Transfer Equipment",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "40_transfer_equipment",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "63da",
+                "label": "4.1 Loading/unloading lines are free from damage or deterioration; all gaskets, camlocks, connecting collars are in place and properly working",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "41_loading_unloading_lines_free_from_damage",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "b36b",
+                "label": "4.2 All connections are capped or blank-flanked when not in use",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "42_all_connections_capped_or_blank_flanked_when_not_in_use",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "6ac6",
+                "label": "4.3 Catch pans and load line covers are properly maintained and routinely emptied/free of debris; lead out valve is centered in catch pan (pumpkin)",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "43_catch_pans_and_load_line_covers_properly_maintained",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "7d78",
+                "label": "4.4 Soil around load lines is free of standing liquids or ground saturation/stains",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "44_soil_around_load_lines_is_free_of_standing_liquids_or_ground_saturationstains",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "ae5e",
+            "label": "5.0 Equipment Piping/Flow lines and Related Equipment",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "50_equipment_pipingflow_lines_and_related_equipment",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "e664",
+                "label": "5.1 Valve seals or gaskets are intact and not leaking",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "51_valve_seals_or_gaskets_intact_and_not_leaking",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "f7d2",
+                "label": "5.2 Equipment piping or supports are free from damage or deterioration",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "52_equipment_piping_or_supports_free_from_damage_or_deterioration",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "de1c",
+                "label": "5.3 Buried equipment pipelines are not exposed",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "53_buried_equipment_pipelines_not_exposed",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "054e",
+                "label": "5.4 Buried equipment pipelines show no evidence of leakage at surface",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "54_buried_equipment_pipelines_show_no_evidence_of_leakage",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "042f",
+            "label": "6.0 General",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "60_general",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "5e23",
+                "label": "6.1 Road, ditch, or area surrounding tank battery/ batteries or wellhead is free from any signs of an oil or saltwater release",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "61_road_ditch_or_area_surrounding_tank_battery_free_from_oil_or_saltwater_release",
+                "default_value": "yes",
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "fb0d",
+            "label": "7.0 Additional Comments/Notes",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "70_additional_commentsnotes",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "4659",
+                "label": "Site Visit Checklist Comments/Notes",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "site_visit_checklist_commentsnotes",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "ab0a",
+            "label": "8.0 Reviewer Acknowledgement",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "80_reviewer_acknowledgement",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "SignatureField",
+                "key": "dc93",
+                "label": "Site Visit Checklist Signature",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "site_visit_checklist_signature",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "agreement_text": "I performed an annual SPCC review of the facility specified above and verify tat the information given is correct to the best of my knowledge and ability."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "a313",
+        "label": "Administrative Checklist",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "administrative_checklist",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "Section",
+            "key": "9795",
+            "label": "1.0 SPCC Plan Review: Administrative Review",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "10_spcc_plan_review_administrative_review",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "f779",
+                "label": "2.1 Has the PE signed/sealed the SPCC Plan with the appropriate state?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "21_has_the_pe_signedsealed_the_spcc_plan_with_the_appropriate_state",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "f190",
+                "label": "2.2 Does the SPCC Plan have the appropriate Management Approval signature?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "22_does_the_spcc_plan_have_the_appropriate_management_approval_signature",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "23ce",
+                "label": "2.3 Does the Certification of Substantial Harm Criteria Checklist have the appropriate signature?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "23_does_the_certification_of_substantial_harm_criteria_checklist_have_the_appropriate_signature",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "0bad",
+                "label": "2.4 Are the emergency contact numbers current and correct?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "24_are_the_emergency_contact_numbers_current_and_correct",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "6166",
+                "label": "2.5 Does the written Commitment of Manpower, Equipment, and Materials have the appropriate signature?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "25_does_the_written_commitment_of_manpower_equipment_and_materials_have_the_appropriate_signature",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "6f3d",
+                "label": "2.6 Are our agreements with emergency response contractors current and do they have adaquate emergency equipment available?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "26_are_our_agreements_with_emergency_response_contractors_current_and_do_they_have_adaquate_emergency_equipment_available",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "eeb8",
+                "label": "2.7 Does the facility drawing include specific dimensions for secondary containment equipment, tank sizes, or drawing scale shown on the drawing?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "27_does_the_facility_drawing_include_specific_dimensions_for_secondary_containment_equipment_tank_sizes_or_drawing_scale_shown_on_the_drawing",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "90fd",
+                "label": "2.8 Does the facility follow Chesapeake's Storm Water Direct Discharge Procedure for Oil and Gas Exploration and Production Sites, and is documentation of this compliance available upon request?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "28_does_the_facility_follow_chesapeakes_storm_water_direct_discharge_procedure_for_oil_and_gas_exploration_and_production_sites_and_is_documentation_of_this_compliance_available_upon_request",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "3383",
+                "label": "2.9 If corrections were made to the facility drawingas a result of the site visit, do the corrections match the data in the other appropriate areas?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "29_if_corrections_were_made_to_the_facility_drawingas_a_result_of_the_site_visit_do_the_corrections_match_the_data_in_the_other_appropriate_areas",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": false,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "6a7c",
+            "label": "2.0 Spill History (Provide the following information for all spills (greater than 42 gallons) that occurred during the last 12 months)",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "20_spill_history_provide_the_following_information_for_all_spills_greater_than_42_gallons_that_occurred_during_the_last_12_months",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "DateTimeField",
+                "key": "be0d",
+                "label": "Date of Spill",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "date_of_spill",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "b444",
+                "label": "1.0 Site 12 Month History",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "10_site_12_month_history",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "YesNoField",
+                    "key": "dc29",
+                    "label": "During the past twelve (12) months, has the facility conducted site briefings which included a discussion describing known discharges, equipment failures, malfunctioning components or near misses, and recently developed precautionary measures?",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "during_the_past_twelve_12_months_has_the_facility_conducted_site_briefings_which_included_a_discussion_describing_known_discharges_equipment_failures_malfunctioning_components_or_near_misses_and_recently_developed_precautionary_measures",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  }
+                ]
+              },
+              {
+                "type": "TextField",
+                "key": "4071",
+                "label": "Material Spilled",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "material_spilled",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "6579",
+                "label": "Volume (gal.)",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "volume_gal",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "decimal",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "c3c6",
+            "label": "3.0 Additional Comments/Notes",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "30_additional_commentsnotes",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "30f4",
+                "label": "Admin Checklist Comments/Notes",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "admin_checklist_commentsnotes",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "bf60",
+                "label": "5.0 Reviewer Acknowledgement",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "50_reviewer_acknowledgement",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "SignatureField",
+                    "key": "8b5e",
+                    "label": "Admin Checklist Signature",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "admin_checklist_signature",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "agreement_text": "I performed an annual SPCC review of the facility specified above and verify tat the information given is correct to the best of my knowledge and ability."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "created_at": "2016-02-12T21:51:19Z",
+    "updated_at": "2016-02-12T21:51:19Z"
+  }
+}
