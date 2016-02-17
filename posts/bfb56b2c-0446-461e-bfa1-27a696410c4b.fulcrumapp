@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('change', 'functional', function(event) {\n  if ($functional == 'yes') {\n    SETSTATUS('Enabled')\n  } else if ($functional == 'no') {\n    SETSTATUS('Disabled')\n  }\n});\n\nON('change', 'role', function(event) {\n  if (CHOICEVALUE($role) == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if (CHOICEVALUE($role) == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});\n\nON('load-record', function(event) {\n  if (CHOICEVALUE($role) == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if (CHOICEVALUE($role) == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});\n\nON('click', 'tweet', function(event) {\n  OPENURL('https://twitter.com/intent/tweet?text=Hello World!&via=fulcrumapp')\n});\n\nON('save-record', function(event) {\n  OPENURL('https://twitter.com/intent/tweet?text=Hello World!&via=fulcrumapp')\n});",
+    "script": "ON('change', 'functional', function(event) {\n  if ($functional == 'yes') {\n    SETSTATUS('Enabled')\n  } else if ($functional == 'no') {\n    SETSTATUS('Disabled')\n  }\n});\n\nON('change', 'role', function(event) {\n  if (CHOICEVALUE($role) == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if (CHOICEVALUE($role) == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});\n\nON('load-record', function(event) {\n  if (CHOICEVALUE($role) == 'Tech') {\n    SETHIDDEN('admin_info', true)\n  } else if (CHOICEVALUE($role) == 'Admin') {\n    SETHIDDEN('admin_info', false)\n  }\n});\n\nON('click', 'tweet', function(event) {\n  OPENURL('https://twitter.com/intent/tweet?text=Hello World!&via=fulcrumapp')\n});\n\nON('save-record', function(event) {\n  if($send_tweet == 'yes') {\n    OPENURL('https://twitter.com/intent/tweet?text=Hello World!&via=fulcrumapp')\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -226,6 +226,35 @@
         "default_previous_value": false
       },
       {
+        "type": "YesNoField",
+        "key": "76a8",
+        "label": "Send Tweet?",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "send_tweet",
+        "default_value": "yes",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
         "type": "HyperlinkField",
         "key": "1d7a",
         "label": "Tweet",
@@ -243,6 +272,6 @@
       }
     ],
     "created_at": "2016-02-09T22:46:59Z",
-    "updated_at": "2016-02-17T15:23:09Z"
+    "updated_at": "2016-02-17T15:26:16Z"
   }
 }
