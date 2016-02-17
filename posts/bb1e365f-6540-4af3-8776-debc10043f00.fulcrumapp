@@ -26,7 +26,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var apiKey = 'MEDEEK12721119';\n\nfunction fetchWindSpeed() {\n  var url = 'http://design.medeek.com/resources/medeekapi.pl?action=asce705wind&key=' + apiKey + '&lat=' + LATITUDE() + '&lng=' + LONGITUDE() + '&output=json';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    var result = JSON.parse(body).results[0].wind05;\n    SETVALUE('wind_zone_asce_7_05_windspeed', result);\n  });\n}\n\nfunction fetchSnowLoad() {\n  var url = 'http://design.medeek.com/resources/medeekapi.pl?action=ascesnow&key=' + apiKey + '&lat=' + LATITUDE() + '&lng=' + LONGITUDE() + '&output=json';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    var result = JSON.parse(body).results[0].pg;\n    SETVALUE('snow_loadingasce_ground_snow_load', result);\n  });\n}\n\nfunction fetchSeismicData() {\n  var url = 'http://design.medeek.com/resources/medeekapi.pl?action=irc2012seismic&key=' + apiKey + '&lat=' + LATITUDE() + '&lng=' + LONGITUDE() + '&output=json';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    var sdc = JSON.parse(body).results[0].sdc;\n    //SETVALUE('seismic_sdc', sdc);\n    var sds = JSON.parse(body).results[0].sds;\n    //SETVALUE('seismic_sds', sds);\n    SETVALUE('irc_2012_seismic_data', sds);\n  });\n}\n\nON('change-geometry', function () {\n  fetchWindSpeed();\n  fetchSnowLoad();\n  fetchSeismicData();\n});",
+    "script": "var apiKey = 'MEDEEK12721119';\n\nfunction fetchWindSpeed() {\n  var url = 'http://design.medeek.com/resources/medeekapi.pl?action=asce705wind&key=' + apiKey + '&lat=' + LATITUDE() + '&lng=' + LONGITUDE() + '&output=json';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    var result = JSON.parse(body).results[0].wind05;\n    SETVALUE('wind_zone_asce_7_05_windspeed', result);\n  });\n}\n\nfunction fetchSnowLoad() {\n  var url = 'http://design.medeek.com/resources/medeekapi.pl?action=ascesnow&key=' + apiKey + '&lat=' + LATITUDE() + '&lng=' + LONGITUDE() + '&output=json';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    var result = JSON.parse(body).results[0].pg;\n    SETVALUE('snow_loadingasce_ground_snow_load', result);\n  });\n}\n\nfunction fetchSeismicData() {\n  var url = 'http://design.medeek.com/resources/medeekapi.pl?action=irc2012seismic&key=' + apiKey + '&lat=' + LATITUDE() + '&lng=' + LONGITUDE() + '&output=json';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    var sdc = JSON.parse(body).results[0].sdc;\n    SETVALUE('irc_2012_seismic_design_category', sdc);\n    var sds = JSON.parse(body).results[0].sds;\n    SETVALUE('irc_2012_seismic_sds', sds);\n  });\n}\n\nON('change-geometry', function () {\n  fetchWindSpeed();\n  fetchSnowLoad();\n  fetchSeismicData();\n});",
     "elements": [
       {
         "type": "Section",
@@ -2953,12 +2953,33 @@
           {
             "type": "TextField",
             "key": "9f07",
-            "label": "IRC 2012 Seismic Data",
+            "label": "IRC 2012 Seismic Design Category",
             "description": "Initially retreived from the USGS Seismic Design API and used to compute the appropriate Seismic Design Category.",
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "irc_2012_seismic_data",
+            "data_name": "irc_2012_seismic_design_category",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "a49b",
+            "label": "IRC 2012 Seismic SDS",
+            "description": "Initially retreived from the USGS Seismic Design API and used to compute the appropriate Seismic Design Category.",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "irc_2012_seismic_sds",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -7508,6 +7529,6 @@
       }
     ],
     "created_at": "2016-02-17T15:53:28Z",
-    "updated_at": "2016-02-17T16:11:47Z"
+    "updated_at": "2016-02-17T16:18:53Z"
   }
 }
