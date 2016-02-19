@@ -1,12 +1,12 @@
 {
   "form": {
     "id": "3ab4a7fe-6b0f-4d0a-ba0f-0fd8eb3c966a",
-    "name": "UTM Calc Test",
+    "name": "UTM/USNG/MGRS Coordinates",
     "description": null,
     "bounding_box": null,
-    "record_title_key": "8c27",
+    "record_title_key": "6a47",
     "title_field_keys": [
-      "8c27"
+      "6a47"
     ],
     "status_field": {
       "type": "StatusField",
@@ -52,7 +52,7 @@
             "type": "CalculatedField",
             "key": "8c27",
             "label": "utmconv.js",
-            "description": null,
+            "description": "https://github.com/mortonfox/YouTim/",
             "required": false,
             "disabled": false,
             "hidden": false,
@@ -69,12 +69,34 @@
             },
             "default_values": null,
             "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "1c15",
+            "label": "usng2.js",
+            "description": "https://github.com/klassenjs/usng_tools",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "usng2js",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "/*\n * Library to convert between NAD83 Lat/Lon and US National Grid\n * Maintained at https://github.com/klassenjs/usng_tools\n *\n * License:\n * \n * Copyright (c) 2008-2013 James Klassen\n * \n * Permission is hereby granted, free of charge, to any person obtaining a copy\n * of this software and associated documentation files (the 'Software'), to\n * deal in the Software without restriction, including without limitation the\n * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or\n * sell copies of the Software, and to permit persons to whom the Software is\n * furnished to do so, subject to the following conditions:\n * \n * The above copyright notice and this permission notice shall be included in\n * all copies of this Software or works derived from this Software.\n * \n * THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n * IN THE SOFTWARE.\n */\n\n/* TODO: Norway and others odd grid\n *       UTM as hash instead of function?\n *       More tolerant of extended zones in UPS zones?\n *       Return box instead of point?\n *       Return list of coordinates w/distances for truncated search as well as best.\n *       Internalize UPS projection (remove proj4js dependency).\n *       \n */\n\nthis.USNG2=function(){for(var t=[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"J\",\"K\",\"L\",\"M\",\"N\",\"P\",\"Q\",\"R\",\"S\",\"T\",\"U\",\"V\"],r=[\"F\",\"G\",\"H\",\"J\",\"K\",\"L\",\"M\",\"N\",\"P\",\"Q\",\"R\",\"S\",\"T\",\"U\",\"V\",\"A\",\"B\",\"C\",\"D\",\"E\"],a=[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\"],e=[\"J\",\"K\",\"L\",\"M\",\"N\",\"P\",\"Q\",\"R\"],o=[\"S\",\"T\",\"U\",\"V\",\"W\",\"X\",\"Y\",\"Z\"],n=[\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"J\",\"K\",\"L\",\"M\",\"N\",\"P\",\"Q\",\"R\",\"S\",\"T\",\"U\",\"V\",\"W\",\"X\",\"X\"],i=[-80,-72,-64,-56,-48,-40,-32,-24,-16,-8,0,8,16,24,32,40,48,58,64,72,80],s=new Array(20),l=0;20>l;l++)s[l]=110946.259*i[l];var h=[\"A\",\"B\",\"C\",\"F\",\"G\",\"H\",\"J\",\"K\",\"L\",\"P\",\"Q\",\"R\",\"S\",\"T\",\"U\",\"X\",\"Y\",\"Z\"],f=[\"H\",\"J\",\"K\",\"L\",\"M\",\"N\",\"P\",\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\"],u=[\"N\",\"P\",\"Q\",\"R\",\"S\",\"T\",\"U\",\"V\",\"W\",\"X\",\"Y\",\"Z\",\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"J\",\"K\",\"L\",\"M\"];this.llDistance=function(t,r){var a=t.lat*Math.PI/180,e=r.lat*Math.PI/180,o=(r.lon-t.lon)*Math.PI/180;return Math.atan2(Math.sqrt(Math.pow(Math.cos(e)*Math.sin(o),2)+Math.pow(Math.cos(a)*Math.sin(e)-Math.sin(a)*Math.cos(e)*Math.cos(o),2)),Math.sin(a)*Math.sin(e)+Math.cos(a)*Math.cos(e)*Math.cos(o))},this.fromUTM=function(n,i,s,l,h){var n,i,f,u,c,h,d=n%6,M=Math.floor(s/1e5)-1,v=Math.floor(l%2e6/1e5);switch(0>v&&(v+=20),d){case 1:f=a[M]+t[v];break;case 2:f=e[M]+r[v];break;case 3:f=o[M]+t[v];break;case 4:f=a[M]+r[v];break;case 5:f=e[M]+t[v];break;case 0:f=o[M]+r[v];break;default:throw\"USNG: can't get here\"}var S=Math.floor(s%1e5).toString(),g=Math.floor(l%1e5);for(0>g&&(g+=1e5),g=g.toString();S.length<5;)S=\"0\"+S;for(;g.length<5;)g=\"0\"+g;if(h>5){var P=h-5;u=S+(s%1).toFixed(P).substr(2,P),c=g+(l%1).toFixed(P).substr(2,P)}else u=S.substr(0,h),c=g.substr(0,h);var U=String(n)+i+\" \"+f+\" \"+u+\" \"+c;return U},this.toUTMFromFullParsedUSNG=function(i,l,h,f,u,c,d){var M,S,g=0,P=0,U=i%6;switch(U){case 1:M=t,S=a;break;case 2:M=r,S=e;break;case 3:M=t,S=o;break;case 4:M=r,S=a;break;case 5:M=t,S=e;break;case 0:M=r,S=o;break;default:throw\"Can't get here\"}var j=S.indexOf(h[0]),G=M.indexOf(h[1]);if(-1==j||-1==G)throw\"USNG: Invalid USNG 100km grid designator for UTM zone \"+i+\".\";g=1e5*(j+1)+f,P=1e5*(G+0)+u;var w=s[n.indexOf(l)];P+=2e6*Math.ceil((w-P)/2e6);var b=v.invProj(i,g,P),p=Math.floor((b.lon- -180)/6)+1,x=n[Math.floor((b.lat- -80)/8)];if(x!=l&&(P-=2e6,b=v.invProj(i,g,P),p=Math.floor((b.lon- -180)/6)+1,x=n[Math.floor((b.lat- -80)/8)]),d){if(b.lat>84||b.lat<-80)throw\"USNG: Latitude \"+b.lat+\" outside valid UTM range.\";if(p!=i)throw\"USNG: calculated coordinate not in correct UTM zone! Supplied: \"+i+l+\" Calculated: \"+p+x;if(x!=l)throw\"USNG: calculated coordinate not in correct grid zone! Supplied: \"+i+l+\" Calculated: \"+p+x}else{if(b.lat>84.5||b.lat<-79.5)throw\"USNG: Latitude \"+b.lat+\" outside valid UTM range.\";if(1e5>g||g>9e5)throw\"USNG: calculated coordinate not in correct UTM zone! Supplied: \"+i+l+\" Calculated: \"+p+x;var N=Math.abs(p-i);if(N>2&&58>N)throw\"USNG: calculated coordinate not in correct UTM zone! Supplied: \"+i+l+\" Calculated: \"+p+x;var m=t.indexOf(x),A=t.indexOf(l),_=Math.abs(m-A);if(_>1&&19>_)throw\"USNG: calculated coordinate not in correct grid zone! Supplied: \"+i+l+\" Calculated: \"+p+x}var y=String(i)+l+\" \"+h+\" \"+f+\" \"+u;return{zone:i,easting:g,northing:P,precision:c,usng:y}},this.toUTM=function(i,s,l){var c=0,d=0,M=0,v=\"\",S=null,g=null,P=null;if(i=i.replace(/ /g,\"\"),j=new RegExp(\"([0-9]+)$\"),G=j.exec(i)){v=G[0],M=v.length/2;var U=Math.pow(10,5-M);c=Number(v.substr(0,M))*U,d=Number(v.substr(M,M))*U}i=i.substr(0,i.length-2*M);var j=new RegExp(\"([A-Z][A-Z]$)\"),G=j.exec(i);if(G&&(S=G[0]),i=i.substr(0,i.length-2),j=new RegExp(\"([0-9]+)([A-Z])\"),G=j.exec(i),G&&(P=G[1],g=G[2]),P||(j=new RegExp(\"([A-Z])\"),G=j.exec(i),G&&(g=G[1])),P&&g&&S);else if(\"A\"!=g&&\"B\"!=g&&\"Y\"!=g&&\"Z\"!=g||!S)if(S&&s){var w=1e3,b=null,p=null,x=Math.floor((s.lon- -180)/6)+1,N=Math.floor((s.lat- -80)/8);for(P=x-1;x+1>=P;P++)for(var m=0;20>m;m++){g=n[m];try{var A=this.toLonLat(P%60+g+S+v,null,!0),_=this.llDistance(s,A);w>_&&(w=_,b=P%60,p=g)}catch(y){}}var L;L=s.lat>0?[\"Y\",\"Z\"]:[\"A\",\"B\"];for(var m in L){g=L[m];try{var A=this.toLonLat(g+S+v,null,!0),_=this.llDistance(s,A);w>_&&(w=_,b=null,p=g)}catch(y){}}if(!p)throw\"USNG: Couldn't find a match\";P=b,g=p}else{if(!s)throw\"USNG: Not enough information to locate point.\";var w=1e3,b=null,p=null,Z=null,x=Math.floor((s.lon- -180)/6)+1,N=Math.floor((s.lat- -80)/8);for(P=x-1;x+1>=P;P++)for(var m=N-1;N+1>=m;m++){g=n[m];var k,B,T=P%6;switch(T){case 1:k=t,B=a;break;case 2:k=r,B=e;break;case 3:k=t,B=o;break;case 4:k=r,B=a;break;case 5:k=t,B=e;break;case 0:k=r,B=o;break;default:throw\"Can't get here\"}for(var F=0;20>F;F++)for(var C=0;8>C;C++)try{S=B[C]+k[F];var A=this.toLonLat(P%60+g+S+v,null,!0),_=this.llDistance(s,A);w>_&&(w=_,b=P%60,p=g,Z=S)}catch(y){}}var L,E,Y;s.lat>0?(L=[\"Y\",\"Z\"],E=f,Y=14):(L=[\"A\",\"B\"],E=u,Y=24);for(var m in L){g=L[m];for(var z=0;Y>z;z++)for(var D=0;18>D;D++)try{S=h[D]+E[z];var A=this.toLonLat(g+S+v,null,!0),_=this.llDistance(s,A);w>_&&(w=_,b=null,p=g,Z=S)}catch(y){}}if(!p)throw\"USNG: Couldn't find a match\";P=b,g=p,S=Z}else;return\"A\"==g||\"B\"==g||\"Y\"==g||\"Z\"==g?this.toUPSFromFullParsedUSNG(g,S,c,d,M):this.toUTMFromFullParsedUSNG(P,g,S,c,d,M,l)},this.fromUPS=function(t,r,a,e){if(\"A\"!=t&&\"B\"!=t&&\"Y\"!=t&&\"Z\"!=t)throw\"UPS only valid in zones A, B, Y, and Z\";var o,n=Math.floor((r-2e6)/1e5),i=Math.floor((a-2e6)/1e5);0>n&&(n+=18),\"A\"==t||\"B\"==t?(0>i&&(i+=24),o=h[n]+u[i]):(0>i&&(i+=14),o=h[n]+f[i]);for(var s=Math.floor(r%1e5).toString(),l=Math.floor(a%1e5).toString();s.length<5;)s=\"0\"+s;for(;l.length<5;)l=\"0\"+l;if(e>5){var c=e-5;grid_x=s+(r%1).toFixed(c).substr(2,c),grid_y=l+(a%1).toFixed(c).substr(2,c)}else grid_x=s.substr(0,e),grid_y=l.substr(0,e);return t+\" \"+o+\" \"+grid_x+\" \"+grid_y},this.toUPSFromFullParsedUSNG=function(t,r,a,e,o){if(!Proj4js)throw\"USNG: Zones A,B,Y, and Z require Proj4js.\";var n=2e6,i=2e6,s=h.indexOf(r[0]);if(0>s)throw\"USNG: Invalid grid square.\";var l;switch(t){case\"A\":s-=18;case\"B\":if(l=u.indexOf(r[1]),-12>s||s>11||0>l)throw\"USNG: Invalid grid square.\";l>11&&(l-=24);break;case\"Y\":s-=18;case\"Z\":if(l=f.indexOf(r[1]),-7>s||s>6||0>l)throw\"USNG: Invalid grid square.\";l>6&&(l-=14);break;default:throw\"UPS only valid in zones A, B, Y, and Z\"}n+=1e5*s,i+=1e5*l,n+=a,i+=e;var v={x:n,y:i};if(\"A\"==t||\"B\"==t){if(Proj4js.transform(d,M,v),v.y>-80)throw\"USNG: Grid Zone A or B but Latitude > -80.\"}else if(Proj4js.transform(c,M,v),v.y<84)throw\"USNG: Grid Zone Y or Z but Latitude < 84.\";var S=t+\" \"+r+\" \"+a+\" \"+e;return{grid_zone:t,x:n,y:i,precision:o,usng:S}},this.fromLonLat=function(t,r){for(var a=t.lon,e=t.lat;-180>a;)a+=180;for(;a>180;)a-=180;var o=Math.floor((a- -180)/6)+1;if(!(e>-80&&84>e)){if(!c)throw\"USNG: Latitude must be between -80 and 84. (Zones A,B,Y, and Z require Proj4js.)\";var i,s=new Proj4js.Point(a,e);return e>0?(Proj4js.transform(M,c,s),i=0>a?\"Y\":\"Z\"):(Proj4js.transform(M,d,s),i=0>a?\"A\":\"B\"),this.fromUPS(i,s.x,s.y,r)}var i=n[Math.floor((e- -80)/8)],l=v.proj(o,a,e);return this.fromUTM(o,i,l.utm_easting,l.utm_northing,r)},this.toLonLat=function(t,r,a){var e,o=this.toUTM(t,r,a),n=o.grid_zone;if(!d||\"A\"!=n&&\"B\"!=n)if(!c||\"Y\"!=n&&\"Z\"!=n)e=v.invProj(o.zone,o.easting,o.northing),e.precision=o.precision,e.usng=o.usng;else{var i={x:o.x,y:o.y};Proj4js.transform(c,M,i),e={lon:i.x,lat:i.y,precision:o.precision,usng:o.usng}}else{var i={x:o.x,y:o.y};Proj4js.transform(d,M,i),e={lon:i.x,lat:i.y,precision:o.precision,usng:o.usng}}return e},this.UTM=function(){function t(t){var a=r*(1-e/4-3*i/64-5*s/256),o=-r*(3*e/8+3*i/32+45*s/1024),n=r*(15*i/256+45*s/1024),l=35*-r*s/3072;return a*t+o*Math.sin(2*t)+n*Math.sin(4*t)+l*Math.sin(6*t)}var r=6378137,a=6356752.3,e=(r*r-a*a)/(r*r),o=e/(1-e),n=.9996,i=e*e,s=e*i,l=Math.PI/180;this.proj=function(a,i,s){var h=-(6*(30-a)+3)*l,f=s*l,u=i*l,c=Math.sin(f),d=Math.cos(f),M=c/d,v=M*M,S=v*v,g=r/Math.sqrt(1-e*c*c),P=o*d*d,U=d*(u-h),j=t(f),G=1-v+P,w=5-18*v+S+72*P-58*o,b=Math.pow(U,5),p=n*g*(U+G*Math.pow(U,3)/6+w*b/120)+5e5,x=(5-v+9*P+4*P*P)*Math.pow(U,4)/24,N=61-58*v+S+600*P-330*o,m=b*U/720,A=n*(j+g*M*(U*U/2+x+N*m));return{utm_zone:a,utm_easting:p,utm_northing:A}},this.invProj=function(t,a,h){var f=-(6*(30-t)+3)*l,u=Math.sqrt(1-e),c=(1-u)/(1+u),d=c*c,M=c*d,v=d*d;a-=5e5;var S=h/n,g=S/(r*(1-e/4-3*(i/64)-5*(s/256))),P=1.5*c-27/32*M,U=21/16*d-55/32*v,j=g+P*Math.sin(2*g)+U*Math.sin(4*g)+151*M/96*Math.sin(6*g),G=Math.sin(j),w=Math.cos(j),b=G/w,p=r/Math.sqrt(1-e*G*G),x=b*b,N=o*w*w,m=1-e*G*G,A=r*(1-e)/Math.sqrt(m*m*m),_=a/(p*n),y=_*_,L=_*y,Z=y*y,k=_*Z,B=L*L,T=x*x,F=N*N,C=p*b/A,E=5+3*x+10*N-4*F-9*o,Y=61+90*x+298*N+45*T-252*o-3*F,z=(1+2*x+N)*L/6,D=5-2*N+28*x-3*F+8*o+24*T,q=180*(j-C*(y/2-E*(Z/24)+Y*B/720))/Math.PI,I=180*(f+(_-z+D*k/120)/w)/Math.PI;return{lon:I,lat:q}}};var c,d,M,v=new this.UTM;\"object\"==typeof Proj4js&&(Proj4js.defs[\"EPSG:32661\"]=\"+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs\",Proj4js.defs[\"EPSG:32761\"]=\"+proj=stere +lat_0=-90 +lat_ts=-90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +ellps=WGS84 +datum=WGS84 +units=m +no_defs\",Proj4js.defs[\"EPSG:4326\"]=\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\",c=new Proj4js.Proj(\"EPSG:32661\"),d=new Proj4js.Proj(\"EPSG:32761\"),M=new Proj4js.Proj(\"EPSG:4326\"))};\n\nthis.usng = new this.USNG2();\nSETRESULT(null);",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
           }
         ]
       },
       {
         "type": "TextField",
-        "key": "253b",
+        "key": "6a47",
         "label": "Name",
         "description": null,
         "required": false,
@@ -123,7 +145,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "LATITUDE()",
+            "expression": "if (LONGITUDE() && LATITUDE()) {\n  SETRESULT(LATITUDE());\n}",
             "display": {
               "style": "text",
               "currency": null
@@ -145,7 +167,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "LONGITUDE()",
+            "expression": "if (LONGITUDE() && LATITUDE()) {\n  SETRESULT(LONGITUDE());\n}",
             "display": {
               "style": "text",
               "currency": null
@@ -185,7 +207,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.utmz);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+            "expression": "if (LONGITUDE() && LATITUDE()) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.utmz);\n} else {\n  SETRESULT(\"No location set...\");\n}",
             "display": {
               "style": "text",
               "currency": null
@@ -207,7 +229,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.easting);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+            "expression": "if (LONGITUDE() && LATITUDE()) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.easting);\n} else {\n  SETRESULT(\"No location set...\");\n}",
             "display": {
               "style": "text",
               "currency": null
@@ -238,9 +260,89 @@
             "default_previous_value": false
           }
         ]
+      },
+      {
+        "type": "Section",
+        "key": "deeb",
+        "label": "USNG/MGRS",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "usngmgrs",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "235c",
+            "label": "Precision",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "precision",
+            "default_value": "5",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "10 km",
+                "value": "1"
+              },
+              {
+                "label": "1 km",
+                "value": "2"
+              },
+              {
+                "label": "100 meters",
+                "value": "3"
+              },
+              {
+                "label": "10 meters",
+                "value": "4"
+              },
+              {
+                "label": "1 meter",
+                "value": "5"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "26a5",
+            "label": "USNG",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "usng",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "var usng = this.usng;\nvar precision = CHOICEVALUE($precision);\n\nif (LONGITUDE() && LATITUDE()) {\n  SETRESULT(usng.fromLonLat({lon: LONGITUDE(), lat: LATITUDE()}, precision));\n} else {\n  SETRESULT(\"No location set\");\n}",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          }
+        ]
       }
     ],
     "created_at": "2016-01-19T17:26:43Z",
-    "updated_at": "2016-02-19T20:13:52Z"
+    "updated_at": "2016-02-19T20:37:43Z"
   }
 }
