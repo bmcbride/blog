@@ -92,28 +92,6 @@
           },
           {
             "type": "TextField",
-            "key": "cb3c",
-            "label": "Depth",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "depth",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": null,
-            "numeric": true,
-            "format": "decimal",
-            "min": null,
-            "max": null,
-            "min_length": null,
-            "max_length": null,
-            "default_previous_value": false
-          },
-          {
-            "type": "TextField",
             "key": "9770",
             "label": "Repcode",
             "description": null,
@@ -147,7 +125,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "eval($repcode)",
+            "expression": "var current = REPEATABLENUMBER();\nvar array = REPEATABLEVALUES($purge_intervals,'volume').slice(current-3,current);\nvar a = array.slice(0)[0];\nvar b = array.slice(1)[0];\nvar c = array.slice(2)[0];\nif(a > 5 && b > 5 && c > 5) {\n  SETRESULT('All less than 5');\n} else {\n  SETRESULT('NOT all less than 5');\n}\n",
             "display": {
               "style": "text",
               "currency": null
@@ -166,52 +144,9 @@
         "geometry_required": false,
         "min_length": null,
         "max_length": null
-      },
-      {
-        "type": "TextField",
-        "key": "9c94",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "ef14",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-19T22:10:44Z",
-    "updated_at": "2016-02-19T22:17:08Z"
+    "updated_at": "2016-02-19T22:38:13Z"
   }
 }
