@@ -1,0 +1,1962 @@
+{
+  "form": {
+    "id": "41edc8b7-cf57-48d0-86d6-8e21852b4257",
+    "name": "Property Inspection",
+    "description": "App provides means for estimation of repair costs. Uses include contractors or advanced DIY ers. ",
+    "bounding_box": null,
+    "record_title_key": "f585aff5-5004-64d5-38e1-c4f2ef81623e",
+    "title_field_keys": [
+      "f585aff5-5004-64d5-38e1-c4f2ef81623e"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "key": "@status",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "Section",
+        "key": "5b59cead-52c6-7ac2-e90b-56ad4c2bf04f",
+        "label": "Property Inspection for quote",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "property_inspection_for_quote",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "AddressField",
+            "key": "f585aff5-5004-64d5-38e1-c4f2ef81623e",
+            "label": "Property Address",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "property_address",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "auto_populate": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "8c675955-48aa-5510-53fd-18c605aa796a",
+            "label": "Case Number",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "case_number",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "decimal",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "AddressField",
+            "key": "9434",
+            "label": "Address",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "address",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "auto_populate": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "1d778e8c-3f22-74a6-1592-089c37910df0",
+            "label": "Owner",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "owner",
+            "default_value": "First Last",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "DateTimeField",
+            "key": "0c995505-91e2-a189-330c-18d418fc54e5",
+            "label": "Date of Inspection",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "date_of_inspection",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "Label",
+            "key": "18d3",
+            "label": "Person Name",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "person_name",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "ded2312a-a22a-d7d0-1545-277d7ccf1e10",
+        "label": "Exterior Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "exterior_inspection",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "9568c549-709b-55b2-0fcb-22281e7a4988",
+            "label": "Is the Property Occupied?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_property_occupied",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "962d6150-4e24-31cc-b052-f0ea9d407366",
+            "label": "Is this a quote for potential work?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_this_a_quote_for_potential_work",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "c4556d90-1fb1-20cf-0d61-0144bafeee3b",
+            "label": "Is the yard free of debris?",
+            "description": "Are there items that will inhibit access to complete the work? i.e. trees scrubs, flowers, fences etc. Also note if there is trash in the yard, which should be removed when job is completed.",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_yard_free_of_debris",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "92c80bb5-5505-f99e-62c8-fff0392f18fa",
+            "label": "What type of inspcetion?",
+            "description": "Check the type of work to be estimated. ",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "what_type_of_inspcetion",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "Roof repair",
+                "value": "Roof repair"
+              },
+              {
+                "label": "Roof Replace",
+                "value": "Roof Replace"
+              },
+              {
+                "label": "Garage addition",
+                "value": "Garage addition"
+              },
+              {
+                "label": "Garage remodel",
+                "value": "Garage remodel"
+              },
+              {
+                "label": "Sunroom addition",
+                "value": "Sunroom addition"
+              },
+              {
+                "label": "Sunroom remodel",
+                "value": "Sunroom remodel"
+              },
+              {
+                "label": "Kitchen remodel",
+                "value": "Kitchen remodel"
+              },
+              {
+                "label": "Bathroom addition",
+                "value": "Bathroom addition"
+              },
+              {
+                "label": "Bathroom remodel",
+                "value": "Bathroom remodel"
+              },
+              {
+                "label": "Replace flooring",
+                "value": "Replace flooring"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "528406f8-dee7-f0a0-6a5b-20b6416ebf81",
+            "label": "Overall Roof Issues",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "overall_roof_issues",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "92c80bb5-5505-f99e-62c8-fff0392f18fa",
+                "operator": "equal_to",
+                "value": "Roof repair"
+              },
+              {
+                "field_key": "92c80bb5-5505-f99e-62c8-fff0392f18fa",
+                "operator": "equal_to",
+                "value": "Roof Replace"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": true,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "Missing Granules",
+                "value": "Missing Granules"
+              },
+              {
+                "label": "Apparent Leakage",
+                "value": "Apparent Leakage"
+              },
+              {
+                "label": "Burn Spots",
+                "value": "Burn Spots"
+              },
+              {
+                "label": "Cracked Bitumen/Coating",
+                "value": "Cracked Bitumen/Coating"
+              },
+              {
+                "label": "Broken/Loose Shingles/Tiles",
+                "value": "Broken/Loose Shingles/Tiles"
+              },
+              {
+                "label": "Missing Shingles/Tiles/Tabs",
+                "value": "Missing Shingles/Tiles/Tabs"
+              },
+              {
+                "label": "Cupped Shingles",
+                "value": "Cupped Shingles"
+              },
+              {
+                "label": "Curled Shingles",
+                "value": "Curled Shingles"
+              },
+              {
+                "label": "Cracked Shingles",
+                "value": "Cracked Shingles"
+              },
+              {
+                "label": "Shingle Blisters",
+                "value": "Shingle Blisters"
+              },
+              {
+                "label": "Moss Buildup",
+                "value": "Moss Buildup"
+              },
+              {
+                "label": "Exposed Felt",
+                "value": "Exposed Felt"
+              },
+              {
+                "label": "Roof Sag/Water Ponding",
+                "value": "Roof Sag/Water Ponding"
+              },
+              {
+                "label": "Nail Popping",
+                "value": "Nail Popping"
+              },
+              {
+                "label": "Incomplete/Improper nailing",
+                "value": "Incomplete/Improper nailing"
+              },
+              {
+                "label": "Visible rotten wood",
+                "value": "Visible rotten wood"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "27e88a8d-bda0-3a3c-c2de-6c12b0d3339a",
+            "label": "Is the appropriate lock box being used to allow access to the property?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_appropriate_lock_box_being_used_to_allow_access_to_the_property",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "3f3f6f38-1fd4-6800-a157-7ce85f6f2c57",
+            "label": "Any there any problems/hazards in the yard or with the exterior of the property?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_there_any_problemshazards_in_the_yard_or_with_the_exterior_of_the_property",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "3a952358-e460-dea6-c15b-c412f34cdcea",
+            "label": "Problems/hazards in the yard or with the exterior of the property",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "problemshazards_in_the_yard_or_with_the_exterior_of_the_property",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "3f3f6f38-1fd4-6800-a157-7ce85f6f2c57",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": true,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "Collecting pools of undrained water",
+                "value": "Collecting pools of undrained water"
+              },
+              {
+                "label": "Dilapidated fence or accessory building",
+                "value": "Dilapidated fence or accessory building"
+              },
+              {
+                "label": "Excessive resident storage",
+                "value": "Excessive resident storage"
+              },
+              {
+                "label": "Excessive vegetation and/or weeds",
+                "value": "Excessive vegetation and/or weeds"
+              },
+              {
+                "label": "Evidence of pests",
+                "value": "Evidence of pests"
+              },
+              {
+                "label": "Evidence of vandalism",
+                "value": "Evidence of vandalism"
+              },
+              {
+                "label": "Holes in yard",
+                "value": "Holes in yard"
+              },
+              {
+                "label": "Gutter issues",
+                "value": "Gutter issues"
+              },
+              {
+                "label": "Illegal Dumping",
+                "value": "Illegal Dumping"
+              },
+              {
+                "label": "Junk motor vehicles (or other rust)",
+                "value": "Junk motor vehicles (or other rust)"
+              },
+              {
+                "label": "Vacant, unsecured, boarded structure",
+                "value": "Vacant, unsecured, boarded structure"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "161221a1-f0ba-4379-0e81-afc9fd680cbb",
+            "label": "How is the condition of the exterior paint?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "how_is_the_condition_of_the_exterior_paint",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Satisfactory",
+                "value": "Satisfactory"
+              },
+              {
+                "label": "Marginal - minor chipping",
+                "value": "Marginal - minor chipping"
+              },
+              {
+                "label": "Poor - major flaking or peeling",
+                "value": "Poor - major flaking or peeling"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "e9a0354c-fc3d-8a8f-b489-6f4a86aaee47",
+            "label": "Any major cracks in foundation or exterior walls?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_major_cracks_in_foundation_or_exterior_walls",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "fb13836e-c699-883c-c159-62f0fdd2d402",
+            "label": "What is the condition of the general exterior?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "what_is_the_condition_of_the_general_exterior",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Satisfactory - marketable",
+                "value": "Satisfactory - marketable"
+              },
+              {
+                "label": "Marginal - will need some minor touch-ups",
+                "value": "Marginal - will need some minor touch-ups"
+              },
+              {
+                "label": "Poor - will need some major renovation",
+                "value": "Poor - will need some major renovation"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "6d541a4f-59b3-23bf-6a03-50fa6388fbc3",
+            "label": "Exterior Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "exterior_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "51e2",
+        "label": "Roof Repair Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "roof_repair_inspection",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "92c80bb5-5505-f99e-62c8-fff0392f18fa",
+            "operator": "equal_to",
+            "value": "Roof repair"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "beda",
+            "label": "Number of roof sections to be repaired.",
+            "description": "Enter the number of sections of roof",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "number_of_roof_sections_to_be_repaired",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": 1,
+            "max_length": 100,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "efbb",
+            "label": "Repair Area Width",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "repair_area_width",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "cf26",
+            "label": "Repair Area Length",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "repair_area_length",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "b46b",
+            "label": "Repair Square footage",
+            "description": "What is the square footage of the roof to be replaced",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "repair_square_footage",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "$repair_area_width * $repair_area_length",
+            "display": {
+              "style": "number",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "e20b",
+            "label": "Repair Area Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "repair_area_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "5f35",
+        "label": "Roof Replace Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "roof_replace_inspection",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "92c80bb5-5505-f99e-62c8-fff0392f18fa",
+            "operator": "equal_to",
+            "value": "Roof Replace"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "Section",
+            "key": "c1aa",
+            "label": "Section1",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "section1",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "5ebd",
+                "label": "Section1 Width",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section1_width",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "a14f",
+                "label": "Section1 Length",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section1_length",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "a0eb",
+                "label": "Section1 Square footage",
+                "description": "What is the square footage of the roof to be replaced",
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section1_square_footage",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "$section1_width * $section1_length",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "46fa",
+                "label": "Section1 Photos",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section1_photos",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "min_length": null,
+                "max_length": null
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "24a1",
+            "label": "Section2",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "section2",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "e5de",
+                "label": "Section2 Width",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section2_width",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "a945",
+                "label": "Section2 Length",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section2_length",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "53b6",
+                "label": "Section 2Square footage",
+                "description": "What is the square footage of the roof to be replaced",
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section_2square_footage",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "$section2_width * $section2_length",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "49e4",
+                "label": "Section2 Photos",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section2_photos",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "min_length": null,
+                "max_length": null
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "9299",
+            "label": "Section3",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "section3",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "9505",
+                "label": "Section3 Width",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section3_width",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "e651",
+                "label": "Section3 Length",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section3_length",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "0fb2",
+                "label": "Section 3 Square footage",
+                "description": "What is the square footage of the roof to be replaced",
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section_3_square_footage",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "$section3_width * $section3_length",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "52e1",
+                "label": "Section3 Photos",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section3_photos",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "min_length": null,
+                "max_length": null
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "7c50",
+            "label": "Section4",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "section4",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "e308",
+                "label": "Section4 Width",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section4_width",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "9a80",
+                "label": "Section4 Length",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section4_length",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "19e9",
+                "label": "Section 4 Square footage",
+                "description": "What is the square footage of the roof to be replaced",
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section_4_square_footage",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "$section4_width * $section4_length",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "117b",
+                "label": "Section4 Photos",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "section4_photos",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "min_length": null,
+                "max_length": null
+              }
+            ]
+          },
+          {
+            "type": "TextField",
+            "key": "9faa",
+            "label": "Number of roof sections",
+            "description": "Enter the number of sections of roof",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "number_of_roof_sections",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": 1,
+            "max_length": 100,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "04e0",
+            "label": "Total Square footage",
+            "description": "What is the square footage of the roof to be replaced",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "total_square_footage",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "$section1_square_footage + $section_2square_footage + $section_3_square_footage + $section_4_square_footage",
+            "display": {
+              "style": "number",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "aa08",
+            "label": "Roof Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "roof_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "f637223a-c375-c3fa-1b03-3c6c182f3fd8",
+        "label": "Interior Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "interior_inspection",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "717e76c4-5032-a509-2788-8560a50b5a04",
+            "label": "Condition of the Kitchen and Bathrooms?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "condition_of_the_kitchen_and_bathrooms",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Satisfactory - no work needed",
+                "value": "Satisfactory - no work needed"
+              },
+              {
+                "label": "Marginal - will need some cleaning",
+                "value": "Marginal - will need some cleaning"
+              },
+              {
+                "label": "Poor - will need renovation",
+                "value": "Poor - will need renovation"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "95b58414-4030-a31e-5976-8030ee5228eb",
+            "label": "Is the heating/cooling system on?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_heatingcooling_system_on",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "31c9eff2-c6e9-1123-41b6-358fb5bdc3ff",
+            "label": "Is the water on?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_water_on",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "c55d9388-2bc7-2dcc-d226-fb2f4679b1d2",
+            "label": "Is the electricity on?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_electricity_on",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "cfa89766-d173-921c-74f3-11f99643cb5a",
+            "label": "Is the heating/cooling system in good working condition?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_heatingcooling_system_in_good_working_condition",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "bb9f71e0-9430-4f3d-5841-bccde028e8f3",
+            "label": "How is the condition of the plumbing?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "how_is_the_condition_of_the_plumbing",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Satisfactory - all in working order",
+                "value": "Satisfactory - all in working order"
+              },
+              {
+                "label": "Marginal - minor issues, no damage",
+                "value": "Marginal - minor issues, no damage"
+              },
+              {
+                "label": "Poor - major issues, damage",
+                "value": "Poor - major issues, damage"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "e1fbc98b-8e80-025b-accf-58b7e6383776",
+            "label": "Is the electrical system in good working condition?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_the_electrical_system_in_good_working_condition",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "2692802b-0442-7ad9-04db-1a866a18c9f0",
+            "label": "Any evidence of roof leaks or damage caused by leakage?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_evidence_of_roof_leaks_or_damage_caused_by_leakage",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "b947cd9e-e0dc-71f6-434f-c3414006a1ac",
+            "label": "Any evidence of flooding/water damage?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_evidence_of_floodingwater_damage",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "83696bd5-21c8-de79-c04c-8e085c132412",
+            "label": "Any major structural damage?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_major_structural_damage",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "204eeae3-5e8f-9d0a-a301-e2acc628c7a0",
+            "label": "Any vandalism?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_vandalism",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "a9b1a641-d2d7-ccd7-1807-fa28d9b51524",
+            "label": "Are emergency or preventive maintenance repairs needed?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "are_emergency_or_preventive_maintenance_repairs_needed",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "eb26b3eb-bda6-19ad-b113-afe3369d8251",
+            "label": "Emergency/Preventative maintenance repairs",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "emergencypreventative_maintenance_repairs",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "a9b1a641-d2d7-ccd7-1807-fa28d9b51524",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": true,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "Bad Door & Window Seals",
+                "value": "Bad Door & Window Seals"
+              },
+              {
+                "label": "Cracked Stucco",
+                "value": "Cracked Stucco"
+              },
+              {
+                "label": "Cracked Tile & Grout in bathrooms",
+                "value": "Cracked Tile & Grout in bathrooms"
+              },
+              {
+                "label": "Dripping Faucets",
+                "value": "Dripping Faucets"
+              },
+              {
+                "label": "Electrical Hazard",
+                "value": "Electrical Hazard"
+              },
+              {
+                "label": "Failing Caulking",
+                "value": "Failing Caulking"
+              },
+              {
+                "label": "Fire Damage",
+                "value": "Fire Damage"
+              },
+              {
+                "label": "Insulation Repair Required",
+                "value": "Insulation Repair Required"
+              },
+              {
+                "label": "Roof Leaks",
+                "value": "Roof Leaks"
+              },
+              {
+                "label": "Rotted or Unsafe Floors",
+                "value": "Rotted or Unsafe Floors"
+              },
+              {
+                "label": "Sewer Line Repair Required",
+                "value": "Sewer Line Repair Required"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "b6be96aa-6869-f27b-1a1c-56d59074fb93",
+            "label": "Any defective interior paint?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "any_defective_interior_paint",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "a960e8b5-4000-eeb4-d2c7-e7b48912b650",
+            "label": "How is the condition of the interior paint?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "how_is_the_condition_of_the_interior_paint",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Satisfactory",
+                "value": "Satisfactory"
+              },
+              {
+                "label": "Marginal - minor chipping",
+                "value": "Marginal - minor chipping"
+              },
+              {
+                "label": "Poor - major flaking or peeling",
+                "value": "Poor - major flaking or peeling"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "4169b844-3947-efce-e445-075fca563a80",
+            "label": "Is REAM or a representative making regular inspections?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "is_ream_or_a_representative_making_regular_inspections",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              },
+              {
+                "label": "Unsure",
+                "value": "Unsure"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "6082453e-48c6-ccdb-2f1e-099a481b7241",
+            "label": "Check items present",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "check_items_present",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": true,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "Dishwasher",
+                "value": "Dishwasher"
+              },
+              {
+                "label": "Garbage Disposal",
+                "value": "Garbage Disposal"
+              },
+              {
+                "label": "Kitchen Vent Fan",
+                "value": "Kitchen Vent Fan"
+              },
+              {
+                "label": "Oven/Range",
+                "value": "Oven/Range"
+              },
+              {
+                "label": "Microwave",
+                "value": "Microwave"
+              },
+              {
+                "label": "Refrigerator",
+                "value": "Refrigerator"
+              },
+              {
+                "label": "A/C Condenser",
+                "value": "A/C Condenser"
+              },
+              {
+                "label": "Heating Unit",
+                "value": "Heating Unit"
+              },
+              {
+                "label": "Water Heater",
+                "value": "Water Heater"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "0a051040-9221-58a0-95a0-389e027a8d6c",
+            "label": "Inspection type",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "inspection_type",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Occupancy",
+                "value": "Occupancy"
+              },
+              {
+                "label": "Initial Vacant Property Inspection",
+                "value": "Initial Vacant Property Inspection"
+              },
+              {
+                "label": "Vacant Property Inspection",
+                "value": "Vacant Property Inspection"
+              },
+              {
+                "label": "Pre-conveyance Inspection",
+                "value": "Pre-conveyance Inspection"
+              },
+              {
+                "label": "Eviction Inspection",
+                "value": "Eviction Inspection"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "63d3ee70-5131-e244-1c6f-16fb934bb19f",
+            "label": "Interior Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "interior_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "TextField",
+            "key": "58b6",
+            "label": "Where the person lives",
+            "description": "Who is the landlord of the property",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "where_the_person_lives",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Label",
+        "key": "4749",
+        "label": "Roofing\n",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "roofing",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null
+      },
+      {
+        "type": "TextField",
+        "key": "223f",
+        "label": "Length or repair area",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "length_or_repair_area",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-02-19T15:11:46Z",
+    "updated_at": "2016-02-19T15:11:46Z"
+  }
+}
