@@ -104,50 +104,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "var current = REPEATABLENUMBER();\nvar array = REPEATABLEVALUES($purge_intervals,'volume').slice(current-3,current);\nvar a = array.slice(0)[0];\nvar b = array.slice(1)[0];\nvar c = array.slice(2)[0];\nif(a < 5 && b < 5 && c < 5) {\n  SETRESULT('All less than 5');\n} else {\n  SETRESULT('NOT all less than 5');\n}\n",
-            "display": {
-              "style": "text",
-              "currency": null
-            },
-            "default_values": null,
-            "default_previous_value": false
-          },
-          {
-            "type": "TextField",
-            "key": "9770",
-            "label": "Code",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "code",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": null,
-            "numeric": false,
-            "pattern": null,
-            "pattern_description": null,
-            "min_length": null,
-            "max_length": null,
-            "default_previous_value": false
-          },
-          {
-            "type": "CalculatedField",
-            "key": "c045",
-            "label": "Eval",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "eval",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": [],
-            "expression": "eval($code)",
+            "expression": "REPEATABLEVALUES($purge_intervals,'volume')",
             "display": {
               "style": "text",
               "currency": null
@@ -166,52 +123,9 @@
         "geometry_required": false,
         "min_length": null,
         "max_length": null
-      },
-      {
-        "type": "TextField",
-        "key": "fe93",
-        "label": "Code2",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code2",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "d69c",
-        "label": "Eval2",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval2",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code2)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-19T23:03:26Z",
-    "updated_at": "2016-02-19T23:03:26Z"
+    "updated_at": "2016-02-19T23:04:49Z"
   }
 }
