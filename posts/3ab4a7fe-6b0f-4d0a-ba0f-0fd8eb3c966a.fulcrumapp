@@ -94,117 +94,153 @@
         "default_previous_value": false
       },
       {
-        "type": "CalculatedField",
-        "key": "3a7e",
-        "label": "Latitude",
+        "type": "Section",
+        "key": "4d6f",
+        "label": "Geographic Coordinates",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "latitude",
+        "data_name": "geographic_coordinates",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "LATITUDE()",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "CalculatedField",
+            "key": "3a7e",
+            "label": "Latitude",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "latitude",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "LATITUDE()",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "96ad",
+            "label": "Longitude",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "longitude",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "LONGITUDE()",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          }
+        ]
       },
       {
-        "type": "CalculatedField",
-        "key": "96ad",
-        "label": "Longitude",
+        "type": "Section",
+        "key": "c8b0",
+        "label": "UTM Coordinates",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "longitude",
+        "data_name": "utm_coordinates",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "LONGITUDE()",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "9bd3",
-        "label": "UTM Zone",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "utm_zone",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.utmz);\n} else {\n  SETRESULT(\"No location set...\");\n}",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "1a88",
-        "label": "UTM Easting",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "utm_easting",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.easting);\n} else {\n  SETRESULT(\"No location set...\");\n}",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "4c56",
-        "label": "UTM Northing",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "utm_northing",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.northing);\n} else {\n  SETRESULT(\"No location set...\");\n}",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "CalculatedField",
+            "key": "9bd3",
+            "label": "UTM Zone",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "utm_zone",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.utmz);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "1a88",
+            "label": "UTM Easting",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "utm_easting",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.easting);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "4c56",
+            "label": "UTM Northing",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "utm_northing",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "if ($latitude && $longitude) {\n  var UTMConv = this.UTMConv;\n  var geo = new UTMConv.DegCoords($latitude, $longitude, \"nad83\");\n  var utm = geo.to_utm();\n  SETRESULT(utm.northing);\n} else {\n  SETRESULT(\"No location set...\");\n}",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          }
+        ]
       }
     ],
     "created_at": "2016-01-19T17:26:43Z",
-    "updated_at": "2016-02-19T20:11:18Z"
+    "updated_at": "2016-02-19T20:13:52Z"
   }
 }
