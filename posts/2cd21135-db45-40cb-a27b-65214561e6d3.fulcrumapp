@@ -91,14 +91,36 @@
             "default_previous_value": false
           },
           {
-            "type": "TextField",
-            "key": "9770",
-            "label": "Repcode",
+            "type": "CalculatedField",
+            "key": "3403",
+            "label": "Test",
             "description": null,
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "repcode",
+            "data_name": "test",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "var current = REPEATABLENUMBER();\nvar array = REPEATABLEVALUES($purge_intervals,'volume').slice(current-3,current);\nvar a = array.slice(0)[0];\nvar b = array.slice(1)[0];\nvar c = array.slice(2)[0];\nif(a > 5 && b > 5 && c > 5) {\n  SETRESULT('All less than 5');\n} else {\n  SETRESULT('NOT all less than 5');\n}\n",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "9770",
+            "label": "Code",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "code",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -113,19 +135,19 @@
           },
           {
             "type": "CalculatedField",
-            "key": "3403",
-            "label": "Repeval",
+            "key": "c045",
+            "label": "Eval",
             "description": null,
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "repeval",
+            "data_name": "eval",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "var current = REPEATABLENUMBER();\nvar array = REPEATABLEVALUES($purge_intervals,'volume').slice(current-3,current);\nvar a = array.slice(0)[0];\nvar b = array.slice(1)[0];\nvar c = array.slice(2)[0];\nif(a > 5 && b > 5 && c > 5) {\n  SETRESULT('All less than 5');\n} else {\n  SETRESULT('NOT all less than 5');\n}\n",
+            "expression": "eval($code)",
             "display": {
               "style": "text",
               "currency": null
@@ -147,6 +169,6 @@
       }
     ],
     "created_at": "2016-02-19T22:10:44Z",
-    "updated_at": "2016-02-19T22:38:13Z"
+    "updated_at": "2016-02-19T22:40:35Z"
   }
 }
