@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -89,28 +89,6 @@
             "min_length": null,
             "max_length": null,
             "default_previous_value": false
-          },
-          {
-            "type": "CalculatedField",
-            "key": "3403",
-            "label": "Test",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "test",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": [],
-            "expression": "REPEATABLEVALUES($purge_intervals,'volume')",
-            "display": {
-              "style": "text",
-              "currency": null
-            },
-            "default_values": null,
-            "default_previous_value": false
           }
         ],
         "title_field_key": null,
@@ -126,6 +104,6 @@
       }
     ],
     "created_at": "2016-02-19T23:03:26Z",
-    "updated_at": "2016-02-19T23:04:49Z"
+    "updated_at": "2016-02-24T13:59:03Z"
   }
 }
