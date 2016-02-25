@@ -104,8 +104,8 @@
         "record_conditions": [
           {
             "linked_form_field_key": "8074",
-            "operator": "equal_to",
-            "value_field_key": "ce70"
+            "operator": "contains",
+            "value_field_key": "f9d4"
           }
         ],
         "record_defaults": null,
@@ -113,6 +113,6 @@
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-02-25T19:30:19Z"
+    "updated_at": "2016-02-25T19:31:28Z"
   }
 }
