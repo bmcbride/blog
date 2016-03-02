@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('change-geometry', function () {\n  if ($latitude && $longitude) {\n    ALERT('Warning!', 'This record location cannot be modified.');\n    SETLOCATION($latitude, $longitude);\n  }\n})",
+    "script": "ON('change-geometry', function () {\n  ALERT(LATITUDE() + ', ' + LONGITUDE());\n  var lat = LATITUDE();\n  var lng = LONGITUDE();\n  if ($latitude && $longitude) {\n    //ALERT('Warning!', 'This record location cannot be modified!');\n    //SETLOCATION($latitude, $longitude);\n    SETLOCATION($latitude, $longitude);\n  }\n})",
     "elements": [
       {
         "type": "TextField",
@@ -99,6 +99,6 @@
       }
     ],
     "created_at": "2016-03-02T20:29:05Z",
-    "updated_at": "2016-03-02T20:33:32Z"
+    "updated_at": "2016-03-02T21:05:27Z"
   }
 }
