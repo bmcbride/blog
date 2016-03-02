@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "storage = STORAGE();\n\nON('change-geometry', function () {\n  ONCE(storage.setItem('lat', LATITUDE()));\n  ONCE(storage.setItem('lng', LONGITUDE()));\n  if (storage.getItem('lat') && storage.getItem('lng')) {\n    ALERT('Warning!', 'This record location cannot be modified!');\n    SETLOCATION(storage.getItem(lat), storage.getItem(lng));\n  }\n})",
+    "script": "storage = STORAGE();\n\nON('change-geometry', function () {\n  ONCE(storage.setItem('lat', LATITUDE()));\n  ONCE(storage.setItem('lng', LONGITUDE()));\n  if (storage.getItem('lat') && storage.getItem('lng')) {\n    ALERT('Warning!', 'This record location cannot be modified!');\n    SETLOCATION(storage.getItem('lat'), storage.getItem('lng'));\n  }\n})",
     "elements": [
       {
         "type": "TextField",
@@ -99,6 +99,6 @@
       }
     ],
     "created_at": "2016-03-02T20:29:05Z",
-    "updated_at": "2016-03-02T21:23:06Z"
+    "updated_at": "2016-03-02T21:24:00Z"
   }
 }
