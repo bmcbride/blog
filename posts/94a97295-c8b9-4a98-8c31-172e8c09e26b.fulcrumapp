@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('change-geometry', function () {\n  SETLOCATION(LATITUDE(), LONGITUDE());\n})",
+    "script": "var lat = ONCE(LATITUDE());\nvar lng = ONCE(LONGITUDE());\nON('change-geometry', function () {\n  SETLOCATION(lat, lng);\n})",
     "elements": [
       {
         "type": "TextField",
@@ -99,6 +99,6 @@
       }
     ],
     "created_at": "2016-03-02T20:29:05Z",
-    "updated_at": "2016-03-02T21:08:06Z"
+    "updated_at": "2016-03-02T21:10:30Z"
   }
 }
