@@ -1,0 +1,104 @@
+{
+  "form": {
+    "id": "94a97295-c8b9-4a98-8c31-172e8c09e26b",
+    "name": "Test- No location updates",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "8cb4",
+    "title_field_keys": [
+      "8cb4"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "8cb4",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "d563",
+        "label": "Latitude",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "latitude",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "ONCE(LATITUDE())",
+        "display": {
+          "style": "number",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "8eac",
+        "label": "Longitude",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "longitude",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "ONCE(LONGITUDE())",
+        "display": {
+          "style": "number",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-03-02T20:29:05Z",
+    "updated_at": "2016-03-02T20:29:05Z"
+  }
+}
