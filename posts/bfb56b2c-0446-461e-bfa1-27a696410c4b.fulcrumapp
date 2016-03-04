@@ -432,7 +432,7 @@
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "var questions = [$one, $two, $three, $four];\n\nSETRESULT(questions[0]);",
+            "expression": "var questions = ['one', 'two', 'three', 'four'];\n\nvar affirmatives = [];\n\nfor (var i = 0; i < questions.length; i++) {\n  if (this.variables['$' + questions[i]] === 'yes') {\n    affirmatives.push(FIELD(questions[i]).label);\n  }\n}\n\nSETRESULT(affirmatives.join(', '));",
             "display": {
               "style": "text",
               "currency": null
@@ -444,6 +444,6 @@
       }
     ],
     "created_at": "2016-02-09T22:46:59Z",
-    "updated_at": "2016-03-04T17:23:09Z"
+    "updated_at": "2016-03-04T22:12:09Z"
   }
 }
