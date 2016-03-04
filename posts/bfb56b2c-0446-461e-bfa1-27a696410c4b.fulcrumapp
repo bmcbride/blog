@@ -421,18 +421,18 @@
           {
             "type": "CalculatedField",
             "key": "a2cc",
-            "label": "Yeses",
+            "label": "Yesses",
             "description": null,
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "yeses",
+            "data_name": "yesses",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
             "required_conditions_type": null,
             "required_conditions": [],
-            "expression": "var questions = ['one', 'two', 'three', 'four'];",
+            "expression": "var questions = ['one', 'two', 'three', 'four'];\n",
             "display": {
               "style": "text",
               "currency": null
@@ -444,6 +444,6 @@
       }
     ],
     "created_at": "2016-02-09T22:46:59Z",
-    "updated_at": "2016-03-04T15:56:07Z"
+    "updated_at": "2016-03-04T17:16:41Z"
   }
 }
