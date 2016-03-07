@@ -1,0 +1,102 @@
+{
+  "form": {
+    "id": "c8eff79a-e0bd-45d0-9ddc-01ae31386c27",
+    "name": "FEMA Flood Hazards",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "2a01",
+    "title_field_keys": [
+      "2a01"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "function fetchFloodInfo() {\n  var url = 'http://hazards.fema.gov/gis/nfhl/rest/services/public/NFHLWMS/MapServer/28/query?where=&text=&objectIds=&time=&geometry=' + LONGITUDE() + ',' + LATITUDE() + '&geometryType=esriGeometryPoint&inSR=EPSG%3A4326&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&returnTrueCurves=false&resultOffset=&resultRecordCount=&f=pjson';\n  REQUEST({\n    url: url,\n    method: 'GET'\n  }, function (err, res, body) {\n    if (err) {\n      ALERT('Error: ' + err.message);\n    } else {\n      SETVALUE('flood_zone', JSON.parse(body).features[0].attributes['FLD_ZONE']);\n      SETVALUE('flood_zone_subtype', JSON.parse(body).features[0].attributes['ZONE_SUBTY']);\n      SETVALUE('dfirm_id', JSON.parse(body).features[0].attributes['DFIRM_ID']);\n    }\n  });\n}\n\nON('change-geometry', fetchFloodInfo);",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "2a01",
+        "label": "Flood Zone",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "flood_zone",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "611a",
+        "label": "Flood Zone Subtype",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "flood_zone_subtype",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "06c8",
+        "label": "DFIRM_ID",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "dfirm_id",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-03-07T20:38:54Z",
+    "updated_at": "2016-03-07T20:38:54Z"
+  }
+}
