@@ -52,53 +52,9 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "d563",
-        "label": "Latitude",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "latitude",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "ONCE(LATITUDE())",
-        "display": {
-          "style": "number",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "8eac",
-        "label": "Longitude",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "longitude",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "ONCE(LONGITUDE())",
-        "display": {
-          "style": "number",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-03-02T20:29:05Z",
-    "updated_at": "2016-03-10T19:48:40Z"
+    "updated_at": "2016-03-10T19:52:34Z"
   }
 }
