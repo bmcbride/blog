@@ -2,7 +2,7 @@
   "form": {
     "id": "94a97295-c8b9-4a98-8c31-172e8c09e26b",
     "name": "Test- No location updates",
-    "description": null,
+    "description": "",
     "bounding_box": null,
     "record_title_key": "8cb4",
     "title_field_keys": [
@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -99,6 +99,6 @@
       }
     ],
     "created_at": "2016-03-02T20:29:05Z",
-    "updated_at": "2016-03-02T21:30:38Z"
+    "updated_at": "2016-03-10T19:48:40Z"
   }
 }
