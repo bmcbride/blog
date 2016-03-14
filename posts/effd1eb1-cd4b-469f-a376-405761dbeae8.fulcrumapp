@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "effd1eb1-cd4b-469f-a376-405761dbeae8",
-    "name": "Linked Records Filter Testing",
+    "name": "Linked Records Data Events Testing",
     "description": null,
     "bounding_box": null,
     "record_title_key": "4612",
@@ -33,132 +33,6 @@
     "script": null,
     "elements": [
       {
-        "type": "ChoiceField",
-        "key": "0504",
-        "label": "Teams",
-        "description": null,
-        "required": true,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "teams",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "multiple": true,
-        "allow_other": false,
-        "choices": [
-          {
-            "label": "A",
-            "value": "A"
-          },
-          {
-            "label": "B",
-            "value": "B"
-          },
-          {
-            "label": "C",
-            "value": "C"
-          },
-          {
-            "label": "D",
-            "value": "D"
-          }
-        ],
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "b0b2",
-        "label": "Team A",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": true,
-        "data_name": "team_a",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "CHOICEVALUES($teams)[0];",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "f8c0",
-        "label": "Team B",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": true,
-        "data_name": "team_b",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "CHOICEVALUES($teams)[1];",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "a196",
-        "label": "Team C",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": true,
-        "data_name": "team_c",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "CHOICEVALUES($teams)[2];",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "5c7d",
-        "label": "Team D",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": true,
-        "data_name": "team_d",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "CHOICEVALUES($teams)[3];",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
         "type": "RecordLinkField",
         "key": "4612",
         "label": "Staff Member",
@@ -177,34 +51,13 @@
         "allow_updating_records": false,
         "allow_multiple_records": true,
         "form_id": "30c3a1af-3045-4ba1-836a-94039d26bc51",
-        "record_conditions_type": "any",
-        "record_conditions": [
-          {
-            "linked_form_field_key": "8074",
-            "operator": "equal_to",
-            "value_field_key": "b0b2"
-          },
-          {
-            "linked_form_field_key": "8074",
-            "operator": "equal_to",
-            "value_field_key": "f8c0"
-          },
-          {
-            "linked_form_field_key": "8074",
-            "operator": "equal_to",
-            "value_field_key": "a196"
-          },
-          {
-            "linked_form_field_key": "8074",
-            "operator": "equal_to",
-            "value_field_key": "5c7d"
-          }
-        ],
+        "record_conditions_type": null,
+        "record_conditions": null,
         "record_defaults": null,
         "default_previous_value": false
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-02-25T20:13:22Z"
+    "updated_at": "2016-03-14T20:11:41Z"
   }
 }
