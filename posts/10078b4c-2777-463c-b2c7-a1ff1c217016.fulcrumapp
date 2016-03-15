@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "10078b4c-2777-463c-b2c7-a1ff1c217016",
-    "name": "Site Mapping",
+    "name": "Simple Turf.js Test",
     "description": null,
     "bounding_box": null,
     "record_title_key": "fc18",
@@ -87,52 +87,9 @@
         "required_conditions_type": null,
         "required_conditions": [],
         "default_url": ""
-      },
-      {
-        "type": "TextField",
-        "key": "1cbc",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "4c27",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-03-15T00:26:25Z",
-    "updated_at": "2016-03-15T00:52:52Z"
+    "updated_at": "2016-03-15T01:02:06Z"
   }
 }
