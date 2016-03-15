@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var turf = this.turf;\n\nfunction testTurf() {  \n  //ALERT(INSPECT(this));\n  ALERT(INSPECT(turf));\n}\n\nON('click', 'turf_test', testTurf);",
+    "script": "function testTurf() {  \n  //ALERT(INSPECT(this));\n  var turf = this.turf;\n  ALERT(INSPECT(turf));\n}\n\nON('click', 'turf_test', testTurf);",
     "elements": [
       {
         "type": "Section",
@@ -90,6 +90,6 @@
       }
     ],
     "created_at": "2016-03-15T00:26:25Z",
-    "updated_at": "2016-03-15T01:28:23Z"
+    "updated_at": "2016-03-15T01:31:22Z"
   }
 }
