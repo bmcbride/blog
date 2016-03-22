@@ -1,0 +1,347 @@
+{
+  "form": {
+    "id": "ad75a315-7e0e-4ffb-a4d8-125dd7b4cf64",
+    "name": "Fire Hydrant Inventory",
+    "description": "Fire hydrant asset management inventory survey.",
+    "bounding_box": null,
+    "record_title_key": "be2c6de1-fff6-797f-c881-237f416f83bd",
+    "title_field_keys": [
+      "be2c6de1-fff6-797f-c881-237f416f83bd"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Active",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Active",
+          "value": "Active",
+          "color": "#294184"
+        },
+        {
+          "label": "Inactive",
+          "value": "Inactive",
+          "color": "#CB0D0C"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 3,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "be2c6de1-fff6-797f-c881-237f416f83bd",
+        "label": "ID Number",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "id_number",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "integer",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "5078136e-6547-4f6e-3780-3895023d3fa3",
+        "label": "Year Installed",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "year_installed",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "86f0",
+        "label": "Hydrant Type",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "hydrant_type",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "Pillar / Aboveground",
+            "value": "Pillar / Aboveground"
+          },
+          {
+            "label": "Pond",
+            "value": "Pond"
+          },
+          {
+            "label": "Underground",
+            "value": "Underground"
+          },
+          {
+            "label": "Wall",
+            "value": "Wall"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "19b87261-17cf-0871-0cc6-27e90ee97971",
+        "label": "Manufacturer",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "manufacturer",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "American Darling",
+            "value": "American Darling"
+          },
+          {
+            "label": "AVK",
+            "value": "AVK"
+          },
+          {
+            "label": "Clow",
+            "value": "Clow"
+          },
+          {
+            "label": "James Jones",
+            "value": "James Jones"
+          },
+          {
+            "label": "Kennedy",
+            "value": "Kennedy"
+          },
+          {
+            "label": "M&H",
+            "value": "M&H"
+          },
+          {
+            "label": "Mueller",
+            "value": "Mueller"
+          },
+          {
+            "label": "Trumbull",
+            "value": "Trumbull"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "8ef4ad52-f646-c32c-f91e-2a6c2fa0fa18",
+        "label": "Valve Size",
+        "description": "Valve size, in inches.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "valve_size",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "4.5",
+            "value": "4.5"
+          },
+          {
+            "label": "5.25",
+            "value": "5.25"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "d2fa",
+        "label": "Reflectors Attached?",
+        "description": "Is there reflectance material attached?",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "reflectors_attached",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "68265aed-2763-ae02-b724-e33f01abea2f",
+        "label": "Reflector Comments",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "reflector_comments",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "d2fa",
+            "operator": "equal_to",
+            "value": "yes"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "5a0ad2d3-4b0b-4c28-e095-6317739377cd",
+        "label": "Notes",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "notes",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "PhotoField",
+        "key": "bb90cb91-5053-13fc-6931-264e5ae74d37",
+        "label": "Photos",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "photos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "df75",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "9738",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "EVAL($code)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2015-07-09T18:08:49Z",
+    "updated_at": "2016-03-22T16:08:45Z"
+  }
+}
