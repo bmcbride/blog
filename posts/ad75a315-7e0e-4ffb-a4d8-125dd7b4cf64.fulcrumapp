@@ -1,8 +1,8 @@
 {
   "form": {
     "id": "ad75a315-7e0e-4ffb-a4d8-125dd7b4cf64",
-    "name": "Fire Hydrant Inventory",
-    "description": "Fire hydrant asset management inventory survey.",
+    "name": "Fire Hydrant I & I",
+    "description": "Fire hydrant asset management inventory & inspection survey.",
     "bounding_box": null,
     "record_title_key": "be2c6de1-fff6-797f-c881-237f416f83bd",
     "title_field_keys": [
@@ -298,50 +298,157 @@
         "max_length": null
       },
       {
-        "type": "TextField",
-        "key": "df75",
-        "label": "Code",
+        "type": "Repeatable",
+        "key": "92bd",
+        "label": "Inspections",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "code",
+        "data_name": "inspections",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
+        "elements": [
+          {
+            "type": "DateTimeField",
+            "key": "3e2c",
+            "label": "Date",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "date",
+            "default_value": "now",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "134a",
+            "label": "Functioning",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "functioning",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "a1b0",
+            "label": "Condition",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "condition",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Excellent",
+                "value": "Excellent"
+              },
+              {
+                "label": "Good",
+                "value": "Good"
+              },
+              {
+                "label": "Fair",
+                "value": "Fair"
+              },
+              {
+                "label": "Poor",
+                "value": "Poor"
+              },
+              {
+                "label": "Needs Replacing",
+                "value": "Needs Replacing"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "dd93",
+            "label": "Comments",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "comments",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "1d11",
+            "label": "Inspection Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "inspection_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "3e2c"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
         "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "9738",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
+        "max_length": null
       }
     ],
     "created_at": "2015-07-09T18:08:49Z",
-    "updated_at": "2016-03-22T16:14:55Z"
+    "updated_at": "2016-03-30T18:56:41Z"
   }
 }
