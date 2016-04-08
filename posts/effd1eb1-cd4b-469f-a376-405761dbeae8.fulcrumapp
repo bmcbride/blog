@@ -35,12 +35,12 @@
       {
         "type": "TextField",
         "key": "750c",
-        "label": "Wetland Name",
+        "label": "Feature Name",
         "description": null,
         "required": true,
         "disabled": false,
         "hidden": false,
-        "data_name": "wetland_name",
+        "data_name": "feature_name",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
@@ -54,36 +54,14 @@
         "default_previous_value": false
       },
       {
-        "type": "CalculatedField",
-        "key": "5d61",
-        "label": "Boundary Geometry",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "boundary_wkt",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "var coords = [];\nif ($boundary_flags) {\n  for (var i = 0; i < $boundary_flags.length; ++i) {\n    coords.push($boundary_flags[i].geometry.coordinates[0] + ' ' + $boundary_flags[i].geometry.coordinates[1]);\n  }\n  coords.push($boundary_flags[0].geometry.coordinates[0] + ' ' + $boundary_flags[0].geometry.coordinates[1]);\n}\nSETRESULT('POLYGON ((' + coords + '))');",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
-      },
-      {
         "type": "Repeatable",
         "key": "9e63",
-        "label": "Boundary Flags",
+        "label": "Polygon Vertices",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "boundary_flags",
+        "data_name": "polygon_vertices",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
@@ -93,12 +71,12 @@
           {
             "type": "TextField",
             "key": "d7c5",
-            "label": "Tag Label",
+            "label": "Vertex Label",
             "description": null,
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "tag_label",
+            "data_name": "polygon_vertex_label",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -122,9 +100,101 @@
         "geometry_required": true,
         "min_length": 3,
         "max_length": null
+      },
+      {
+        "type": "CalculatedField",
+        "key": "5d61",
+        "label": "Polygon Geometry",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "polygon_wkt",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "var coords = [];\nif ($polygon_vertices) {\n  for (var i = 0; i < $polygon_vertices.length; ++i) {\n    coords.push($polygon_vertices[i].geometry.coordinates[0] + ' ' + $polygon_vertices[i].geometry.coordinates[1]);\n  }\n  coords.push($polygon_vertices[0].geometry.coordinates[0] + ' ' + $polygon_vertices[0].geometry.coordinates[1]);\n}\nSETRESULT('POLYGON ((' + coords + '))');",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Repeatable",
+        "key": "98a6",
+        "label": "Line Vertices",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "line_vertices",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "8daf",
+            "label": "Vertex Label",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "line_vertex_label",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "8daf"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": true,
+        "min_length": 2,
+        "max_length": null
+      },
+      {
+        "type": "CalculatedField",
+        "key": "681c",
+        "label": "Line Geometry",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "line_wkt",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "var coords = [];\nif ($line_vertices) {\n  for (var i = 0; i < $line_vertices.length; ++i) {\n    coords.push($line_vertices[i].geometry.coordinates[0] + ' ' + $line_vertices[i].geometry.coordinates[1]);\n  }\n}\nSETRESULT('LINESTRING ((' + coords + '))');",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-04-08T14:20:23Z"
+    "updated_at": "2016-04-08T14:29:16Z"
   }
 }
