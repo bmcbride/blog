@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -56,12 +56,12 @@
       {
         "type": "CalculatedField",
         "key": "5d61",
-        "label": "WKT",
+        "label": "Boundary Geometry",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "wkt",
+        "data_name": "boundary_wkt",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
@@ -122,52 +122,9 @@
         "geometry_required": true,
         "min_length": 3,
         "max_length": null
-      },
-      {
-        "type": "TextField",
-        "key": "5725",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "1946",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-04-08T14:19:16Z"
+    "updated_at": "2016-04-08T14:20:23Z"
   }
 }
