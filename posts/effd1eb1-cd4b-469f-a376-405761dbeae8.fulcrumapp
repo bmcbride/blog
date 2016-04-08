@@ -54,6 +54,28 @@
         "default_previous_value": false
       },
       {
+        "type": "CalculatedField",
+        "key": "5d61",
+        "label": "WKT",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "wkt",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "var coords = [];\nif ($boundary_flags) {\n  for (var i = 0; i < $boundary_flags.length; ++i) {\n    coords.push($boundary_flags[i].geometry.coordinates[0] + ' ' + $boundary_flags[i].geometry.coordinates[1]);\n  }\n  coords.push($boundary_flags[0].geometry.coordinates[0] + ' ' + $boundary_flags[0].geometry.coordinates[1]);\n}\nSETRESULT('POLYGON ((' + coords + '))');",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
         "type": "Repeatable",
         "key": "9e63",
         "label": "Boundary Flags",
@@ -146,6 +168,6 @@
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-04-08T13:39:18Z"
+    "updated_at": "2016-04-08T14:19:16Z"
   }
 }
