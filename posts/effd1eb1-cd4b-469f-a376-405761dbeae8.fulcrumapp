@@ -56,12 +56,12 @@
       {
         "type": "Repeatable",
         "key": "9e63",
-        "label": "Wetland Flags",
+        "label": "Boundary Flags",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "wetland_flags",
+        "data_name": "boundary_flags",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
@@ -69,31 +69,30 @@
         "required_conditions": null,
         "elements": [
           {
-            "type": "CalculatedField",
-            "key": "1946",
-            "label": "ID",
+            "type": "TextField",
+            "key": "d7c5",
+            "label": "Tag Label",
             "description": null,
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "id",
+            "data_name": "tag_label",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
             "required_conditions_type": null,
-            "required_conditions": [],
-            "expression": "REPEATABLEID()",
-            "display": {
-              "style": "text",
-              "currency": null
-            },
-            "default_values": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
             "default_previous_value": false
           }
         ],
         "title_field_key": null,
         "title_field_keys": [
-          "1946"
+          "d7c5"
         ],
         "geometry_types": [
           "Point"
@@ -101,9 +100,52 @@
         "geometry_required": true,
         "min_length": 3,
         "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "5725",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "1946",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-04-08T13:32:25Z"
+    "updated_at": "2016-04-08T13:39:18Z"
   }
 }
