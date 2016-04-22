@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('new-record', function (event) {\n  ON('change', 'field_address', function (event) {\n    ALERT('Field Address changed');\n  })\n  /*var address = \"\";\n  if ($address.sub_thoroughfare) {\n    address += $address.sub_thoroughfare;\n  }\n  if ($address.thoroughfare) {\n    address += \" \" + $address.thoroughfare;\n  }\n  if ($address.suite) {\n    address += \" #\" + $address.suite;\n  }\n  if ($address.locality) {\n    address += \", \" + $address.locality;\n  }\n  if ($address.admin_area) {\n    address += \", \" + $address.admin_area;\n  }\n  if ($address.postal_code) {\n    address += \" \" + $address.postal_code;\n  }\n  if ($address.sub_admin_area) {\n    address += \", \" + $address.sub_admin_area;\n  }\n  if ($address.country) {\n    address += \", \" + $address.country;\n  }\n  SETVALUE('address', address);*/\n})",
+    "script": "ON('new-record', function (event) {\n  SETHIDDEN('field_address', false);\n  ON('change', 'field_address', function (event) {\n    ALERT('Field Address changed');\n  });\n  /*var address = \"\";\n  if ($address.sub_thoroughfare) {\n    address += $address.sub_thoroughfare;\n  }\n  if ($address.thoroughfare) {\n    address += \" \" + $address.thoroughfare;\n  }\n  if ($address.suite) {\n    address += \" #\" + $address.suite;\n  }\n  if ($address.locality) {\n    address += \", \" + $address.locality;\n  }\n  if ($address.admin_area) {\n    address += \", \" + $address.admin_area;\n  }\n  if ($address.postal_code) {\n    address += \" \" + $address.postal_code;\n  }\n  if ($address.sub_admin_area) {\n    address += \", \" + $address.sub_admin_area;\n  }\n  if ($address.country) {\n    address += \", \" + $address.country;\n  }\n  SETVALUE('address', address);*/\n})",
     "elements": [
       {
         "type": "TextField",
@@ -71,7 +71,7 @@
         "description": null,
         "required": false,
         "disabled": false,
-        "hidden": false,
+        "hidden": true,
         "data_name": "field_address",
         "default_value": null,
         "visible_conditions_type": null,
@@ -126,6 +126,6 @@
       }
     ],
     "created_at": "2015-11-06T20:54:25Z",
-    "updated_at": "2016-04-22T16:55:40Z"
+    "updated_at": "2016-04-22T16:57:58Z"
   }
 }
