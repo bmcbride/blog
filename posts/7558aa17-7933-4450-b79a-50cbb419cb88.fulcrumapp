@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('new-record', function (event) {\n  SETHIDDEN('field_address', false);\n  ON('change', 'field_address', function (event) {\n    var address = \"\";\n    if ($field_address.sub_thoroughfare) {\n      address += $field_address.sub_thoroughfare;\n    }\n    if ($field_address.thoroughfare) {\n      address += \" \" + $field_address.thoroughfare;\n    }\n    if ($field_address.suite) {\n      address += \" #\" + $field_address.suite;\n    }\n    if ($field_address.locality) {\n      address += \", \" + $field_address.locality;\n    }\n    if ($field_address.admin_area) {\n      address += \", \" + $field_address.admin_area;\n    }\n    if ($field_address.postal_code) {\n      address += \" \" + $field_address.postal_code;\n    }\n    if ($field_address.sub_admin_area) {\n      address += \", \" + $field_address.sub_admin_area;\n    }\n    if ($field_address.country) {\n      address += \", \" + $field_address.country;\n    }\n    SETVALUE('address', address);\n    SETHIDDEN('field_address', true);\n  });\n})",
+    "script": "ON('new-record', function (event) {\n  SETHIDDEN('field_address', false);\n  ON('change', 'field_address', function (event) {\n    var address = \"\";\n    if ($field_address.sub_thoroughfare) {\n      address += $field_address.sub_thoroughfare;\n    }\n    if ($field_address.thoroughfare) {\n      address += \" \" + $field_address.thoroughfare;\n    }\n    if ($field_address.suite) {\n      address += \" #\" + $field_address.suite;\n    }\n    if ($field_address.locality) {\n      address += \", \" + $field_address.locality;\n    }\n    if ($field_address.admin_area) {\n      address += \", \" + $field_address.admin_area;\n    }\n    if ($field_address.postal_code) {\n      address += \" \" + $field_address.postal_code;\n    }\n    if ($field_address.sub_admin_area) {\n      address += \", \" + $field_address.sub_admin_area;\n    }\n    SETVALUE('address', address);\n    SETHIDDEN('field_address', true);\n  });\n})",
     "elements": [
       {
         "type": "TextField",
@@ -105,6 +105,6 @@
       }
     ],
     "created_at": "2015-11-06T20:54:25Z",
-    "updated_at": "2016-04-22T18:15:58Z"
+    "updated_at": "2016-04-22T18:17:13Z"
   }
 }
