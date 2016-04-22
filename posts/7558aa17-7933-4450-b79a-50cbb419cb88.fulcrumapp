@@ -78,7 +78,7 @@
         "visible_conditions": [
           {
             "field_key": "4de3",
-            "operator": "is_not_empty",
+            "operator": "is_empty",
             "value": ""
           }
         ],
@@ -111,6 +111,6 @@
       }
     ],
     "created_at": "2015-11-06T20:54:25Z",
-    "updated_at": "2016-04-22T15:57:09Z"
+    "updated_at": "2016-04-22T15:58:05Z"
   }
 }
