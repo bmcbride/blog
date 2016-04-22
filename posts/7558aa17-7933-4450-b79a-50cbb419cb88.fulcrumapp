@@ -1,0 +1,116 @@
+{
+  "form": {
+    "id": "7558aa17-7933-4450-b79a-50cbb419cb88",
+    "name": "Address Testing",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "472e",
+    "title_field_keys": [
+      "472e"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Good",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Good",
+          "value": "Good",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Bad",
+          "value": "Bad",
+          "color": "#2D5D00"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 5,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "4de3",
+        "label": "Address",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "address",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "AddressField",
+        "key": "472e",
+        "label": "Field Address",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "field_address",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "4de3",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "auto_populate": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "0b1e",
+        "label": "Full Add",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "full_add",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "var address = \"\";\nif ($address.sub_thoroughfare) {\n  address += $address.sub_thoroughfare;\n}\nif ($address.thoroughfare) {\n  address += \" \" + $address.thoroughfare;\n}\nif ($address.suite) {\n  address += \" #\" + $address.suite;\n}\nif ($address.locality) {\n  address += \", \" + $address.locality;\n}\nif ($address.admin_area) {\n  address += \", \" + $address.admin_area;\n}\nif ($address.postal_code) {\n  address += \" \" + $address.postal_code;\n}\nif ($address.sub_admin_area) {\n  address += \", \" + $address.sub_admin_area;\n}\nif ($address.country) {\n  address += \", \" + $address.country;\n}\nSETRESULT(address);",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2015-11-06T20:54:25Z",
+    "updated_at": "2016-04-22T15:57:09Z"
+  }
+}
