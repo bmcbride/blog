@@ -95,7 +95,7 @@
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": [],
-        "expression": "var d = new Date();\nvar n = d.toLocaleTimeString();\nn\n//TIMESTAMP(new Date())",
+        "expression": "TIMESTAMP(new Date()).split(' ')[1];",
         "display": {
           "style": "text",
           "currency": null
@@ -105,6 +105,6 @@
       }
     ],
     "created_at": "2015-11-06T20:54:25Z",
-    "updated_at": "2016-04-22T18:10:33Z"
+    "updated_at": "2016-04-22T18:15:58Z"
   }
 }
