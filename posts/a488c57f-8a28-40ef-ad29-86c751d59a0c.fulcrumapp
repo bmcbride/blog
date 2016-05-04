@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function fetchBeers() {\n  apiKey = 'eb3432bae7ef3401938b3d2d0d776dc8'\n\n  options = {\n    url: 'https://crossorigin.me/https://api.brewerydb.com/v2/search?key=' + apiKey + '&type=beer&q=' + $beer_name\n  }\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error)\n    } else {\n      //coord = JSON.parse(body)\n      ALERT(options.url);\n      //SETVALUE('these_three_words', coord.words.join('.'))\n    }\n  })\n}\n\nON('click', 'find_beer', fetchBeers);",
+    "script": "function fetchBeers() {\n  apiKey = 'eb3432bae7ef3401938b3d2d0d776dc8'\n\n  options = {\n    url: 'https://crossorigin.me/https://api.brewerydb.com/v2/search?key=' + apiKey + '&type=beer&q=' + $beer_name\n  }\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error)\n    } else {\n      //beers = JSON.parse(body)\n      ALERT(INSPECT(JSON.parse(body)));\n      //SETVALUE('these_three_words', coord.words.join('.'))\n    }\n  })\n}\n\nON('click', 'find_beer', fetchBeers);",
     "elements": [
       {
         "type": "TextField",
@@ -121,6 +121,6 @@
       }
     ],
     "created_at": "2016-05-04T21:13:21Z",
-    "updated_at": "2016-05-04T21:26:42Z"
+    "updated_at": "2016-05-04T21:27:33Z"
   }
 }
