@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('change', 'number', function (event) {\n  if(!ISBLANK($number)) {\n    SETREADONLY('number', true);\n  }\n})",
+    "script": "ON('edit-record', function (event) {\n  if(!ISBLANK($number)) {\n    SETREADONLY('number', true);\n  }\n})",
     "elements": [
       {
         "type": "TextField",
@@ -56,6 +56,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-05T19:51:51Z"
+    "updated_at": "2016-05-05T19:53:37Z"
   }
 }
