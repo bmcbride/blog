@@ -37,7 +37,7 @@
         "key": "c583",
         "label": "Number",
         "description": null,
-        "required": false,
+        "required": true,
         "disabled": false,
         "hidden": false,
         "data_name": "number",
@@ -56,6 +56,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-05T19:57:10Z"
+    "updated_at": "2016-05-05T19:57:30Z"
   }
 }
