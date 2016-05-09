@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "/*ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})*/\n\nfunction changeStatus(event) {\n  console.log(event);\n}\n\nON('change', 'start_travel_local', changeStatus);",
+    "script": "/*ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})*/\n\nfunction changeStatus(event) {\n  //console.log(event);\n  console.log(CHOICEVALUE($start_travel_local));\n}\n\nON('change', 'start_travel_local', changeStatus);",
     "elements": [
       {
         "type": "TextField",
@@ -127,6 +127,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-09T16:18:47Z"
+    "updated_at": "2016-05-09T16:20:54Z"
   }
 }
