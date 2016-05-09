@@ -13,24 +13,35 @@
       "label": "Status",
       "key": "@status",
       "data_name": "status",
-      "default_value": "",
-      "enabled": false,
+      "default_value": "9993",
+      "enabled": true,
       "read_only": false,
       "hidden": false,
       "description": "",
-      "choices": [],
+      "choices": [
+        {
+          "label": "started travel",
+          "value": "9993",
+          "color": "#294184"
+        },
+        {
+          "label": "started",
+          "value": "9994",
+          "color": "#1891C9"
+        }
+      ],
       "required": false,
       "disabled": false,
       "default_previous_value": false
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 1,
+    "record_count": 3,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})",
+    "script": "/*ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})*/\n\nfunction changeStatus(event) {\n  console.log(event);\n}\n\nON('change', 'start_travel_local', changeStatus);",
     "elements": [
       {
         "type": "TextField",
@@ -53,9 +64,69 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "7f01",
+        "label": "Start Travel Local",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "start_travel_local",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "Start Travel",
+            "value": "start_travel"
+          },
+          {
+            "label": "Started Work",
+            "value": "started_work_otj"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "79b7",
+        "label": "Employee Start Date",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "employee_start_date_1",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TimeField",
+        "key": "a54c",
+        "label": "Emoloyee Start Time",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "employee_start_time_1",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-05T19:57:30Z"
+    "updated_at": "2016-05-09T16:18:47Z"
   }
 }
