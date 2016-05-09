@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "/*ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})*/\n\nfunction changeStatus(event) {\n  var choice = CHOICEVALUE($start_travel_local);\n  if (choice === 'start_travel' || choice === 'starting_travel') {\n    SETSTATUS('9993');\n    SETVALUE('employee_start_date_1', new Date());\n    SETVALUE('employee_start_time_1', TIMESTAMP(new Date()).split(' ')[1]);\n  }\n  else if (choice === 'started_work_otj') {\n    SETSTATUS('9994');\n    SETVALUE('employee_start_date_1', new Date());\n    SETVALUE('employee_start_time_1', TIMESTAMP(new Date()).split(' ')[1]);\n  }\n}\n\nON('change', 'start_travel_local', changeStatus);",
+    "script": "/*ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})*/\n\nfunction changeStatus(event) {\n  var choice = CHOICEVALUE($start_travel_local);\n  if (choice === 'start_travel' || choice === 'starting_travel') {\n    SETSTATUS('9993');\n    SETVALUE('employee_start_date_1', new Date());\n    SETVALUE('employee_start_time_1', TIMESTAMP(new Date()).split(' ')[1]);\n  }\n  else if (choice === 'started_work_otj') {\n    SETSTATUS('9994');\n    SETVALUE('employee_start_date_1', new Date());\n    SETVALUE('employee_start_time_1', TIMESTAMP(new Date()).split(' ')[1]);\n    console.log(TIMESTAMP(new Date()).split(' ')[1]);\n  }\n}\n\nON('change', 'start_travel_local', changeStatus);",
     "elements": [
       {
         "type": "TextField",
@@ -127,6 +127,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-09T16:32:07Z"
+    "updated_at": "2016-05-09T16:33:57Z"
   }
 }
