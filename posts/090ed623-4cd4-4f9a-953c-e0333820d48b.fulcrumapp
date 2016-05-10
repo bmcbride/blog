@@ -13,12 +13,23 @@
       "label": "Status",
       "key": "@status",
       "data_name": "status",
-      "default_value": null,
-      "enabled": false,
+      "default_value": "Good",
+      "enabled": true,
       "read_only": false,
       "hidden": false,
       "description": "",
-      "choices": [],
+      "choices": [
+        {
+          "label": "Good",
+          "value": "Good",
+          "color": "#1891C9"
+        },
+        {
+          "label": "Bad",
+          "value": "Bad",
+          "color": "#CB0D0C"
+        }
+      ],
       "required": false,
       "disabled": false,
       "default_previous_value": false
@@ -30,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})\n\nfunction changeAssign(event) {\n  SETVALUE('@assigned_to', 'mcbride.bryan@gmail.com')\n}\n\nON('load-record', changeAssign)",
+    "script": "ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})\n\nfunction changeAssign(event) {\n  SETVALUE('@status', 'Bad')\n}\n\nON('load-record', changeAssign)",
     "elements": [
       {
         "type": "TextField",
@@ -99,6 +110,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-10T18:16:40Z"
+    "updated_at": "2016-05-10T18:21:05Z"
   }
 }
