@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "/*ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})*/\n\nfunction changeStatus(event) {\n  var choice = CHOICEVALUE($start_travel_local);\n  var date = new Date();\n  var time = TIMESTAMP(new Date()).split(' ')[1];\n  var hhmm = [time.split(':')[0], time.split(':')[1]].join(':');\n  \n  if (choice === 'start_travel' || choice === 'starting_travel') {\n    SETSTATUS('9993');\n    SETVALUE('employee_start_date_1', date);\n    SETVALUE('employee_start_time_1', hhmm);\n  }\n  else if (choice === 'started_work_otj') {\n    SETSTATUS('9994');\n    SETVALUE('employee_start_date_1', date);\n    SETVALUE('employee_start_time_1', hhmm);\n  }\n}\n\nON('change', 'start_travel_local', changeStatus);",
+    "script": "ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})",
     "elements": [
       {
         "type": "TextField",
@@ -64,112 +64,9 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
-      },
-      {
-        "type": "ChoiceField",
-        "key": "7f01",
-        "label": "Start Travel Local",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "start_travel_local",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "multiple": false,
-        "allow_other": false,
-        "choices": [
-          {
-            "label": "Start Travel",
-            "value": "start_travel"
-          },
-          {
-            "label": "Started Work",
-            "value": "started_work_otj"
-          }
-        ],
-        "default_previous_value": false
-      },
-      {
-        "type": "DateTimeField",
-        "key": "79b7",
-        "label": "Employee Start Date",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "employee_start_date_1",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "TimeField",
-        "key": "a54c",
-        "label": "Emoloyee Start Time",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "employee_start_time_1",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "TextField",
-        "key": "618e",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "e800",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-09T16:55:22Z"
+    "updated_at": "2016-05-10T18:08:36Z"
   }
 }
