@@ -1,0 +1,60 @@
+{
+  "form": {
+    "id": "9d9d9d87-6a3d-4e09-b902-2a9d7e7c31fd",
+    "name": "Pushbullet Notifications",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "e811",
+    "title_field_keys": [
+      "e811"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('save-record', function(event) {\nvar options = {\n  url: 'https://api.pushbullet.com/v2/pushes',\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  json: {\"email\":\"mcbride.bryan@gmail.com\",\"body\":\"This brew needs to be updated ASAP\",\"title\":\"New Fulcrum Dispatch\",\"type\":\"link\",\"url\":\"fulcrumapp://edit-record?record_id=9d0001e2-1023-448b-8896-6135043e966d&comments=Pushbullet Test\"}\n}\n\nREQUEST(options, function(error, response, body) {\n  if (error) {\n    ALERT('Error with request: ' + error)\n  } else {\n    var data = JSON.parse(body);\n    ALERT(INSPECT(data));\n  }\n})\n});",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "e811",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-05-10T15:50:23Z",
+    "updated_at": "2016-05-10T15:50:23Z"
+  }
+}
