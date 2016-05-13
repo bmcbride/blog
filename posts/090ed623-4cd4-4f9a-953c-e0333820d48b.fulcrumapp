@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('edit-record', function (event) {\n  if ($signature) {\n    var elements = this.elementsByDataName;\n    for (var element in elements) {\n      var data_name = eval('$'+elements[element].data_name);\n      SETREADONLY(data_name, true);\n    }\n  }\n})\n\nON('validate-record', function (event) {\n  if ($photos) {\n    for (var i = 0; i < $photos.length; i++) {\n      if ($photos[i].caption == null) {\n        INVALID('All photos must have captions!');\n      }\n    }\n  }\n})",
+    "script": "ON('edit-record', function (event) {\n  if ($signature) {\n    var elements = this.elementsByDataName;\n    for (var element in elements) {\n      SETREADONLY(elements[element].data_name, true);\n    }\n  }\n})\n\nON('validate-record', function (event) {\n  if ($photos) {\n    for (var i = 0; i < $photos.length; i++) {\n      if ($photos[i].caption == null) {\n        INVALID('All photos must have captions!');\n      }\n    }\n  }\n})",
     "elements": [
       {
         "type": "TextField",
@@ -143,6 +143,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-13T14:27:06Z"
+    "updated_at": "2016-05-13T14:28:44Z"
   }
 }
