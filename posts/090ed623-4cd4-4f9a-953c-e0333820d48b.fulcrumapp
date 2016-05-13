@@ -36,7 +36,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 4,
+    "record_count": 5,
     "geometry_types": [
       "Point"
     ],
@@ -83,6 +83,22 @@
         "max_length": null
       },
       {
+        "type": "SignatureField",
+        "key": "d8e0",
+        "label": "Signature",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "signature",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "agreement_text": ""
+      },
+      {
         "type": "TextField",
         "key": "b064",
         "label": "Code",
@@ -127,6 +143,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-13T14:00:45Z"
+    "updated_at": "2016-05-13T14:07:57Z"
   }
 }
