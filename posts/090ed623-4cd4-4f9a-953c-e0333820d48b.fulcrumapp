@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})\n\n/*ON('validate-record', function (event) {\n  SETREADONLY('number', true);\n})*/",
+    "script": "ON('edit-record', function (event) {\n  SETREADONLY('number', true);\n})\n\nON('validate-record', function (event) {\n  for (var i = 0; i < $photos.length; i++) {\n    if ($photos[i].caption == null) {\n      INVALID('All photos must have captions!');\n    }\n  }\n})",
     "elements": [
       {
         "type": "TextField",
@@ -127,6 +127,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-13T13:11:35Z"
+    "updated_at": "2016-05-13T13:23:56Z"
   }
 }
