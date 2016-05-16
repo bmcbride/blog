@@ -99,20 +99,47 @@
         "agreement_text": ""
       },
       {
-        "type": "DateTimeField",
-        "key": "10c1",
-        "label": "Date",
+        "type": "Repeatable",
+        "key": "8471",
+        "label": "Inspections",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "date",
+        "data_name": "inspections",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": null,
-        "default_previous_value": false
+        "elements": [
+          {
+            "type": "DateTimeField",
+            "key": "7e61",
+            "label": "Inspection Date",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "inspection_date",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "7e61"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
       },
       {
         "type": "TextField",
@@ -159,6 +186,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-16T15:38:48Z"
+    "updated_at": "2016-05-16T20:33:37Z"
   }
 }
