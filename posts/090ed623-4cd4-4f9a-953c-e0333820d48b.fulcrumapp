@@ -36,7 +36,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 5,
+    "record_count": 6,
     "geometry_types": [
       "Point"
     ],
@@ -99,6 +99,22 @@
         "agreement_text": ""
       },
       {
+        "type": "DateTimeField",
+        "key": "10c1",
+        "label": "Date",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "date",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
         "type": "TextField",
         "key": "b064",
         "label": "Code",
@@ -140,27 +156,9 @@
         },
         "default_values": null,
         "default_previous_value": false
-      },
-      {
-        "type": "ClassificationField",
-        "key": "acdc",
-        "label": "Class",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "class",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "allow_other": false,
-        "classification_set_id": "d7fffbab-ba93-4956-b9a1-2809b5e435e3",
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-16T15:15:09Z"
+    "updated_at": "2016-05-16T15:38:48Z"
   }
 }
