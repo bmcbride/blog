@@ -4,30 +4,40 @@
     "name": "CartoDB Sync Demo",
     "description": null,
     "bounding_box": null,
-    "record_title_key": "c583",
+    "record_title_key": "5205",
     "title_field_keys": [
-      "c583"
+      "5205"
     ],
     "status_field": {
       "type": "StatusField",
       "label": "Status",
       "key": "@status",
       "data_name": "status",
-      "default_value": "Good",
+      "default_value": "Orange",
       "enabled": true,
       "read_only": false,
       "hidden": false,
       "description": "",
       "choices": [
         {
-          "label": "Good",
-          "value": "Good",
+          "label": "Red",
+          "value": "Red",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Orange",
+          "value": "Orange",
+          "color": "#FF8819"
+        },
+        {
+          "label": "Blue",
+          "value": "Blue",
           "color": "#1891C9"
         },
         {
-          "label": "Bad",
-          "value": "Bad",
-          "color": "#CB0D0C"
+          "label": "Green",
+          "value": "Green",
+          "color": "#87D30F"
         }
       ],
       "required": false,
@@ -36,7 +46,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 1,
+    "record_count": 3,
     "geometry_types": [
       "Point"
     ],
@@ -66,35 +76,13 @@
       },
       {
         "type": "TextField",
-        "key": "c583",
-        "label": "Number",
+        "key": "a88a",
+        "label": "Region",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "number",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": true,
-        "format": "integer",
-        "min": null,
-        "max": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "TextField",
-        "key": "b064",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
+        "data_name": "region",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
@@ -108,29 +96,28 @@
         "default_previous_value": false
       },
       {
-        "type": "CalculatedField",
-        "key": "c6bd",
-        "label": "Eval",
+        "type": "TextField",
+        "key": "4b3f",
+        "label": "Postal",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "eval",
+        "data_name": "postal",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
         "default_previous_value": false
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-23T17:11:37Z"
+    "updated_at": "2016-05-23T21:01:45Z"
   }
 }
