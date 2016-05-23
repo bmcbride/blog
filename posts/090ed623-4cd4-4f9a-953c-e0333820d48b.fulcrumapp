@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "090ed623-4cd4-4f9a-953c-e0333820d48b",
-    "name": "Demo",
+    "name": "CartoDB Sync Demo",
     "description": null,
     "bounding_box": null,
     "record_title_key": "c583",
@@ -41,14 +41,35 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('edit-record', function (event) {\n  if ($signature) {\n    for (var dataName in this.elementsByDataName) {\n      SETREADONLY(dataName, true);\n    }\n    ON('new-repeatable', 'inspections', function (event) {\n      ALERT('No new items can be added at this time.');\n    })\n    ON('validate-repeatable', 'inspections', function (event) {\n      INVALID('No new items can be added at this time.');\n    })\n  }\n})\n\nON('validate-record', function (event) {\n  if ($photos) {\n    for (var i = 0; i < $photos.length; i++) {\n      if ($photos[i].caption == null) {\n        INVALID('All photos must have captions!');\n      }\n    }\n  }\n})",
+    "script": "var type, query, username = 'fulcrum', api_key='902871372eafdac444b7186c028f3002ec0e430a';\n\nON('new-record', function (event) {\n  type = 'create';\n})\n\nON('edit-record', function (event) {\n  type = 'update';\n})\n\nON('save-record', function (event) {\n  if (type == 'create') {\n    query = 'INSERT INTO fulcrum_data_events (fulcrum_id, name, number, the_geom) VALUES (($$'+RECORDID()+'$$, $$'+$name+'$$, '+$number+', ST_SetSRID(ST_Point('+LONGITUDE()+', '+LATITUDE()+'),4326))';\n  } else if (type == 'update') {\n    query = 'UPDATE INTO fulcrum_data_events SET name=$$'+$name+'$$, number='+$number+', the_geom=ST_SetSRID(ST_Point('+LONGITUDE()+', '+LATITUDE()+'),4326) WHERE fulcrum_id=$$'+RECORDID()+'$$';\n  }\n\n  ALERT(query);\n  \n  /*options = {\n    url: 'https://'+username+'.cartodb.com/api/v2/sql?q='+query+'&api_key='+api_key,\n    method: 'POST'\n  }\n  \n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error)\n    } else {\n      data = JSON.parse(body)\n      SETVALUE('field_you_want_to_populate', data.rows[0].value)\n    }\n  })*/\n})",
     "elements": [
+      {
+        "type": "TextField",
+        "key": "5205",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
       {
         "type": "TextField",
         "key": "c583",
         "label": "Number",
         "description": null,
-        "required": true,
+        "required": false,
         "disabled": false,
         "hidden": false,
         "data_name": "number",
@@ -64,82 +85,6 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
-      },
-      {
-        "type": "PhotoField",
-        "key": "e93a",
-        "label": "Photos",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "photos",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "min_length": null,
-        "max_length": null
-      },
-      {
-        "type": "SignatureField",
-        "key": "d8e0",
-        "label": "Signature",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "signature",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "agreement_text": ""
-      },
-      {
-        "type": "Repeatable",
-        "key": "8471",
-        "label": "Inspections",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "inspections",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "elements": [
-          {
-            "type": "DateTimeField",
-            "key": "7e61",
-            "label": "Inspection Date",
-            "description": null,
-            "required": false,
-            "disabled": false,
-            "hidden": false,
-            "data_name": "inspection_date",
-            "default_value": null,
-            "visible_conditions_type": null,
-            "visible_conditions": null,
-            "required_conditions_type": null,
-            "required_conditions": null,
-            "default_previous_value": false
-          }
-        ],
-        "title_field_key": null,
-        "title_field_keys": [
-          "7e61"
-        ],
-        "geometry_types": [
-          "Point"
-        ],
-        "geometry_required": false,
-        "min_length": null,
-        "max_length": null
       },
       {
         "type": "TextField",
@@ -186,6 +131,6 @@
       }
     ],
     "created_at": "2016-05-05T19:51:51Z",
-    "updated_at": "2016-05-16T20:45:11Z"
+    "updated_at": "2016-05-23T16:53:09Z"
   }
 }
