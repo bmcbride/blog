@@ -28,7 +28,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "// photo has to be geotagged\nON('add-photo', 'photos', function (event) {\n  /*if (!event.value.latitude ) {\n    \n  }*/\n  ALERT(INSPECT(event));\n})",
+    "script": "// alert user if photo is not geotagged\nON('add-photo', 'photos', function (event) {\n  if (!event.value.latitude || !event.value.latitude || event.value.latitude == 0 || event.value.latitude == 0) {\n    ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n  }\n})",
     "elements": [
       {
         "type": "PhotoField",
@@ -49,6 +49,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-24T20:18:52Z"
+    "updated_at": "2016-05-24T20:48:13Z"
   }
 }
