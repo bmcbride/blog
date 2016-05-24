@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "// alert user if photo is not geotagged\n/*var elements = this.elementsByDataName;\nfor (var dataName in elements) {\n  if (elements[dataName].type == \"PhotoField\") {\n    ON('add-photo', dataName, function (event) {\n      if (!event.value.latitude || !event.value.latitude || event.value.latitude == 0 || event.value.latitude == 0) {\n        ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n      }\n    })\n  }\n}*/\n\n\nON('validate-record', function (event) {\n  var elements = this.elementsByDataName;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'PhotoField') {\n      var photos = eval('$'+dataName);\n      if (photos) {\n        for (var i = 0; i < photos.length; i++) {\n          if (photos[i].caption == null) {\n            INVALID('All photos must have captions!');\n          }\n        }\n      }\n    }\n  }\n})",
+    "script": "// alert user if photo is not geotagged\n/*var elements = this.elementsByDataName;\nfor (var dataName in elements) {\n  if (elements[dataName].type == \"PhotoField\") {\n    ON('add-photo', dataName, function (event) {\n      if (!event.value.latitude || !event.value.latitude || event.value.latitude == 0 || event.value.latitude == 0) {\n        ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n      }\n    })\n  }\n}*/\n\n\n/*ON('validate-record', function (event) {\n  var elements = this.elementsByDataName;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'PhotoField') {\n      var photos = eval('$'+dataName);\n      if (photos) {\n        for (var i = 0; i < photos.length; i++) {\n          if (photos[i].caption == null) {\n            INVALID('All photos must have captions!');\n          }\n        }\n      }\n    }\n  }\n})*/\n\nON('validate-record', function (event) {\n  var elements = this.elementsByDataName;\n  var values = this.values;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'PhotoField') {\n      //var photos = eval('$'+dataName);\n      var photos = values[elements[dataName].key];\n      if (photos) {\n        for (var i = 0; i < photos.length; i++) {\n          if (photos[i].caption == null) {\n            INVALID('All photos must have captions!');\n          }\n        }\n      }\n    }\n  }\n})",
     "elements": [
       {
         "type": "PhotoField",
@@ -136,6 +136,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-24T21:28:52Z"
+    "updated_at": "2016-05-24T21:38:02Z"
   }
 }
