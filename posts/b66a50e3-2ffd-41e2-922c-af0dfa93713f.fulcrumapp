@@ -25,12 +25,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "// alert user if photo is not geotagged\nON('add-photo', 'photos', function (event) {\n  if (!event.value.latitude || !event.value.latitude || event.value.latitude == 0 || event.value.latitude == 0) {\n    ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n  }\n})",
+    "script": "// alert user if photo is not geotagged\nvar elements = this.elementsByDataName;\nfor (var dataName in elements) {\n  if (elements[dataName].type == \"PhotoField\") {\n    ON('add-photo', dataName, function (event) {\n      if (!event.value.latitude || !event.value.latitude || event.value.latitude == 0 || event.value.latitude == 0) {\n        ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n      }\n    })\n  }\n}",
     "elements": [
       {
         "type": "PhotoField",
@@ -94,6 +94,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-24T20:52:25Z"
+    "updated_at": "2016-05-24T20:59:28Z"
   }
 }
