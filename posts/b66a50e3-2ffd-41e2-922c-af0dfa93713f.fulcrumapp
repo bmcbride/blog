@@ -13,12 +13,23 @@
       "label": "Status",
       "key": "@status",
       "data_name": "status",
-      "default_value": "",
-      "enabled": false,
+      "default_value": "Status 1",
+      "enabled": true,
       "read_only": false,
       "hidden": false,
       "description": "",
-      "choices": [],
+      "choices": [
+        {
+          "label": "Status 1",
+          "value": "Status 1",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Status 2",
+          "value": "Status 2",
+          "color": "#294184"
+        }
+      ],
       "required": false,
       "disabled": false,
       "default_previous_value": false
@@ -32,6 +43,27 @@
     "geometry_required": false,
     "script": "// alert user if photo is not geotagged\n/*var elements = this.elementsByDataName;\nfor (var dataName in elements) {\n  if (elements[dataName].type == \"PhotoField\") {\n    ON('add-photo', dataName, function (event) {\n      if (!event.value.latitude || !event.value.latitude || event.value.latitude == 0 || event.value.latitude == 0) {\n        ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n      }\n    })\n  }\n}*/\n\n\n/*ON('validate-record', function (event) {\n  var elements = this.elementsByDataName;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'PhotoField') {\n      var photos = eval('$'+dataName);\n      if (photos) {\n        for (var i = 0; i < photos.length; i++) {\n          if (photos[i].caption == null) {\n            INVALID('All photos must have captions!');\n          }\n        }\n      }\n    }\n  }\n})*/\n\nON('validate-record', function (event) {\n  var elements = this.elementsByDataName;\n  var values = this.values;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'PhotoField') {\n      //var photos = eval('$'+dataName);\n      var photos = values[elements[dataName].key];\n      if (photos) {\n        for (var i = 0; i < photos.length; i++) {\n          if (photos[i].caption == null) {\n            INVALID('All photos must have captions!');\n          }\n        }\n      }\n    }\n  }\n})",
     "elements": [
+      {
+        "type": "TextField",
+        "key": "9010",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
       {
         "type": "PhotoField",
         "key": "8a50",
@@ -136,6 +168,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-24T21:38:02Z"
+    "updated_at": "2016-05-25T02:46:52Z"
   }
 }
