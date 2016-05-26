@@ -1,0 +1,124 @@
+{
+  "form": {
+    "id": "c2f0f4a0-f527-4fee-97dd-b80a703512ae",
+    "name": "Repeatable Requirement Testing",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "202a",
+    "title_field_keys": [
+      "202a"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "202a",
+        "label": "Name",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Repeatable",
+        "key": "1331",
+        "label": "Level One",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "level_one",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "d461",
+            "label": "Color",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "color",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "DateTimeField",
+            "key": "65fc",
+            "label": "Date",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "date",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "65fc"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      }
+    ],
+    "created_at": "2016-05-26T16:10:57Z",
+    "updated_at": "2016-05-26T16:10:57Z"
+  }
+}
