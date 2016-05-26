@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function findDistance(lat1, lon1, lat2, lon2, unit) {\n  var radlat1 = Math.PI * lat1/180;\n  var radlat2 = Math.PI * lat2/180;\n  var theta = lon1-lon2;\n  var radtheta = Math.PI * theta/180;\n  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);\n  dist = Math.acos(dist);\n  dist = dist * 180/Math.PI;\n  dist = dist * 60 * 1.1515;\n  if (unit==\"K\") { dist = dist * 1.609344; }\n  if (unit==\"N\") { dist = dist * 0.8684; }\n  return dist;\n}\n\nfunction validateDistance (event) {\n  if (event.value.latitude && event.value.longitude) {\n    var kilometers = findDistance(event.value.latitude, event.value.longitude, LATITUDE(), LONGITUDE(), 'K');\n    var meters = Math.round(kilometers * 1000);\n    if (meters > 20) {\n      ALERT('This photo is over 20 meters from the record location. ('+meters+' meters)');\n    }\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateDistance);\n    }\n  }\n});",
+    "script": "function validateTime(event) {\n  if (event.value.timestamp) {\n    var minutes = Math.round((new Date() - new Date(event.value.timestamp))/60000);\n    if (minutes > 15) {\n      ALERT('This photo was taken over 15 minutes ago. Please use a more recent photo.');\n    }\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateTime);\n    }\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -168,6 +168,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-26T21:35:13Z"
+    "updated_at": "2016-05-26T21:37:14Z"
   }
 }
