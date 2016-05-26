@@ -25,12 +25,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('load-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', false);\n})",
+    "script": "/*ON('load-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', false);\n})*/\n\nON('validate-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', false);\n})",
     "elements": [
       {
         "type": "TextField",
@@ -119,6 +119,6 @@
       }
     ],
     "created_at": "2016-05-26T16:10:57Z",
-    "updated_at": "2016-05-26T16:14:03Z"
+    "updated_at": "2016-05-26T16:18:15Z"
   }
 }
