@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "/*ON('load-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', false);\n})*/\n\n/*ON('validate-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', false);\n})*/",
+    "script": "/*ON('load-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', false);\n})*/\n\nON('edit-record', function (event) {\n  SETREQUIRED('color', false);\n})\n\nON('load-repeatable', 'level_one', function (event) {\n  SETREQUIRED('color', true);\n})",
     "elements": [
       {
         "type": "TextField",
@@ -119,6 +119,6 @@
       }
     ],
     "created_at": "2016-05-26T16:10:57Z",
-    "updated_at": "2016-05-26T16:28:57Z"
+    "updated_at": "2016-05-26T16:43:52Z"
   }
 }
