@@ -73,7 +73,7 @@
             "key": "d461",
             "label": "Color",
             "description": null,
-            "required": false,
+            "required": true,
             "disabled": false,
             "hidden": false,
             "data_name": "color",
@@ -119,6 +119,6 @@
       }
     ],
     "created_at": "2016-05-26T16:10:57Z",
-    "updated_at": "2016-05-26T16:27:40Z"
+    "updated_at": "2016-05-26T16:28:57Z"
   }
 }
