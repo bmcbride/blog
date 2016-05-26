@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, function (event) {\n        ALERT(INSPECT(event.value.timestamp));\n      })\n    }\n  }\n})",
+    "script": "ON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, function (event) {\n        ALERT(INSPECT(event));\n      })\n    }\n  }\n})",
     "elements": [
       {
         "type": "TextField",
@@ -168,6 +168,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-26T18:58:24Z"
+    "updated_at": "2016-05-26T18:59:27Z"
   }
 }
