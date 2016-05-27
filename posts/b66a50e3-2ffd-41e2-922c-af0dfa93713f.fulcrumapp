@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function validateTime(event) {\n  if (event.value.timestamp) {\n    var minutes = Math.round((new Date() - new Date(event.value.timestamp))/60000);\n    if (minutes > 15) {\n      ALERT('This photo was taken over 15 minutes ago. Please use a more recent photo.');\n    }\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateTime);\n    }\n  }\n});\n\nON('click', 'pushbullet_notification', function (event) {\n  options = {\n    url: 'https://crossorigin.me/https://api.pushbullet.com/v2/pushes',\n    method: 'POST',\n    headers: {\n      'Access-Token': 'o.vJS9OrNJmuzV69um5uhfzMzDgjyJpUeU',\n      'Content-Type': 'application/json'\n    },\n    json: {\n      'email': 'mcbride.bryan@gmail.com',\n      'body': 'This brew needs to be updated ASAP',\n      'title': 'New Fulcrum Dispatch',\n      'type': 'link',\n      'url': 'fulcrumapp://edit-record?record_id=9d0001e2-1023-448b-8896-6135043e966d&comments=Pushbullet Test'\n    }\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error: ' + INSPECT(error));\n    } else {\n      data = JSON.parse(body);\n      ALERT('Success: ' + INSPECT(data));\n    }\n  });\n});",
+    "script": "function validateTime(event) {\n  if (event.value.timestamp) {\n    var minutes = Math.round((new Date() - new Date(event.value.timestamp))/60000);\n    if (minutes > 15) {\n      ALERT('This photo was taken over 15 minutes ago. Please use a more recent photo.');\n    }\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateTime);\n    }\n  }\n});\n\nON('click', 'pushbullet_notification', function (event) {\n  options = {\n    url: 'https://api.pushbullet.com/v2/pushes',\n    method: 'POST',\n    headers: {\n      'Access-Token': 'o.vJS9OrNJmuzV69um5uhfzMzDgjyJpUeU',\n      'Content-Type': 'application/json'\n    },\n    json: {\n      'email': 'mcbride.bryan@gmail.com',\n      'body': 'This brew needs to be updated ASAP',\n      'title': 'New Fulcrum Dispatch',\n      'type': 'link',\n      'url': 'fulcrumapp://edit-record?record_id=9d0001e2-1023-448b-8896-6135043e966d&comments=Pushbullet Test'\n    }\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error: ' + INSPECT(error));\n    } else {\n      data = JSON.parse(body);\n      ALERT('Success: ' + INSPECT(data));\n    }\n  });\n});",
     "elements": [
       {
         "type": "TextField",
@@ -184,6 +184,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-27T02:16:55Z"
+    "updated_at": "2016-05-27T02:17:55Z"
   }
 }
