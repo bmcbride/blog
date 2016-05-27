@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function validateTime(event) {\n  if (event.value.timestamp) {\n    var minutes = Math.round((new Date() - new Date(event.value.timestamp))/60000);\n    if (minutes > 15) {\n      ALERT('This photo was taken over 15 minutes ago. Please use a more recent photo.');\n    }\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateTime);\n    }\n  }\n});\n\n//ON('click', 'pushbullet_notification', function (event) {\nON('save-record', function (event) {\n  options = {\n    url: 'https://api.pushbullet.com/v2/pushes',\n    method: 'POST',\n    headers: {\n      'Access-Token': 'o.vJS9OrNJmuzV69um5uhfzMzDgjyJpUeU',\n      'Content-Type': 'application/json'\n    },\n    json: {\n      'email': 'mcbride.bryan@gmail.com',\n      'title': 'New Fulcrum record in: ' + this.form.name,\n      'body': USERFULLNAME() + ' just created a new record with a status of: ' + STATUS(),\n      'type': 'link',\n      'url': 'http://maps.google.com/maps?q=loc:' + LATITUDE() + ',' + LONGITUDE() + ' (' + $name + ')'\n    }\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      //ALERT('Error: ' + INSPECT(error));\n    } else {\n      data = JSON.parse(body);\n      //ALERT('Success: ' + INSPECT(data));\n    }\n  });\n});",
+    "script": "/*function validateTime(event) {\n  if (event.value.timestamp) {\n    var minutes = Math.round((new Date() - new Date(event.value.timestamp))/60000);\n    if (minutes > 15) {\n      ALERT('This photo was taken over 15 minutes ago. Please use a more recent photo.');\n    }\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateTime);\n    }\n  }\n});\n\n//ON('click', 'pushbullet_notification', function (event) {\nON('save-record', function (event) {\n  options = {\n    url: 'https://api.pushbullet.com/v2/pushes',\n    method: 'POST',\n    headers: {\n      'Access-Token': 'o.vJS9OrNJmuzV69um5uhfzMzDgjyJpUeU',\n      'Content-Type': 'application/json'\n    },\n    json: {\n      'email': 'mcbride.bryan@gmail.com',\n      'title': 'New Fulcrum record in: ' + this.form.name,\n      'body': USERFULLNAME() + ' just created a new record with a status of: ' + STATUS(),\n      'type': 'link',\n      'url': 'http://maps.google.com/maps?q=loc:' + LATITUDE() + ',' + LONGITUDE() + ' (' + $name + ')'\n    }\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      //ALERT('Error: ' + INSPECT(error));\n    } else {\n      data = JSON.parse(body);\n      //ALERT('Success: ' + INSPECT(data));\n    }\n  });\n});*/\n\nfunction validateGeotags(event) {\n  if (!event.value.latitude || !event.value.latitude || event.value.latitude === 0 || event.value.latitude === 0) {\n    ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n  }\n}\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  var photoFields = [];\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'PhotoField') {\n      photoFields.push(dataName);\n      ON('add-photo', dataName, validateGeotags);\n    }\n  }\n  ALERT(INSPECT(photoFields));\n});",
     "elements": [
       {
         "type": "TextField",
@@ -146,7 +146,7 @@
         "description": null,
         "required": false,
         "disabled": false,
-        "hidden": true,
+        "hidden": false,
         "data_name": "code",
         "default_value": null,
         "visible_conditions_type": null,
@@ -167,7 +167,7 @@
         "description": null,
         "required": false,
         "disabled": false,
-        "hidden": true,
+        "hidden": false,
         "data_name": "eval",
         "default_value": null,
         "visible_conditions_type": null,
@@ -184,6 +184,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-27T02:53:41Z"
+    "updated_at": "2016-05-27T16:58:02Z"
   }
 }
