@@ -1,0 +1,93 @@
+{
+  "form": {
+    "id": "cec89b52-42e7-400c-a9a8-1573a4973858",
+    "name": "CartoDB Points",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "aa64",
+    "title_field_keys": [
+      "aa64"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Color",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Red",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Red",
+          "value": "Red",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Blue",
+          "value": "Blue",
+          "color": "#294184"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "var username = 'fulcrum',\n  api_key = '902871372eafdac444b7186c028f3002ec0e430a';\n\nON('new-record', function(event) {\n  type = 'create';\n});\n\nON('edit-record', function(event) {\n  type = 'update';\n});\n\nON('save-record', function(event) {\n  if (type == 'create') {\n    query = 'INSERT INTO fulcrum_data_events (fulcrum_id, name, number, color,  the_geom) VALUES ($$' + RECORDID() + '$$, $$' + $name + '$$, ' + $number + ', $$' + STATUS() + '$$, ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326))';\n    postToCDB(query);\n  } else if (type == 'update') {\n    query = 'UPDATE fulcrum_data_events SET name=$$' + $name + '$$, number=' + $number + ', color=$$' + STATUS() + '$$, the_geom=ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326) WHERE fulcrum_id=$$' + RECORDID() + '$$';\n    postToCDB(query);\n  }\n});\n\nfunction postToCDB(query) {\n  options = {\n    url: 'https://' + username + '.cartodb.com/api/v2/sql?q=' + query + '&api_key=' + api_key,\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      ALERT('This record has been successfully posted to CartoDB!');\n    }\n  });\n}",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "aa64",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "77ec",
+        "label": "Number",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "number",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "integer",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-05-27T17:58:37Z",
+    "updated_at": "2016-05-27T17:58:37Z"
+  }
+}
