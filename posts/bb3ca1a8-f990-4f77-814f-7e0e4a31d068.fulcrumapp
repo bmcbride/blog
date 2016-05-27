@@ -1,0 +1,98 @@
+{
+  "form": {
+    "id": "bb3ca1a8-f990-4f77-814f-7e0e4a31d068",
+    "name": "Mikkel  Test",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "3c29",
+    "title_field_keys": [
+      "3c29"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "1",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "1",
+          "value": "1",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "2",
+          "value": "2",
+          "color": "#294184"
+        },
+        {
+          "label": "3",
+          "value": "4",
+          "color": "#FFD300"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('load-record', function(event) {\n  var fieldUserRoles = ['field'];\n  var officeUserRoles = ['office'];\n  \n  if (fieldUserRoles.indexOf(ROLE()) !== -1) {\n    SETSTATUSFILTER(['1', '2']);\n  }\n\n  if (officeUserRoles.indexOf(ROLE()) !== -1) {\n    SETSTATUSFILTER(['1', '2', '3']);\n  }\n\n  if (STATUS() == '3') {\n    for (var dataName in this.elementsByDataName) {\n      SETREADONLY(dataName, true);\n    }\n    SETREQUIRED('@status', true);\n  }\n});\n\nON('change-status', function(event) {\n  if (STATUS() == '3') {\n    for (var dataName in this.elementsByDataName) {\n      SETREADONLY(dataName, true);\n      SETREQUIRED('@status', true);\n    }\n  }\n});",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "3c29",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "61fe",
+        "label": "Number",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "number",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-05-27T21:06:53Z",
+    "updated_at": "2016-05-27T21:06:53Z"
+  }
+}
