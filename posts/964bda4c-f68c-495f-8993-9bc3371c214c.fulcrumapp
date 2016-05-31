@@ -112,6 +112,28 @@
         "required_conditions": null,
         "elements": [
           {
+            "type": "CalculatedField",
+            "key": "befc",
+            "label": "Rep IDs",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "rep_ids",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "$repeatable_ids",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
             "type": "TextField",
             "key": "d840",
             "label": "ID",
@@ -189,6 +211,6 @@
       }
     ],
     "created_at": "2016-05-31T22:41:20Z",
-    "updated_at": "2016-05-31T23:15:44Z"
+    "updated_at": "2016-05-31T23:16:46Z"
   }
 }
