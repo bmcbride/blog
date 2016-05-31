@@ -1,0 +1,151 @@
+{
+  "form": {
+    "id": "964bda4c-f68c-495f-8993-9bc3371c214c",
+    "name": "Prevent Duplicate Repeatable IDsN",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "0268",
+    "title_field_keys": [
+      "0268"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "0268",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Repeatable",
+        "key": "4ca8",
+        "label": "Field Inspections",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "field_inspections",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "d840",
+            "label": "ID",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "id",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "b5b3",
+            "label": "Code",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "code",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "77cc",
+            "label": "Eval",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "eval",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "eval($code)",
+            "display": {
+              "style": "text",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "d840"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      }
+    ],
+    "created_at": "2016-05-31T22:41:20Z",
+    "updated_at": "2016-05-31T22:41:20Z"
+  }
+}
