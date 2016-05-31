@@ -54,6 +54,49 @@
         "default_previous_value": false
       },
       {
+        "type": "TextField",
+        "key": "7f42",
+        "label": "IDs",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "ids",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "102c",
+        "label": "Repeatable IDs",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "repeatable_ids",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "SETRESULT(REPEATABLEVALUES($field_inspections,'$ids'));",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
         "type": "Repeatable",
         "key": "4ca8",
         "label": "Field Inspections",
@@ -146,6 +189,6 @@
       }
     ],
     "created_at": "2016-05-31T22:41:20Z",
-    "updated_at": "2016-05-31T22:44:41Z"
+    "updated_at": "2016-05-31T23:00:18Z"
   }
 }
