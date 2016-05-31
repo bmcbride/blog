@@ -74,14 +74,8 @@
         "hidden": false,
         "data_name": "photos",
         "default_value": null,
-        "visible_conditions_type": "all",
-        "visible_conditions": [
-          {
-            "field_key": "9010",
-            "operator": "is_not_empty",
-            "value": ""
-          }
-        ],
+        "visible_conditions_type": null,
+        "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": null,
         "min_length": null,
@@ -190,6 +184,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-05-31T16:02:05Z"
+    "updated_at": "2016-05-31T16:04:26Z"
   }
 }
