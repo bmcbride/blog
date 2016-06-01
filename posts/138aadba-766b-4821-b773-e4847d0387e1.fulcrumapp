@@ -1,0 +1,1894 @@
+{
+  "form": {
+    "id": "138aadba-766b-4821-b773-e4847d0387e1",
+    "name": "2016 Mohawk Meter Inspections",
+    "description": "NGRID UNY",
+    "bounding_box": null,
+    "record_title_key": "c82d",
+    "title_field_keys": [
+      "c82d",
+      "d554"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Incomplete",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Appointment",
+          "value": "Appointment",
+          "color": "#FFD300"
+        },
+        {
+          "label": "Completed Inside BD",
+          "value": "Completed Inside BD",
+          "color": "#2D5D00"
+        },
+        {
+          "label": "Door Hanger",
+          "value": "Door Hanger",
+          "color": "#DA0796"
+        },
+        {
+          "label": "Incomplete",
+          "value": "Incomplete",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Inside Complete",
+          "value": "Inside Complete",
+          "color": "#87D30F"
+        },
+        {
+          "label": "Letter Returned",
+          "value": "Letter Returned",
+          "color": "#242424"
+        },
+        {
+          "label": "Misc GRO",
+          "value": "MISC GRO",
+          "color": "#FF8819"
+        },
+        {
+          "label": "Multiple Meters",
+          "value": "Multiple Meters",
+          "color": "#FFFFFF"
+        },
+        {
+          "label": "No Main",
+          "value": "No Main",
+          "color": "#294184"
+        },
+        {
+          "label": "Outside BD",
+          "value": "Outside BD",
+          "color": "#1891C9"
+        },
+        {
+          "label": "Outside Meter",
+          "value": "Outside Meter",
+          "color": "#1891C9"
+        },
+        {
+          "label": "Refusal",
+          "value": "Refusal",
+          "color": "#242424"
+        },
+        {
+          "label": "Survey Incomplete Inside",
+          "value": "Survey Incomplete Inside",
+          "color": "#704B10"
+        },
+        {
+          "label": "Underground Leak",
+          "value": "Underground Leak",
+          "color": "#B3B3B3"
+        },
+        {
+          "label": "Unsuccessful",
+          "value": "Unsuccessful",
+          "color": "#242424"
+        },
+        {
+          "label": "Incomplete-I",
+          "value": "Incomplete-I",
+          "color": "#CB0D0C"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('new-record', function (event) {\n  SETHIDDEN('field_address', false);\n  ON('change', 'field_address', function (event) {\n    var address = \"\";\n    if ($field_address.sub_thoroughfare) {\n      address += $field_address.sub_thoroughfare;\n    }\n    if ($field_address.thoroughfare) {\n      address += \" \" + $field_address.thoroughfare;\n    }\n    if ($field_address.suite) {\n      address += \" #\" + $field_address.suite;\n    }\n    if ($field_address.locality) {\n      address += \", \" + $field_address.locality;\n    }\n    if ($field_address.admin_area) {\n      address += \", \" + $field_address.admin_area;\n    }\n    if ($field_address.postal_code) {\n      address += \" \" + $field_address.postal_code;\n    }\n    SETVALUE('address', address);\n    SETHIDDEN('field_address', true);\n  });\n})\n\nON('click', 'service_card_images', function (event) {\n OPENURL('http://gls.premiersvc.com/servicecards/fortis/fortisextract/'+$fortis);\n})",
+    "elements": [
+      {
+        "type": "Section",
+        "key": "74b4",
+        "label": "Visit Information",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "visit_information",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "2558",
+            "label": "Door Hanger Status",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "door_hanger_status",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Door Hanger"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Door Hanger"
+              }
+            ],
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Due To Temporary Obstruction",
+                "value": "Due To Temporary Obstruction"
+              },
+              {
+                "label": "No Answer (Inside Meter)",
+                "value": "No Answer (Inside Meter)"
+              },
+              {
+                "label": "Unsuccesful Appointment",
+                "value": "Unsuccesful Appointment"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "4994",
+            "label": "Appointment Status",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "appointment_status",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Appointment"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Appointment"
+              }
+            ],
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "First Appointment",
+                "value": "First Appointment"
+              },
+              {
+                "label": "8am-12pm",
+                "value": "8am-12pm"
+              },
+              {
+                "label": "12pm-4pm",
+                "value": "12pm-4pm"
+              },
+              {
+                "label": "Last Appointment",
+                "value": "Last Appointment"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "a71a",
+            "label": "Unsuccessful Status",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "unsuccessful_status",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Unsuccessful"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Unsuccessful"
+              }
+            ],
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Abandoned Premise / Vacant",
+                "value": "Abandoned Premise / Vacant"
+              },
+              {
+                "label": "Due To Permanent Obstruction",
+                "value": "Due To Permanent Obstruction"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "fb00",
+            "label": "Number of Attempts",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "number_of_attempts",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "1",
+                "value": "1"
+              },
+              {
+                "label": "2",
+                "value": "2"
+              },
+              {
+                "label": "3",
+                "value": "3"
+              },
+              {
+                "label": "4",
+                "value": "4"
+              },
+              {
+                "label": "5",
+                "value": "5"
+              },
+              {
+                "label": "6",
+                "value": "6"
+              },
+              {
+                "label": "7",
+                "value": "7"
+              },
+              {
+                "label": "8",
+                "value": "8"
+              },
+              {
+                "label": "9",
+                "value": "9"
+              },
+              {
+                "label": "10",
+                "value": "10"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "Repeatable",
+            "key": "390c",
+            "label": "Visit Details",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "visits",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "elements": [
+              {
+                "type": "CalculatedField",
+                "key": "9272",
+                "label": "Visit Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": true,
+                "data_name": "visit_date",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "new Date();",
+                "display": {
+                  "style": "date",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "99de",
+                "label": "Visit Time",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": true,
+                "data_name": "visit_time",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "TIMESTAMP(new Date()).split(' ')[1];",
+                "display": {
+                  "style": "text",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "3af5",
+                "label": "Field Technician",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "field_technician",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "ONCE(USERFULLNAME());",
+                "display": {
+                  "style": "text",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "abe7",
+                "label": "Visit Comments",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "visit_comments",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              }
+            ],
+            "title_field_key": "9272",
+            "title_field_keys": [
+              "9272",
+              "abe7",
+              "3af5"
+            ],
+            "geometry_types": [],
+            "geometry_required": false,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "PhotoField",
+            "key": "d8d8",
+            "label": "Unsuccessful Visit Photo",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "unsuccessful_visit_photo",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Unsuccessful"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Door Hanger"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "23a9",
+        "label": "Appointment Scheduling",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "appointment_scheduling",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "equal_to",
+            "value": "Appointment"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "DateTimeField",
+            "key": "d554",
+            "label": "Appointment Date",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "appointment_date",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "fd54",
+            "label": "Appointment Time",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "appointment_time",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "8am-12pm",
+                "value": "8am-12pm"
+              },
+              {
+                "label": "12pm-4pm",
+                "value": "12pm-4pm"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "6807",
+            "label": "Appointment Notes",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "appointment_notes",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "43f7",
+        "label": "Location Information",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "location_information",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "788a",
+            "label": "Service Point",
+            "description": null,
+            "required": false,
+            "disabled": true,
+            "hidden": true,
+            "data_name": "sp_fk",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "integer",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "c82d",
+            "label": "Address",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "address",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "AddressField",
+            "key": "1436",
+            "label": "Field Address",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": true,
+            "data_name": "field_address",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "auto_populate": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "bdea",
+            "label": "Zone Map",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "zone_map",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "b6f1",
+            "label": "Barn",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "barn",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choice_list_id": "169ff756-5adb-4ae4-a0a9-279e6cfa6081",
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "8a9b",
+            "label": "Region",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": true,
+            "data_name": "region",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "MOHAWK",
+                "value": "MOHAWK"
+              },
+              {
+                "label": "CENTRAL",
+                "value": "CENTRAL"
+              },
+              {
+                "label": "EAST",
+                "value": "EAST"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "e8d6",
+            "label": "Fortis",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": true,
+            "data_name": "fortis",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "HyperlinkField",
+            "key": "dc3c",
+            "label": "Service Card Image(s)",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "service_card_images",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "default_url": ""
+          },
+          {
+            "type": "TextField",
+            "key": "7866",
+            "label": "Meter Count",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "meter_count",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Inside Complete"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Completed Inside BD"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "6b64",
+            "label": "Customer Fuel Line (Underground Only)",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "customer_fuel_line_underground_only",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Inside Complete"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Outside Meter"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Completed Inside BD"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Outside BD"
+              }
+            ],
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "dec1",
+            "label": "Access to Meter and Piping?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "access_to_meter_and_piping",
+            "default_value": "yes",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "efb7",
+            "label": "Meter Photo",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "meter_photo",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Inside Complete"
+              },
+              {
+                "field_key": "6b64",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "min_length": 2,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "Repeatable",
+        "key": "5c44",
+        "label": "Meters",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "meters",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "Section",
+            "key": "f53f",
+            "label": "Meter Information",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "meter_information",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "ChoiceField",
+                "key": "a7b4",
+                "label": "Meter Location",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "meter_location",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": false,
+                "allow_other": false,
+                "choice_list_id": "e57a8b85-8192-48b4-8762-6210128e951b",
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "f5c6",
+                "label": "Meter Number",
+                "description": null,
+                "required": false,
+                "disabled": true,
+                "hidden": false,
+                "data_name": "meter_no",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "e80b",
+            "label": "Customer Information",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "customer_information",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "e621",
+                "label": "Meter Address",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "meter_address",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "3844",
+                "label": "Bill Account Number",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "bill_account_no",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "integer",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "1b4d",
+                "label": "Premise Number",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "premise_no",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "integer",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "eed5",
+                "label": "Customer Name",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "customer_name",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "50d0",
+                "label": "Customer Number",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "customer_no",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": true,
+                "format": "integer",
+                "min": null,
+                "max": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "77d5",
+                "label": "Home Phone",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "home_phone",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "2d2e",
+                "label": "Business Phone",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "business_phone",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              }
+            ]
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "e621"
+        ],
+        "geometry_types": [],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "Section",
+        "key": "11f8",
+        "label": "Atmospheric Corrosion",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "atmospheric_corrosion",
+        "default_value": null,
+        "visible_conditions_type": "any",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "not_equal_to",
+            "value": "Underground Leak"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "ClassificationField",
+            "key": "aeb7",
+            "label": "Atmos Corrosion",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "atmos_corrosion",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "allow_other": false,
+            "classification_set_id": "1cd34955-190d-47c9-b272-08f7dd94b179",
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "994f",
+            "label": "Corrosion Misc GRO #",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "corrosion_misc_gro",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate,Before Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate,After Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate,Before & After Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months,Before Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months,After Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months,Before & After Shut Off"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": 6,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "49c7",
+            "label": "Corrosion Photos",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "corrosion_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate,Before Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate,After Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "Immediate,Before & After Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months,Before Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months,After Shut Off"
+              },
+              {
+                "field_key": "aeb7",
+                "operator": "equal_to",
+                "value": "12 Months,Before & After Shut Off"
+              }
+            ],
+            "min_length": null,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "001a",
+        "label": "Additional Information",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "additional_information",
+        "default_value": null,
+        "visible_conditions_type": "any",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "not_equal_to",
+            "value": "Underground Leak"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "Repeatable",
+            "key": "f730",
+            "label": "Trouble Report Info",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "trouble_report_info",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "elements": [
+              {
+                "type": "ChoiceField",
+                "key": "2e93",
+                "label": "Trouble Report",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "trouble_report",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": false,
+                "allow_other": true,
+                "choice_list_id": "b157d2fe-87e0-4a1f-a4fc-87ae6c4814d2",
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "afaa",
+                "label": "MISC GRO #",
+                "description": null,
+                "required": true,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "misc_gro",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": "any",
+                "required_conditions": [
+                  {
+                    "field_key": "2e93",
+                    "operator": "is_not_empty",
+                    "value": ""
+                  }
+                ],
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": 6,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "PhotoField",
+                "key": "549c",
+                "label": "Trouble Report Photo",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "trouble_report_photo",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "min_length": null,
+                "max_length": null
+              }
+            ],
+            "title_field_key": "2e93",
+            "title_field_keys": [
+              "2e93"
+            ],
+            "geometry_types": [
+              "Point"
+            ],
+            "geometry_required": false,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "YesNoField",
+            "key": "1653",
+            "label": "Outside Riser",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "outside_riser",
+            "default_value": "no",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "cbf9",
+            "label": "Leak on Outside Riser",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "leak_on_outside_riser",
+            "default_value": "no",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "b39d",
+            "label": "Outside Riser GRO",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "outside_riser_gro",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "cbf9",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": 6,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "df8f",
+            "label": "Photos",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "cbf9",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "TextField",
+            "key": "a884",
+            "label": "Comments",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "comments",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "2801",
+        "label": "Leak Detected",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "leak_detected",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "5799",
+            "label": "Leak Found",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "leak_found",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Inside Complete"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Outside Meter"
+              }
+            ],
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Yes",
+                "value": "Yes"
+              },
+              {
+                "label": "No",
+                "value": "No"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "5c13",
+            "label": "Location of Leak",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "location_of_leak",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choice_list_id": "282b6cbd-2f74-4f0f-88a3-815bd77ddcf0",
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "8a56",
+            "label": "Leak Survey Type",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "leak_survey_type",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choice_list_id": "ea7c3c3e-3d05-4f1b-8123-1f56f32fdb05",
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "e5f9",
+            "label": "Leak Type",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "leak_type",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choice_list_id": "411aa64a-2f1a-4327-a161-9c0766f51e98",
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "8b82",
+            "label": "Type of Building",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "type_of_building",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choice_list_id": "3772bee2-4890-4ee7-9195-170aa6524367",
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "bb99",
+            "label": "GRO Number",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "gro_number",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 1"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 2"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 2A"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 3"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "I & R Valve Leak"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "INSIDE CLASS 1"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "OUTSIDE ABOVE GROUND"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "OUTSIDE ABOVE GROUND (ABNORMAL)"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "b9e7",
+            "label": "Leak Paperwork",
+            "description": "Paperwork Photos",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "leak_paperwork",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 2"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 2A"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 3"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "I & R Valve Leak"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "MOBILE SURVEY"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 2"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 2A"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 3"
+              },
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "I & R Valve Leak"
+              }
+            ],
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "PhotoField",
+            "key": "a908",
+            "label": "GRO Paperwork",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "gro_paperwork",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 1"
+              },
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "e5f9",
+                "operator": "equal_to",
+                "value": "UNDERGROUND TYPE 1"
+              }
+            ],
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "TextField",
+            "key": "66b1",
+            "label": "Standby Hours",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "standby_hours",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "5799",
+                "operator": "equal_to",
+                "value": "Yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2016-06-01T19:48:35Z",
+    "updated_at": "2016-06-01T19:48:35Z"
+  }
+}
