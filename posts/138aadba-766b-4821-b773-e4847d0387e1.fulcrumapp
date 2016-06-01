@@ -678,9 +678,9 @@
             "description": null,
             "required": false,
             "disabled": false,
-            "hidden": true,
+            "hidden": false,
             "data_name": "region",
-            "default_value": null,
+            "default_value": "MOHAWK",
             "visible_conditions_type": null,
             "visible_conditions": null,
             "required_conditions_type": null,
@@ -1889,6 +1889,6 @@
       }
     ],
     "created_at": "2016-06-01T19:48:35Z",
-    "updated_at": "2016-06-01T20:06:13Z"
+    "updated_at": "2016-06-01T20:08:50Z"
   }
 }
