@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function identifyTeam() {\n  options = {\n    url: \"https://jamesh.cartodb.com/api/v2/sql?f=geojson&q=SELECT+*+FROM+teamzones+WHERE+ST_Contains(the_geom, ST_GeomFromText('POINT(\"+ LONGITUDE() + \" \" + LATITUDE()+ \")',4326))\"\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      data = JSON.parse(body);\n      ALERT(data);\n      SETVALUE('team', data.rows[0].name);\n    }\n  });\n}\n\nON('load-record', identifyTeam);",
+    "script": "function identifyTeam() {\n  ALERT('test');\n  options = {\n    url: \"https://jamesh.cartodb.com/api/v2/sql?f=geojson&q=SELECT+*+FROM+teamzones+WHERE+ST_Contains(the_geom, ST_GeomFromText('POINT(\"+ LONGITUDE() + \" \" + LATITUDE()+ \")',4326))\"\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      data = JSON.parse(body);\n      ALERT(data);\n      SETVALUE('team', data.rows[0].name);\n    }\n  });\n}\n\nON('load-record', identifyTeam);",
     "elements": [
       {
         "type": "TextField",
@@ -98,6 +98,6 @@
       }
     ],
     "created_at": "2016-05-31T22:41:20Z",
-    "updated_at": "2016-06-01T05:45:30Z"
+    "updated_at": "2016-06-01T05:48:22Z"
   }
 }
