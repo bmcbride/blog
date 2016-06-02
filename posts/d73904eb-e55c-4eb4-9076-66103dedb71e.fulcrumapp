@@ -299,9 +299,30 @@
             "default_previous_value": false
           }
         ]
+      },
+      {
+        "type": "TextField",
+        "key": "e03b",
+        "label": "Test",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "test",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": true
       }
     ],
     "created_at": "2016-06-02T17:08:44Z",
-    "updated_at": "2016-06-02T18:19:58Z"
+    "updated_at": "2016-06-02T20:10:19Z"
   }
 }
