@@ -1,0 +1,126 @@
+{
+  "form": {
+    "id": "d73904eb-e55c-4eb4-9076-66103dedb71e",
+    "name": "Medicare.gov",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "f419",
+    "title_field_keys": [
+      "f419"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "var beers = \"\";\nfunction fetchBeers() {\n  apiKey = 'eb3432bae7ef3401938b3d2d0d776dc8'\n\n  options = {\n    url: 'https://crossorigin.me/https://api.brewerydb.com/v2/search?key=' + apiKey + '&type=beer&q=' + $beer_name\n  }\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error)\n    } else {\n      var data = JSON.parse(body);\n\t  \tvar choices = [];\n      beers = data.data;\n\t  for (var i = 0; i < beers.length; i++) {\n\t\tchoices.push(beers[i].name);\n\t  }\n\t  SETCHOICES('beers', choices);\n    }\n  })\n}\n\nfunction loadData(event) {\n  for (var i = 0; i < beers.length; i++) {\n\t\tif (beers[i].name == event.value.choice_values[0]) {\n\t\t\t//ALERT(INSPECT(beers[i].abv));\n          SETVALUE('abv', beers[i].abv);\n\t\t}\n\t}\n\t//ALERT(INSPECT(beers));\n}\n\nON('click', 'find_beer', fetchBeers);\nON('change', 'beers', loadData);",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "f419",
+        "label": "Beer Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "beer_name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "HyperlinkField",
+        "key": "0250",
+        "label": "Find Beer",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "find_beer",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "default_url": ""
+      },
+      {
+        "type": "ChoiceField",
+        "key": "1a30",
+        "label": "Beers",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "beers",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "1",
+            "value": "1"
+          },
+          {
+            "label": "2",
+            "value": "2"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "0089",
+        "label": "ABV",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "abv",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-06-02T17:08:44Z",
+    "updated_at": "2016-06-02T17:08:44Z"
+  }
+}
