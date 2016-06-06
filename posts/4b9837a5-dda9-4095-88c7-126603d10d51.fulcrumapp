@@ -1,0 +1,1716 @@
+{
+  "form": {
+    "id": "4b9837a5-dda9-4095-88c7-126603d10d51",
+    "name": "Testing Tree Stuff",
+    "description": "Testing of link records from tree maintenance App",
+    "bounding_box": null,
+    "record_title_key": "b1cc",
+    "title_field_keys": [
+      "b1cc"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Contract",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Contract",
+          "value": "Contract",
+          "color": "#294184"
+        },
+        {
+          "label": "QRT",
+          "value": "QRT",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Complete",
+          "value": "Complete",
+          "color": "#2D5D00"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "function identifyTeam() {\n  options = {\n    url: \"https://jamesh.cartodb.com/api/v2/sql?f=geojson&q=SELECT+*+FROM+teamzones+WHERE+ST_Contains(the_geom, ST_GeomFromText('POINT(\"+ LONGITUDE() + \" \" + LATITUDE()+ \")',4326))\"\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      data = JSON.parse(body);\n      if (data.rows && data.rows.length > 0) {\n        SETVALUE('team', data.rows[0].name);\n      }\n      else {\n        ALERT('No data');\n      }\n    }\n  });\n}\nON('change-geometry', identifyTeam);",
+    "elements": [
+      {
+        "type": "BarcodeField",
+        "key": "7e71",
+        "label": "Barcode",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "barcode",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "RecordLinkField",
+        "key": "9320",
+        "label": "App link",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "app_link",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "allow_creating_records": false,
+        "allow_existing_records": true,
+        "allow_updating_records": true,
+        "allow_multiple_records": false,
+        "form_id": "bc0bec44-8e38-40d0-bd76-167a5fd3386e",
+        "record_conditions_type": "any",
+        "record_conditions": [
+          {
+            "linked_form_field_key": "@status",
+            "operator": "equal_to",
+            "value": "Contract"
+          },
+          {
+            "linked_form_field_key": "@status",
+            "operator": "equal_to",
+            "value": "QRT"
+          }
+        ],
+        "record_defaults": [
+          {
+            "source_field_key": "80dc",
+            "destination_field_key": "b1cc"
+          },
+          {
+            "source_field_key": "7be1",
+            "destination_field_key": "7d73"
+          },
+          {
+            "source_field_key": "cd1e",
+            "destination_field_key": "7ea5"
+          },
+          {
+            "source_field_key": "1882",
+            "destination_field_key": "858e"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "6718",
+        "label": "ID",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "id",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "RECORDID($address)",
+        "display": {
+          "style": "number",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "44e5",
+        "label": "Date 1",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "date_1",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "34b5",
+        "label": "Date2",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "date2",
+        "default_value": "now",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "6ff4",
+        "label": "Count of days",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "count_of_days",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "DAY($date_1 - $date2) - 1",
+        "display": {
+          "style": "number",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "12cd",
+        "label": "neighbourhood",
+        "description": null,
+        "required": false,
+        "disabled": true,
+        "hidden": false,
+        "data_name": "neighbourhood",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "09c2",
+        "label": "Team",
+        "description": null,
+        "required": false,
+        "disabled": true,
+        "hidden": false,
+        "data_name": "team",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "e05b",
+        "label": "Height",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "height",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "0-2",
+            "value": "0-2"
+          },
+          {
+            "label": "3-5",
+            "value": "3-5"
+          },
+          {
+            "label": "6-10",
+            "value": "6-10"
+          },
+          {
+            "label": "11-15",
+            "value": "11-15"
+          },
+          {
+            "label": "16-20",
+            "value": "16-20"
+          },
+          {
+            "label": "21-30",
+            "value": "21-30"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "a8c2",
+        "label": "phone number",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "phone_number",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "IF($team == 1, \"0415216202\") || \nIF($team == 2, \"0414191213\") || \nIF($team == 3, \"0419683602\")",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "6b93",
+        "label": "SMS",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "sms",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "HyperlinkField",
+        "key": "2af3",
+        "label": "Send SMS",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "send_sms",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "default_url": ""
+      },
+      {
+        "type": "Repeatable",
+        "key": "b0af",
+        "label": "Request works",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "request_works",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "4bec",
+            "label": "what?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "what",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "1",
+                "value": "1"
+              },
+              {
+                "label": "2",
+                "value": "2"
+              },
+              {
+                "label": "3",
+                "value": "3"
+              },
+              {
+                "label": "4",
+                "value": "4"
+              },
+              {
+                "label": "5",
+                "value": "5"
+              }
+            ],
+            "default_previous_value": false
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "4bec"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "Repeatable",
+        "key": "0c57",
+        "label": "Works",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "works",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "b5b2",
+            "label": "did this",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "did_this",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "1",
+                "value": "1"
+              },
+              {
+                "label": "2",
+                "value": "2"
+              },
+              {
+                "label": "3",
+                "value": "3"
+              },
+              {
+                "label": "4",
+                "value": "4"
+              },
+              {
+                "label": "5",
+                "value": "5"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "Repeatable",
+            "key": "d7b1",
+            "label": "inspected",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "inspected",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "elements": [
+              {
+                "type": "ChoiceField",
+                "key": "fc0d",
+                "label": "date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "date",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": false,
+                "allow_other": false,
+                "choices": [
+                  {
+                    "label": "1",
+                    "value": "1"
+                  }
+                ],
+                "default_previous_value": false
+              }
+            ],
+            "title_field_key": null,
+            "title_field_keys": [
+              "fc0d"
+            ],
+            "geometry_types": [
+              "Point"
+            ],
+            "geometry_required": false,
+            "min_length": null,
+            "max_length": null
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "b5b2"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "CalculatedField",
+        "key": "3673",
+        "label": "Tree ID ",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "tree_id_",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "CHOICEVALUE($date_created)",
+        "display": {
+          "style": "number",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "AddressField",
+        "key": "5027",
+        "label": "Address",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "address",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "auto_populate": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "Section",
+        "key": "ceb5",
+        "label": "Work",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "work",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "b1cc",
+            "label": "Tree Location",
+            "description": null,
+            "required": false,
+            "disabled": true,
+            "hidden": false,
+            "data_name": "tree_location",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "7ea5",
+            "label": "Referance Number",
+            "description": null,
+            "required": false,
+            "disabled": true,
+            "hidden": false,
+            "data_name": "referance_number",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "7d73",
+            "label": "Work required",
+            "description": null,
+            "required": false,
+            "disabled": true,
+            "hidden": false,
+            "data_name": "work_required",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "858e",
+            "label": "Date Created",
+            "description": null,
+            "required": false,
+            "disabled": true,
+            "hidden": false,
+            "data_name": "date_created",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "ChoiceField",
+        "key": "0a3a",
+        "label": "Work Allocation",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "work_allocation",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "Quote",
+            "value": "Quote"
+          },
+          {
+            "label": "Schedule of Rates",
+            "value": "Schedule of Rates"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "Section",
+        "key": "f38f",
+        "label": "Quote",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "quote",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "0a3a",
+            "operator": "equal_to",
+            "value": "Quote"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "85bd",
+            "label": "Details of Work Required",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "details_of_work_required",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "7ed1",
+            "label": "Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "DateTimeField",
+            "key": "595a",
+            "label": "Date quote required by",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "date_quote_required_by",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Repeatable",
+        "key": "62e3",
+        "label": "Allocated works",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "allocated_works",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "0a3a",
+            "operator": "equal_to",
+            "value": "Schedule of Rates"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "Section",
+            "key": "492b",
+            "label": "Schedule of Rates",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "schedule_of_rates",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "0a3a",
+                "operator": "equal_to",
+                "value": "Schedule of Rates"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "TextField",
+                "key": "d42a",
+                "label": "Exact location of tree to property",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "exact_location_of_tree_to_property",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "4490",
+                "label": "Work Required Details",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "work_required_details",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "TextField",
+                "key": "0f00",
+                "label": "Other Notes",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "other_notes",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "numeric": false,
+                "pattern": null,
+                "pattern_description": null,
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "ChoiceField",
+                "key": "2e61",
+                "label": "Type of requirement",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "type_of_requirement",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": false,
+                "allow_other": false,
+                "choices": [
+                  {
+                    "label": "Pruning",
+                    "value": "Pruning"
+                  },
+                  {
+                    "label": "Palm",
+                    "value": "Palm"
+                  },
+                  {
+                    "label": "Removal",
+                    "value": "Removal"
+                  },
+                  {
+                    "label": "Stump grinding",
+                    "value": "Stump grinding"
+                  },
+                  {
+                    "label": "Chipping",
+                    "value": "Chipping"
+                  }
+                ],
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "9af5",
+                "label": "Pruning",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "pruning",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "2e61",
+                    "operator": "equal_to",
+                    "value": "Pruning"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "TextField",
+                    "key": "37f3",
+                    "label": "Height of Tree",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "height_of_tree",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "numeric": true,
+                    "format": "decimal",
+                    "min": null,
+                    "max": null,
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "0524",
+                    "label": "Base Rate",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "base_rate",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "Band 1 - Up to and including 5 metres",
+                        "value": "Band 1 - Up to and including 5 metres"
+                      },
+                      {
+                        "label": "Band 2 - 6m up to and including 10 metres",
+                        "value": "Band 2 - 6m up to and including 10 metres"
+                      },
+                      {
+                        "label": "Band 3 - 11m up to and including 15 metres",
+                        "value": "Band 3 - 11m up to and including 15 metres"
+                      },
+                      {
+                        "label": "Band 4 - 16m up to and including 20 metres",
+                        "value": "Band 4 - 16m up to and including 20 metres"
+                      },
+                      {
+                        "label": "Band 5 - 21m up to and including 29 metres",
+                        "value": "Band 5 - 21m up to and including 29 metres"
+                      },
+                      {
+                        "label": "Band 6 - Higher than 30 metres",
+                        "value": "Band 6 - Higher than 30 metres"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "YesNoField",
+                    "key": "4abc",
+                    "label": "Lifting",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "lifting",
+                    "default_value": "no",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "37f3",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "ccf6",
+                    "label": "Band 1 Property Overhang",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "band_1_property_overhang",
+                    "default_value": "N/A",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "0524",
+                        "operator": "equal_to",
+                        "value": "Band 1 - Up to and including 5 metres"
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "N/A",
+                        "value": "N/A"
+                      },
+                      {
+                        "label": "Minor property overhang",
+                        "value": "Minor property overhang"
+                      },
+                      {
+                        "label": "Clear property overhang",
+                        "value": "Clear property overhang"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "872b",
+                    "label": "Band 2 Property overhang",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "band_2_property_overhang",
+                    "default_value": "N/A",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "0524",
+                        "operator": "equal_to",
+                        "value": "Band 2 - 6m up to and including 10 metres"
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "N/A",
+                        "value": "N/A"
+                      },
+                      {
+                        "label": "Minor property overhang",
+                        "value": "Minor property overhang"
+                      },
+                      {
+                        "label": "Moderate property overhang",
+                        "value": "Moderate property overhang"
+                      },
+                      {
+                        "label": "Major property overhang",
+                        "value": "Major property overhang"
+                      },
+                      {
+                        "label": "Clear property overhang",
+                        "value": "Clear property overhang"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "cf5f",
+                    "label": "Band 3 Property overhang",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "band_3_property_overhang",
+                    "default_value": "N/A",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "0524",
+                        "operator": "equal_to",
+                        "value": "Band 3 - 11m up to and including 15 metres"
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "N/A",
+                        "value": "N/A"
+                      },
+                      {
+                        "label": "Minor property overhang",
+                        "value": "Minor property overhang"
+                      },
+                      {
+                        "label": "Moderate property overhang",
+                        "value": "Moderate property overhang"
+                      },
+                      {
+                        "label": "Major property overhang",
+                        "value": "Major property overhang"
+                      },
+                      {
+                        "label": "Clear property overhang",
+                        "value": "Clear property overhang"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "8d7b",
+                    "label": "Band 4 Property overhang",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "band_4_property_overhang",
+                    "default_value": "N/A",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "0524",
+                        "operator": "equal_to",
+                        "value": "Band 4 - 16m up to and including 20 metres"
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "N/A",
+                        "value": "N/A"
+                      },
+                      {
+                        "label": "Moderate property overhang",
+                        "value": "Moderate property overhang"
+                      },
+                      {
+                        "label": "Major property overhang",
+                        "value": "Major property overhang"
+                      },
+                      {
+                        "label": "Clear property overhang",
+                        "value": "Clear property overhang"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "Label",
+                    "key": "9c1c",
+                    "label": "Bands 5 and 6 require a quote for property overhang pruning.",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "bands_5_and_6_require_a_quote_for_property_overhang_pruning",
+                    "default_value": null,
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "0524",
+                        "operator": "equal_to",
+                        "value": "Band 5 - 21m up to and including 29 metres"
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null
+                  },
+                  {
+                    "type": "Label",
+                    "key": "e018",
+                    "label": "Bands 5 and 6 require a quote for property overhang pruning.",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "bands_5_and_6_require_a_quote_for_property_overhang_pruning",
+                    "default_value": null,
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "0524",
+                        "operator": "equal_to",
+                        "value": "Band 6 - Higher than 30 metres"
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null
+                  },
+                  {
+                    "type": "YesNoField",
+                    "key": "4ee2",
+                    "label": "Crown Thinning",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "crown_thinning",
+                    "default_value": "no",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "37f3",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "YesNoField",
+                    "key": "a147",
+                    "label": "Nominated works",
+                    "description": "Refer to \"Work Required details\" for specifiaction",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "nominated_works",
+                    "default_value": "no",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "37f3",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "YesNoField",
+                    "key": "7cf8",
+                    "label": "Service Wire Clearance",
+                    "description": "Mains cable clearing requires quote",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "service_wire_clearance",
+                    "default_value": "no",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "37f3",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "YesNoField",
+                    "key": "3762",
+                    "label": "Street Light Clearance",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "street_light_clearance",
+                    "default_value": "no",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "37f3",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "YesNoField",
+                    "key": "346c",
+                    "label": "Sign Clearance",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sign_clearance",
+                    "default_value": "no",
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "37f3",
+                        "operator": "equal_to",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "positive": {
+                      "label": "Yes",
+                      "value": "yes"
+                    },
+                    "negative": {
+                      "label": "No",
+                      "value": "no"
+                    },
+                    "neutral": {
+                      "label": "N/A",
+                      "value": "n/a"
+                    },
+                    "neutral_enabled": false,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "CalculatedField",
+                    "key": "502d",
+                    "label": "cost",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "cost",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": [],
+                    "expression": "CHOICEVALUE($base_rate)\nISSELECTED($base_rate,'Band 2 - 6m up to and including 10 metres')\nSETRESULT(2)\nISSELECTED($base_rate,'Band 1 - Up to and including 5 metres')\nSETRESULT(1)",
+                    "display": {
+                      "style": "number",
+                      "currency": null
+                    },
+                    "default_values": null,
+                    "default_previous_value": false
+                  }
+                ]
+              },
+              {
+                "type": "Section",
+                "key": "f049",
+                "label": "Palm Pruning",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "palm_pruning",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "2e61",
+                    "operator": "equal_to",
+                    "value": "Palm"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "18f6",
+                    "label": "Pruning Requirement",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "pruning_requirement",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "- Pruning to leave a level canopy including all loose material on trunk",
+                        "value": "- Pruning to leave a level canopy including all loose material on trunk"
+                      },
+                      {
+                        "label": "- Pruning to leave a canopy 45 degrees from vertical including all loose material on trunk",
+                        "value": "- Pruning to leave a canopy 45 degrees from vertical including all loose material on trunk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  }
+                ]
+              },
+              {
+                "type": "Section",
+                "key": "9786",
+                "label": "Tree Removal",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "tree_removal",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "2e61",
+                    "operator": "equal_to",
+                    "value": "Removal"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "5c60",
+                    "label": "Band Category",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "band_category",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "Band 1 - Up to and including 5 metres",
+                        "value": "Band 1 - Up to and including 5 metres"
+                      },
+                      {
+                        "label": "Band 2 - 6m up to and including 10 metres",
+                        "value": "Band 2 - 6m up to and including 10 metres"
+                      },
+                      {
+                        "label": "Band 3 - 11m up to and including 15 metres",
+                        "value": "Band 3 - 11m up to and including 15 metres"
+                      },
+                      {
+                        "label": "Band 4 - 16m up to and including 20 metres",
+                        "value": "Band 4 - 16m up to and including 20 metres"
+                      },
+                      {
+                        "label": "Band 5 - 21m up to and including 29 metres",
+                        "value": "Band 5 - 21m up to and including 29 metres"
+                      },
+                      {
+                        "label": "Band 6 - Higher than 30 metres",
+                        "value": "Band 6 - Higher than 30 metres"
+                      }
+                    ],
+                    "default_previous_value": false
+                  }
+                ]
+              },
+              {
+                "type": "Section",
+                "key": "5f50",
+                "label": "Stump Grinding",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "stump_grinding",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "2e61",
+                    "operator": "equal_to",
+                    "value": "Stump grinding"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "bb56",
+                    "label": "Size Category",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "size_category",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "Up to and including 300mm",
+                        "value": "Up to and including 300mm"
+                      },
+                      {
+                        "label": "301mm up to and including 600 mm",
+                        "value": "301mm up to and including 600 mm"
+                      },
+                      {
+                        "label": "601mm up to and including 900 mm",
+                        "value": "601mm up to and including 900 mm"
+                      },
+                      {
+                        "label": "901mm up to and including 1200 mm",
+                        "value": "901mm up to and including 1200 mm"
+                      },
+                      {
+                        "label": "Larger than 1201 mm",
+                        "value": "Larger than 1201 mm"
+                      }
+                    ],
+                    "default_previous_value": false
+                  }
+                ]
+              },
+              {
+                "type": "Section",
+                "key": "e0b5",
+                "label": "Chipping",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "chipping",
+                "default_value": null,
+                "visible_conditions_type": "all",
+                "visible_conditions": [
+                  {
+                    "field_key": "2e61",
+                    "operator": "equal_to",
+                    "value": "Chipping"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "inline",
+                "elements": [
+                  {
+                    "type": "TextField",
+                    "key": "1060",
+                    "label": "Cubic Metres",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "cubic_metres",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "numeric": true,
+                    "format": "decimal",
+                    "min": null,
+                    "max": null,
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "d42a"
+        ],
+        "geometry_types": [],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "DateTimeField",
+        "key": "6557",
+        "label": "Date work Completed",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "date_work_completed",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-06-06T14:17:02Z",
+    "updated_at": "2016-06-06T14:17:02Z"
+  }
+}
