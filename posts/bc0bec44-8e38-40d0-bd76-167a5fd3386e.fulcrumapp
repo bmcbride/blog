@@ -1,0 +1,2723 @@
+{
+  "form": {
+    "id": "bc0bec44-8e38-40d0-bd76-167a5fd3386e",
+    "name": "Tree Work reported by Customers",
+    "description": "Used to track customer reported tree issues and status etc",
+    "bounding_box": null,
+    "record_title_key": "80dc",
+    "title_field_keys": [
+      "80dc",
+      "21a1"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Investigate",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Investigate",
+          "value": "Investigate",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Further Inestigation",
+          "value": "Further Investigation",
+          "color": "#242424"
+        },
+        {
+          "label": "Contract",
+          "value": "Contract",
+          "color": "#FFFFFF"
+        },
+        {
+          "label": "QRT",
+          "value": "QRT",
+          "color": "#1891C9"
+        },
+        {
+          "label": "QRT (Ground)",
+          "value": "QRT (Ground)",
+          "color": "#1891C9"
+        },
+        {
+          "label": "Chipping",
+          "value": "Chipping",
+          "color": "#FF8819"
+        },
+        {
+          "label": "Stump Grinding",
+          "value": "Stump Grinding",
+          "color": "#FFD300"
+        },
+        {
+          "label": "Planting",
+          "value": "Planting",
+          "color": "#DA0796"
+        },
+        {
+          "label": "Complete",
+          "value": "Complete",
+          "color": "#2D5D00"
+        },
+        {
+          "label": "WDO",
+          "value": "WDO",
+          "color": "#704B10"
+        },
+        {
+          "label": "Recorded",
+          "value": "Recored",
+          "color": "#B3B3B3"
+        },
+        {
+          "label": "WDO On Hold",
+          "value": "WDO on Hold",
+          "color": "#704B10"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "80dc",
+        "label": "Tree location ( eg nearest address )",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "tree_location_eg_nearest_address_",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "21a1",
+        "label": "Inspection Priority",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "inspection_priority",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "High (incl.written responses req'd)",
+            "value": "High (incl.written responses req'd)"
+          },
+          {
+            "label": "Medium",
+            "value": "Medium"
+          },
+          {
+            "label": "Low",
+            "value": "Low"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "dc4a",
+        "label": "Inspection Req'd By (for High Priority)",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "inspection_reqd_by_for_high_priority",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "21a1",
+            "operator": "equal_to",
+            "value": "High (incl.written responses req'd)"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "cd1e",
+        "label": "Dataworks Request No.",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "dataworks_request_no",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "a99e",
+        "label": "Council Tree?",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "council_tree",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "Yes",
+            "value": "Yes"
+          },
+          {
+            "label": "No",
+            "value": "No"
+          },
+          {
+            "label": "Both",
+            "value": "Both"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "8f20",
+        "label": "Work requested by customer",
+        "description": "What is the Customer asking for? Be detailed.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "work_requested_by_customer",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "2820",
+        "label": "Customer Name / Address / Contact Nos",
+        "description": "Details of who is requesting the work (includes Council Staff)",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "customer_name_address_contact_nos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "55f0",
+        "label": "Customer Feedback Req'd",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "customer_feedback_reqd",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "PhotoField",
+        "key": "a09c",
+        "label": "Customer Provided Photos",
+        "description": "If customer can provide photos, place them here.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "customer_provided_photos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "811b",
+        "label": "Neighbourhood",
+        "description": null,
+        "required": false,
+        "disabled": true,
+        "hidden": false,
+        "data_name": "neighbourhood",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "446d",
+        "label": "Team",
+        "description": null,
+        "required": false,
+        "disabled": true,
+        "hidden": false,
+        "data_name": "team",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Section",
+        "key": "3485",
+        "label": "Investigation",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "investigation",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "c968",
+            "label": "Notes - customer feedback",
+            "description": "For the Team Leader to provide feedback for the resident on what actions will be undertaken, or the actions the team leader has undertaken in terms of customer feedback/contact (green card etc.)",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "notes_customer_feedback",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "ea6c",
+            "label": "WDO Action Required",
+            "description": "See notes above and Interprete",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "wdo_action_required",
+            "default_value": "no",
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "c968",
+                "operator": "is_not_empty",
+                "value": ""
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "ae2c",
+            "label": "Dissucsion Notes",
+            "description": "Notes for the discussion of the work between everyone invloved",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "dissucsion_notes",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "de081305-10de-3179-4b47-89f9f3facce7",
+            "label": "Photos of tree / site",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "photos_of_tree_site",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "DateTimeField",
+            "key": "1882",
+            "label": "Inspection Date",
+            "description": "Date tree was inspected by Team leader",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "inspection_date",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "6d67",
+            "label": "T",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "t",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Contract"
+              },
+              {
+                "field_key": "1882",
+                "operator": "is_not_empty",
+                "value": ""
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Prune",
+                "value": "Prune"
+              },
+              {
+                "label": "Remove",
+                "value": "Remove"
+              },
+              {
+                "label": "Quote",
+                "value": "Quote"
+              },
+              {
+                "label": "Chip",
+                "value": "Chip"
+              },
+              {
+                "label": "EM",
+                "value": "EM"
+              },
+              {
+                "label": "Rootbarrier",
+                "value": "Rootbarrier"
+              },
+              {
+                "label": "Bees",
+                "value": "Bees"
+              },
+              {
+                "label": "Termites",
+                "value": "Termites"
+              },
+              {
+                "label": "Other",
+                "value": "Other"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "5776",
+            "label": "Route",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "route",
+            "default_value": "N/A",
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "1882",
+                "operator": "is_not_empty",
+                "value": ""
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Prune",
+                "value": "Prune"
+              },
+              {
+                "label": "Remove",
+                "value": "Remove"
+              },
+              {
+                "label": "Logs",
+                "value": "Logs"
+              },
+              {
+                "label": "Chip",
+                "value": "Chip"
+              },
+              {
+                "label": "Grind",
+                "value": "Grind"
+              },
+              {
+                "label": "Plant",
+                "value": "Plant"
+              },
+              {
+                "label": "Fallen Tree",
+                "value": "Fallen Tree"
+              },
+              {
+                "label": "Other",
+                "value": "Other"
+              },
+              {
+                "label": "T/L",
+                "value": "T/L"
+              },
+              {
+                "label": "N/A",
+                "value": "N/A"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "7be1",
+            "label": "TREE WORK INSTRUCTIONS",
+            "description": "Instructions from Team Leader to Tree Team",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "tree_work_instructions",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "3914",
+            "label": "Height",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "height",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5776",
+                "operator": "equal_to",
+                "value": "Prune"
+              },
+              {
+                "field_key": "5776",
+                "operator": "equal_to",
+                "value": "Remove"
+              },
+              {
+                "field_key": "6d67",
+                "operator": "is_not_empty",
+                "value": ""
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "decimal",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "8a8d",
+        "label": "Works",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "works",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "cba9",
+            "label": "Team Notes",
+            "description": "All notes must include name and date",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "team_notes",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "fa48",
+            "label": "Team Photos",
+            "description": "Photos of work, access issues, completed work etc. USE CAPTIONS for each photo.",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "team_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "Section",
+            "key": "f6d2",
+            "label": "QRT",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "qrt",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "add8",
+                "label": "QRT Complete?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "qrt_complete",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": true,
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "c7d2",
+                "label": "QRT Hazard Assessment",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "qrt_hazard_assessment",
+                "default_value": null,
+                "visible_conditions_type": "any",
+                "visible_conditions": [
+                  {
+                    "field_key": "add8",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "drilldown",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "f03c",
+                    "label": "QRT Traffic Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_traffic_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Pedestrian Traffic",
+                        "value": "Pedestrian Traffic"
+                      },
+                      {
+                        "label": "Vehicle Traffic",
+                        "value": "Vehicle Traffic"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "f6bb",
+                    "label": "QRT Traffic Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_traffic_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "f03c",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Barricades",
+                        "value": "Barricades"
+                      },
+                      {
+                        "label": "Witches hats",
+                        "value": "Witches hats"
+                      },
+                      {
+                        "label": "Exclusion Zone w/ observer",
+                        "value": "Exclusion Zone w/ observer"
+                      },
+                      {
+                        "label": "Shadow vehicle",
+                        "value": "Shadow vehicle"
+                      },
+                      {
+                        "label": "TCP 101",
+                        "value": "TCP 101"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "6f19",
+                    "label": "QRT Manual Handling Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_manual_handling_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Bending",
+                        "value": "Bending"
+                      },
+                      {
+                        "label": "Lifting",
+                        "value": "Lifting"
+                      },
+                      {
+                        "label": "Twisting",
+                        "value": "Twisting"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "b8ea",
+                    "label": "QRT Manual Handling Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_manual_handling_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "all",
+                    "visible_conditions": [
+                      {
+                        "field_key": "6f19",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Use SWP",
+                        "value": "Use SWP"
+                      },
+                      {
+                        "label": "Use Mechanical Aids",
+                        "value": "Use Mechanical Aids"
+                      },
+                      {
+                        "label": "Use Team Lifting",
+                        "value": "Use Team Lifting"
+                      },
+                      {
+                        "label": "Cut smaller",
+                        "value": "Cut smaller"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "f02c",
+                    "label": "QRT Equipment Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_equipment_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Malfunction",
+                        "value": "Malfunction"
+                      },
+                      {
+                        "label": "Kickback",
+                        "value": "Kickback"
+                      },
+                      {
+                        "label": "Breakdown",
+                        "value": "Breakdown"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "6b61",
+                    "label": "QRT Equipment Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_equipment_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "f02c",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Pre-Op inspection",
+                        "value": "Pre-Op inspection"
+                      },
+                      {
+                        "label": "Appropriate PPE",
+                        "value": "Appropriate PPE"
+                      },
+                      {
+                        "label": "Correct Cutting Techniques",
+                        "value": "Correct Cutting Techniques"
+                      },
+                      {
+                        "label": "Training",
+                        "value": "Training"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "2416",
+                    "label": "QRT Overall Risk Rating (before)",
+                    "description": "Using Councils Risk Assessment Matrix\n(insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_overall_risk_rating_before",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "4a5f",
+                    "label": "QRT Overall Controls Rating (after)",
+                    "description": "Using Councils Risk Assessment Matrix\n(Insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_overall_controls_rating_after",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "SignatureField",
+                    "key": "075c",
+                    "label": "QRT Signature",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "qrt_signature",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "agreement_text": ""
+                  }
+                ]
+              },
+              {
+                "type": "ChoiceField",
+                "key": "b07d",
+                "label": "QRT Team Members",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "qrt_team_members",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": true,
+                "allow_other": true,
+                "choices": [
+                  {
+                    "label": "CK",
+                    "value": "CK"
+                  },
+                  {
+                    "label": "DR",
+                    "value": "DR"
+                  },
+                  {
+                    "label": "GD",
+                    "value": "GD"
+                  },
+                  {
+                    "label": "GJ",
+                    "value": "GJ"
+                  },
+                  {
+                    "label": "HT",
+                    "value": "HT"
+                  },
+                  {
+                    "label": "JM",
+                    "value": "JM"
+                  },
+                  {
+                    "label": "RN",
+                    "value": "RN"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "DateTimeField",
+                "key": "01b8",
+                "label": "QRT Completion Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "qrt_completion_date",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "4ed3",
+            "label": "CHIPPER",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "chipper",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "c255",
+                "label": "Chipping Complete?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "chipping_complete",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": true,
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "f26b",
+                "label": "Chipper Hazard Assessment",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "chipper_hazard_assessment",
+                "default_value": null,
+                "visible_conditions_type": "any",
+                "visible_conditions": [
+                  {
+                    "field_key": "c255",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "drilldown",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "accb",
+                    "label": "Chipper Traffic Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_traffic_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Pedestrian Traffic",
+                        "value": "Pedestrian Traffic"
+                      },
+                      {
+                        "label": "Vehicle Traffic",
+                        "value": "Vehicle Traffic"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "c90b",
+                    "label": "Chipper Traffic Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_traffic_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "accb",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Barricades",
+                        "value": "Barricades"
+                      },
+                      {
+                        "label": "Witches hats",
+                        "value": "Witches hats"
+                      },
+                      {
+                        "label": "Exclusion Zone w/ observer",
+                        "value": "Exclusion Zone w/ observer"
+                      },
+                      {
+                        "label": "Shadow vehicle",
+                        "value": "Shadow vehicle"
+                      },
+                      {
+                        "label": "TCP 101",
+                        "value": "TCP 101"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "42f5",
+                    "label": "Chipper Manual Handling Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_manual_handling_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Bending",
+                        "value": "Bending"
+                      },
+                      {
+                        "label": "Lifting",
+                        "value": "Lifting"
+                      },
+                      {
+                        "label": "Twisting",
+                        "value": "Twisting"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "4a13",
+                    "label": "Chipper Manual Handling Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_manual_handling_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "42f5",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Use SWP",
+                        "value": "Use SWP"
+                      },
+                      {
+                        "label": "Use Mechanical Aids",
+                        "value": "Use Mechanical Aids"
+                      },
+                      {
+                        "label": "Use Team Lifting",
+                        "value": "Use Team Lifting"
+                      },
+                      {
+                        "label": "Cut smaller",
+                        "value": "Cut smaller"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "347f",
+                    "label": "Chipper Flying Debris Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_flying_debris_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Whipping branches",
+                        "value": "Whipping branches"
+                      },
+                      {
+                        "label": "Dust",
+                        "value": "Dust"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "4359",
+                    "label": "Chipper Flying Debris Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_flying_debris_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "347f",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Cut branches smaller",
+                        "value": "Cut branches smaller"
+                      },
+                      {
+                        "label": "1 branch at a time",
+                        "value": "1 branch at a time"
+                      },
+                      {
+                        "label": "Dust masks",
+                        "value": "Dust masks"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "db28",
+                    "label": "Chipper Overall Risk Rating (before)",
+                    "description": "Using Councils Risk Assessment Matrix\n(insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_overall_risk_rating_before",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "87e5",
+                    "label": "Chipper Overall Controls Rating (after)",
+                    "description": "Using Councils Risk Assessment Matrix\n(Insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_overall_controls_rating_after",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "SignatureField",
+                    "key": "5fc2",
+                    "label": "Chipper Signature",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "chipper_signature",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "agreement_text": ""
+                  }
+                ]
+              },
+              {
+                "type": "ChoiceField",
+                "key": "1e65",
+                "label": "Chipper Team Members",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "chipper_team_members",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": true,
+                "allow_other": true,
+                "choices": [
+                  {
+                    "label": "CK",
+                    "value": "CK"
+                  },
+                  {
+                    "label": "DR",
+                    "value": "DR"
+                  },
+                  {
+                    "label": "GD",
+                    "value": "GD"
+                  },
+                  {
+                    "label": "GJ",
+                    "value": "GJ"
+                  },
+                  {
+                    "label": "HT",
+                    "value": "HT"
+                  },
+                  {
+                    "label": "JM",
+                    "value": "JM"
+                  },
+                  {
+                    "label": "RN",
+                    "value": "RN"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "DateTimeField",
+                "key": "60f6",
+                "label": "Chipping Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "chipping_date",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "144e",
+            "label": "NTM",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "ntm",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "inline",
+            "elements": [
+              {
+                "type": "YesNoField",
+                "key": "56ce",
+                "label": "Stump Grind Complete?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "stump_grind_complete",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": true,
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "7e98",
+                "label": "SG Hazard Assessment",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "sg_hazard_assessment",
+                "default_value": null,
+                "visible_conditions_type": "any",
+                "visible_conditions": [
+                  {
+                    "field_key": "56ce",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "drilldown",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "8c38",
+                    "label": "SG Traffic Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_traffic_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Pedestrian Traffic",
+                        "value": "Pedestrian Traffic"
+                      },
+                      {
+                        "label": "Vehicle Traffic",
+                        "value": "Vehicle Traffic"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "f1a9",
+                    "label": "SG Traffic Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_traffic_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "8c38",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Barricades",
+                        "value": "Barricades"
+                      },
+                      {
+                        "label": "Witches hats",
+                        "value": "Witches hats"
+                      },
+                      {
+                        "label": "Exclusion Zone w/ observer",
+                        "value": "Exclusion Zone w/ observer"
+                      },
+                      {
+                        "label": "Shadow vehicle",
+                        "value": "Shadow vehicle"
+                      },
+                      {
+                        "label": "TCP 101",
+                        "value": "TCP 101"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "13ae",
+                    "label": "SG Manual Handling Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_manual_handling_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Bending",
+                        "value": "Bending"
+                      },
+                      {
+                        "label": "Lifting",
+                        "value": "Lifting"
+                      },
+                      {
+                        "label": "Twisting",
+                        "value": "Twisting"
+                      },
+                      {
+                        "label": "Flying debris",
+                        "value": "Flying debris"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "1d0a",
+                    "label": "SG Manual Handling Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_manual_handling_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "13ae",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Use SWP",
+                        "value": "Use SWP"
+                      },
+                      {
+                        "label": "Use Team Lifting",
+                        "value": "Use Team Lifting"
+                      },
+                      {
+                        "label": "Work down wind",
+                        "value": "Work down wind"
+                      },
+                      {
+                        "label": "Use debris sheild",
+                        "value": "Use debris sheild"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "bd7b",
+                    "label": "SG Underground Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_underground_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Gas",
+                        "value": "Gas"
+                      },
+                      {
+                        "label": "Stormwater",
+                        "value": "Stormwater"
+                      },
+                      {
+                        "label": "Telstra",
+                        "value": "Telstra"
+                      },
+                      {
+                        "label": "Electricity",
+                        "value": "Electricity"
+                      },
+                      {
+                        "label": "Water",
+                        "value": "Water"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "2615",
+                    "label": "SG Underground Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_underground_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "bd7b",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Service away from Worksite",
+                        "value": "Service away from Worksite"
+                      },
+                      {
+                        "label": "DBYD maps",
+                        "value": "DBYD maps"
+                      },
+                      {
+                        "label": "Monitor during work",
+                        "value": "Monitor during work"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "b787",
+                    "label": "SG Overall Risk Rating (before)",
+                    "description": "Using Councils Risk Assessment Matrix\n(insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_overall_risk_rating_before",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "d7d6",
+                    "label": "SG Overall Controls Rating (after)",
+                    "description": "Using Councils Risk Assessment Matrix\n(Insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_overall_controls_rating_after",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "SignatureField",
+                    "key": "f35e",
+                    "label": "SG Signature",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "sg_signature",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "agreement_text": ""
+                  }
+                ]
+              },
+              {
+                "type": "ChoiceField",
+                "key": "7644",
+                "label": "SG Team Members",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "sg_team_members",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": true,
+                "allow_other": true,
+                "choices": [
+                  {
+                    "label": "CK",
+                    "value": "CK"
+                  },
+                  {
+                    "label": "DR",
+                    "value": "DR"
+                  },
+                  {
+                    "label": "GD",
+                    "value": "GD"
+                  },
+                  {
+                    "label": "GJ",
+                    "value": "GJ"
+                  },
+                  {
+                    "label": "HT",
+                    "value": "HT"
+                  },
+                  {
+                    "label": "JM",
+                    "value": "JM"
+                  },
+                  {
+                    "label": "RN",
+                    "value": "RN"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "DateTimeField",
+                "key": "3d61",
+                "label": "Stump Grind Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "stump_grind_date",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "YesNoField",
+                "key": "61b5",
+                "label": "Planting Complete?",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "planting_complete",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "positive": {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                "negative": {
+                  "label": "No",
+                  "value": "no"
+                },
+                "neutral": {
+                  "label": "N/A",
+                  "value": "n/a"
+                },
+                "neutral_enabled": true,
+                "default_previous_value": false
+              },
+              {
+                "type": "Section",
+                "key": "f988",
+                "label": "Planting Hazard Assessment",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "planting_hazard_assessment",
+                "default_value": null,
+                "visible_conditions_type": "any",
+                "visible_conditions": [
+                  {
+                    "field_key": "61b5",
+                    "operator": "equal_to",
+                    "value": "yes"
+                  }
+                ],
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "display": "drilldown",
+                "elements": [
+                  {
+                    "type": "ChoiceField",
+                    "key": "7226",
+                    "label": "Planting Manual Handling Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_manual_handling_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Bending",
+                        "value": "Bending"
+                      },
+                      {
+                        "label": "Lifting",
+                        "value": "Lifting"
+                      },
+                      {
+                        "label": "Twisting",
+                        "value": "Twisting"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "21ac",
+                    "label": "Planting Manual Handling Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_manual_handling_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "7226",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Use SWP",
+                        "value": "Use SWP"
+                      },
+                      {
+                        "label": "Use Mechanical Aids",
+                        "value": "Use Mechanical Aids"
+                      },
+                      {
+                        "label": "Use Team Lifting",
+                        "value": "Use Team Lifting"
+                      },
+                      {
+                        "label": "Cut smaller",
+                        "value": "Cut smaller"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "504c",
+                    "label": "Planting Traffic Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_traffic_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Pedestrian Traffic",
+                        "value": "Pedestrian Traffic"
+                      },
+                      {
+                        "label": "Vehicle Traffic",
+                        "value": "Vehicle Traffic"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "64e4",
+                    "label": "Planting Traffic Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_traffic_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "504c",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Barricades",
+                        "value": "Barricades"
+                      },
+                      {
+                        "label": "Witches hats",
+                        "value": "Witches hats"
+                      },
+                      {
+                        "label": "Exclusion Zone w/ observer",
+                        "value": "Exclusion Zone w/ observer"
+                      },
+                      {
+                        "label": "Shadow vehicle",
+                        "value": "Shadow vehicle"
+                      },
+                      {
+                        "label": "TCP 101",
+                        "value": "TCP 101"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "336f",
+                    "label": "Planting Underground Hazards",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_underground_hazards",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Gas",
+                        "value": "Gas"
+                      },
+                      {
+                        "label": "Stormwater",
+                        "value": "Stormwater"
+                      },
+                      {
+                        "label": "Telstra",
+                        "value": "Telstra"
+                      },
+                      {
+                        "label": "Electricity",
+                        "value": "Electricity"
+                      },
+                      {
+                        "label": "Water",
+                        "value": "Water"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "bb22",
+                    "label": "Planting Underground Controls",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_underground_controls",
+                    "default_value": null,
+                    "visible_conditions_type": "any",
+                    "visible_conditions": [
+                      {
+                        "field_key": "336f",
+                        "operator": "is_not_empty",
+                        "value": ""
+                      }
+                    ],
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": true,
+                    "allow_other": true,
+                    "choices": [
+                      {
+                        "label": "Service away from Worksite",
+                        "value": "Service away from Worksite"
+                      },
+                      {
+                        "label": "DBYD maps",
+                        "value": "DBYD maps"
+                      },
+                      {
+                        "label": "Monitor during work",
+                        "value": "Monitor during work"
+                      }
+                    ],
+                    "min_length": null,
+                    "max_length": null,
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "76ca",
+                    "label": "Planting Overall Risk Rating (before)",
+                    "description": "Using Councils Risk Assessment Matrix\n(insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_overall_risk_rating_before",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "ChoiceField",
+                    "key": "86a5",
+                    "label": "Planting Overall Controls Rating (after)",
+                    "description": "Using Councils Risk Assessment Matrix\n(Insert URL)",
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_overall_controls_rating_after",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "multiple": false,
+                    "allow_other": false,
+                    "choices": [
+                      {
+                        "label": "1 - Extreme Risk",
+                        "value": "1 - Extreme Risk"
+                      },
+                      {
+                        "label": "2 - High Risk",
+                        "value": "2 - High Risk"
+                      },
+                      {
+                        "label": "3 - Significant Risk",
+                        "value": "3 - Significant Risk"
+                      },
+                      {
+                        "label": "4 - Moderate Risk",
+                        "value": "4 - Moderate Risk"
+                      },
+                      {
+                        "label": "5 - Low Risk",
+                        "value": "5 - Low Risk"
+                      }
+                    ],
+                    "default_previous_value": false
+                  },
+                  {
+                    "type": "SignatureField",
+                    "key": "ab60",
+                    "label": "Planting Signature",
+                    "description": null,
+                    "required": false,
+                    "disabled": false,
+                    "hidden": false,
+                    "data_name": "planting_signature",
+                    "default_value": null,
+                    "visible_conditions_type": null,
+                    "visible_conditions": null,
+                    "required_conditions_type": null,
+                    "required_conditions": null,
+                    "agreement_text": ""
+                  }
+                ]
+              },
+              {
+                "type": "ChoiceField",
+                "key": "02d4",
+                "label": "Planting Team Members",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "planting_team_members",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "multiple": true,
+                "allow_other": true,
+                "choices": [
+                  {
+                    "label": "CK",
+                    "value": "CK"
+                  },
+                  {
+                    "label": "DR",
+                    "value": "DR"
+                  },
+                  {
+                    "label": "GD",
+                    "value": "GD"
+                  },
+                  {
+                    "label": "GJ",
+                    "value": "GJ"
+                  },
+                  {
+                    "label": "HT",
+                    "value": "HT"
+                  },
+                  {
+                    "label": "JM",
+                    "value": "JM"
+                  },
+                  {
+                    "label": "RN",
+                    "value": "RN"
+                  }
+                ],
+                "min_length": null,
+                "max_length": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "DateTimeField",
+                "key": "dce2",
+                "label": "Planting Date",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "planting_date",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": null,
+                "default_previous_value": false
+              }
+            ]
+          },
+          {
+            "type": "Section",
+            "key": "62fd",
+            "label": "A",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": true,
+            "data_name": "a",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Recored"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "display": "drilldown",
+            "elements": [
+              {
+                "type": "CalculatedField",
+                "key": "2cfa",
+                "label": "b",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "b",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "$inspection_date",
+                "display": {
+                  "style": "date",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "091c",
+                "label": "q",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "q",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "DAY($qrt_completion_date - $inspection_date) - 1",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "6cbc",
+                "label": "c",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "c",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "DAY($chipping_date - $inspection_date) - 1",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "769a",
+                "label": "s",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "s",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "DAY($stump_grind_date - $inspection_date) - 1",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              },
+              {
+                "type": "CalculatedField",
+                "key": "8948",
+                "label": "p",
+                "description": null,
+                "required": false,
+                "disabled": false,
+                "hidden": false,
+                "data_name": "p",
+                "default_value": null,
+                "visible_conditions_type": null,
+                "visible_conditions": null,
+                "required_conditions_type": null,
+                "required_conditions": [],
+                "expression": "DAY($planting_date - $inspection_date) - 1",
+                "display": {
+                  "style": "number",
+                  "currency": null
+                },
+                "default_values": null,
+                "default_previous_value": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "created_at": "2016-06-06T14:17:01Z",
+    "updated_at": "2016-06-06T14:17:01Z"
+  }
+}
