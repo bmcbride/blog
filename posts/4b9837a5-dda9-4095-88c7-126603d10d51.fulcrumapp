@@ -219,7 +219,7 @@
         "label": "Team",
         "description": null,
         "required": false,
-        "disabled": false,
+        "disabled": true,
         "hidden": false,
         "data_name": "team",
         "default_value": null,
@@ -1711,6 +1711,6 @@
       }
     ],
     "created_at": "2016-06-06T14:17:02Z",
-    "updated_at": "2016-06-06T14:22:24Z"
+    "updated_at": "2016-06-06T14:26:08Z"
   }
 }
