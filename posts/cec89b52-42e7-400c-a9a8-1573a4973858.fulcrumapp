@@ -36,12 +36,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 3,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "var username = 'fulcrum',\n  api_key = '902871372eafdac444b7186c028f3002ec0e430a';\n\nON('new-record', function(event) {\n  type = 'create';\n});\n\nON('edit-record', function(event) {\n  type = 'update';\n});\n\nON('save-record', function(event) {\n  if (type == 'create') {\n    query = 'INSERT INTO fulcrum_data_events (fulcrum_id, name, number, color,  the_geom) VALUES ($$' + RECORDID() + '$$, $$' + $name + '$$, ' + $number + ', $$' + STATUS() + '$$, ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326))';\n    postToCDB(query);\n  } else if (type == 'update') {\n    query = 'UPDATE fulcrum_data_events SET name=$$' + $name + '$$, number=' + $number + ', color=$$' + STATUS() + '$$, the_geom=ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326) WHERE fulcrum_id=$$' + RECORDID() + '$$';\n    postToCDB(query);\n  }\n});\n\nfunction postToCDB(query) {\n  options = {\n    url: 'https://' + username + '.cartodb.com/api/v2/sql?q=' + query + '&api_key=' + api_key,\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      ALERT('This record has been successfully posted to CartoDB!');\n    }\n  });\n}",
+    "script": "var username = 'fulcrum',\n  api_key = '902871372eafdac444b7186c028f3002ec0e430a';\n\nON('new-record', function(event) {\n  type = 'create';\n});\n\nON('edit-record', function(event) {\n  type = 'update';\n});\n\nON('save-record', function(event) {\n  if (type == 'create') {\n    query = 'INSERT INTO fulcrum_data_events (fulcrum_id, name, number, color,  the_geom) VALUES ($$' + RECORDID() + '$$, $$' + $name + '$$, ' + $number + ', $$' + STATUS() + '$$, ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326))';\n    postToCDB(query);\n  } else if (type == 'update') {\n    query = 'UPDATE fulcrum_data_events SET name=$$' + $name + '$$, number=' + $number + ', color=$$' + STATUS() + '$$, the_geom=ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326) WHERE fulcrum_id=$$' + RECORDID() + '$$';\n    postToCDB(query);\n  }\n});\n\nfunction postToCDB(query) {\n  options = {\n    url: 'https://' + username + '.cartodb.com/api/v2/sql?q=' + encodeURIComponent(query) + '&api_key=' + api_key,\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      ALERT('This record has been successfully posted to CartoDB!');\n    }\n  });\n}",
     "elements": [
       {
         "type": "TextField",
@@ -88,6 +88,6 @@
       }
     ],
     "created_at": "2016-05-27T17:58:37Z",
-    "updated_at": "2016-05-27T17:58:37Z"
+    "updated_at": "2016-06-06T21:10:10Z"
   }
 }
