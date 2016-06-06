@@ -46,7 +46,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function identifyTeam() {\n    var sql = FORMAT(\"SELECT * FROM teamzones WHERE ST_Contains(the_geom, ST_GeomFromText('POINT(%s %s)', 4326))\",\n                     LONGITUDE(), LATITUDE());\n\n  var options = {\n    url: 'https://jamesh.cartodb.com/api/v2/sql',\n    qs: {\n      f: 'geojson',\n      q: sql\n    }\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      data = JSON.parse(body);\n      if (data.rows && data.rows.length > 0) {\n        SETVALUE('team', data.rows[0].name);\n      }\n      else {\n        ALERT('No data');\n      }\n    }\n  });\n}\nON('change-geometry', identifyTeam);",
+    "script": "function identifyTeam() {\n  options = {\n    url: \"https://jamesh.cartodb.com/api/v2/sql?f=geojson&q=SELECT+*+FROM+teamzones+WHERE+ST_Contains(the_geom,+ST_GeomFromText('POINT(\"+ LONGITUDE() + \"+\" + LATITUDE()+ \")',4326))\"\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      data = JSON.parse(body);\n      if (data.rows && data.rows.length > 0) {\n        SETVALUE('team', data.rows[0].name);\n      }\n      else {\n        ALERT('No data');\n      }\n    }\n  });\n}\nON('change-geometry', identifyTeam);",
     "elements": [
       {
         "type": "BarcodeField",
@@ -1711,6 +1711,6 @@
       }
     ],
     "created_at": "2016-06-06T14:17:02Z",
-    "updated_at": "2016-06-06T14:59:41Z"
+    "updated_at": "2016-06-06T15:06:15Z"
   }
 }
