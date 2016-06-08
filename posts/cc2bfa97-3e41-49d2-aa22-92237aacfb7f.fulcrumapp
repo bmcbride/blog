@@ -46,12 +46,12 @@
     },
     "auto_assign": true,
     "hidden_on_dashboard": false,
-    "record_count": 1,
+    "record_count": 2,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": true,
-    "script": "var storage = STORAGE();\nvar noGeotags = {'photos': []};\n\nfunction checkPhoto(event) {\n  if (!event.value.latitude || !event.value.latitude || event.value.latitude === 0 || event.value.latitude === 0) {\n    noGeotags.photos.push(event.value.id);\n    storage.setItem('noGeotags', JSON.stringify(noGeotags));\n    ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n  }\n}\n\nfunction removePhoto(event) {\n  var index = noGeotags.photos.indexOf(event.value.id);\n  noGeotags.photos.splice(index, 1);\n  storage.setItem('noGeotags', JSON.stringify(noGeotags));\n}\n\nfunction validateRecord(event) {\n  var notags = JSON.parse(storage.getItem('noGeotags')).photos;\n  if (notags.length > 0) {\n    ALERT(INSPECT(notags));\n    var photos = $photos;\n    for (var i = 0; i < photos.length; i++) {\n      for (var ii = 0; ii < notags.length; ii++) {\n        if (photos[i].photo_id == notags[ii]) {\n          var index = i+1;\n          INVALID('Photo #' + index + ' is not geotagged. Please remove this photo.');\n        }\n      }\n    }\n  }\n}\n\nON('add-photo', 'photos', checkPhoto);\nON('remove-photo', 'photos', removePhoto);\nON('validate-record', validateRecord);\n\n\nON('load-record', function(event) {\n  var adminRoles = ['Owner'];\n\n  // enable the fields if the current role is one of the designated admin roles...\n  if (adminRoles.indexOf(ROLE()) !== -1) {\n    // make some fields editable by turning off the read-only flag\n    SETREADONLY('@status', false); // @status is the special data name for the status field\n  }\n});",
+    "script": "var storage = STORAGE();\nvar noGeotags = {'ids': []};\n\nfunction checkPhoto(event) {\n  if (!event.value.latitude || !event.value.latitude || event.value.latitude === 0 || event.value.latitude === 0) {\n    noGeotags.ids.push(event.value.id);\n    storage.setItem('noGeotags', JSON.stringify(noGeotags));\n    ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n  }\n}\n\nfunction removePhoto(event) {\n  var index = noGeotags.ids.indexOf(event.value.id);\n  noGeotags.ids.splice(index, 1);\n  storage.setItem('noGeotags', JSON.stringify(noGeotags));\n}\n\nfunction validateRecord(event) {\n  var ids = JSON.parse(storage.getItem('noGeotags')).ids;\n  if (ids.length > 0) {\n    ALERT(INSPECT(ids));\n    var photos = $photos;\n    for (var i = 0; i < photos.length; i++) {\n      for (var ii = 0; ii < ids.length; ii++) {\n        if (photos[i].photo_id == ids[ii]) {\n          var index = i+1;\n          INVALID('Photo #' + index + ' is not geotagged. Please remove this photo.');\n        }\n      }\n    }\n  }\n}\n\nON('add-photo', 'photos', checkPhoto);\nON('remove-photo', 'photos', removePhoto);\nON('validate-record', validateRecord);\n\n\nON('load-record', function(event) {\n  var adminRoles = ['Owner'];\n\n  // enable the fields if the current role is one of the designated admin roles...\n  if (adminRoles.indexOf(ROLE()) !== -1) {\n    // make some fields editable by turning off the read-only flag\n    SETREADONLY('@status', false); // @status is the special data name for the status field\n  }\n});",
     "elements": [
       {
         "type": "YesNoField",
@@ -476,6 +476,6 @@
       }
     ],
     "created_at": "2016-06-08T15:47:33Z",
-    "updated_at": "2016-06-08T16:48:17Z"
+    "updated_at": "2016-06-08T16:52:12Z"
   }
 }
