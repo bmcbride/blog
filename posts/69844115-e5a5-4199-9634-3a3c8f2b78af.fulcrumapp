@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "69844115-e5a5-4199-9634-3a3c8f2b78af",
-    "name": "Repeatable Requirement AlertsN",
+    "name": "Repeatable Requirement Alerts",
     "description": null,
     "bounding_box": null,
     "record_title_key": "275a",
@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('validate-record', function (event) {\n  // Do something to validate the record and call INVALID('message') if there is an error.\n})",
+    "script": "ON('validate-record', function (event) {\n  // Do something to validate the record and call INVALID('message') if there is an error.\n  //INSPECT(REPEATABLEVALUES($inspections, 'condition'))\n})",
     "elements": [
       {
         "type": "TextField",
@@ -89,7 +89,7 @@
             "key": "18f3",
             "label": "Condition",
             "description": null,
-            "required": true,
+            "required": false,
             "disabled": false,
             "hidden": false,
             "data_name": "condition",
@@ -169,6 +169,6 @@
       }
     ],
     "created_at": "2016-06-08T14:20:50Z",
-    "updated_at": "2016-06-08T14:31:03Z"
+    "updated_at": "2016-06-08T14:36:22Z"
   }
 }
