@@ -51,7 +51,7 @@
       "Point"
     ],
     "geometry_required": true,
-    "script": "var storage = STORAGE();\nvar noGeotags = [];\n\nfunction checkPhoto(event) {\n  if (event.value.latitude === null || event.value.longitude === null) {\n    noGeotags.push(event.value.id);\n    storage.setItem('noGeotags', noGeotags);\n    ALERT('Photo does not contain location data. Please turn photo geotagging on.');\n  }\n}\n\nON('add-photo', 'photos', checkPhoto);\n\nON('validate-record', function (event) {\n  if (noGeotags.length > 0) {\n    INVALID(INSPECT(noGeotags));\n  }\n});\n\n\nON('load-record', function(event) {\n  var adminRoles = ['Owner'];\n\n  // enable the fields if the current role is one of the designated admin roles...\n  if (adminRoles.indexOf(ROLE()) !== -1) {\n    // make some fields editable by turning off the read-only flag\n    SETREADONLY('@status', false); // @status is the special data name for the status field\n  }\n});",
+    "script": "var storage = STORAGE();\nvar noGeotags = [];\n\nfunction checkPhoto(event) {\n  if (!event.value.latitude || !event.value.latitude || event.value.latitude === 0 || event.value.latitude === 0) {\n    noGeotags.push(event.value.id);\n    storage.setItem('noGeotags', noGeotags);\n    ALERT('This photo is NOT geotagged. Please remove this photo, enable photo geotagging on your device and try again.');\n  }\n}\n\nON('add-photo', 'photos', checkPhoto);\n\nON('validate-record', function (event) {\n  if (noGeotags.length > 0) {\n    INVALID(INSPECT(noGeotags));\n  }\n});\n\n\nON('load-record', function(event) {\n  var adminRoles = ['Owner'];\n\n  // enable the fields if the current role is one of the designated admin roles...\n  if (adminRoles.indexOf(ROLE()) !== -1) {\n    // make some fields editable by turning off the read-only flag\n    SETREADONLY('@status', false); // @status is the special data name for the status field\n  }\n});",
     "elements": [
       {
         "type": "YesNoField",
@@ -433,6 +433,6 @@
       }
     ],
     "created_at": "2016-06-08T15:47:33Z",
-    "updated_at": "2016-06-08T15:57:44Z"
+    "updated_at": "2016-06-08T16:00:20Z"
   }
 }
