@@ -25,12 +25,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": null,
+    "script": "ON('validate-record', function (event) {\n  // Do something to validate the record and call INVALID('message') if there is an error.\n})",
     "elements": [
       {
         "type": "TextField",
@@ -123,9 +123,52 @@
         "geometry_required": false,
         "min_length": null,
         "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "ac7f",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "d607",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-06-08T14:20:50Z",
-    "updated_at": "2016-06-08T14:20:50Z"
+    "updated_at": "2016-06-08T14:31:03Z"
   }
 }
