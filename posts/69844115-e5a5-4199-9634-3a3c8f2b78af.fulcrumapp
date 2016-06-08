@@ -89,7 +89,7 @@
             "key": "18f3",
             "label": "Condition",
             "description": null,
-            "required": true,
+            "required": false,
             "disabled": false,
             "hidden": false,
             "data_name": "condition",
@@ -126,6 +126,6 @@
       }
     ],
     "created_at": "2016-06-08T14:20:50Z",
-    "updated_at": "2016-06-08T15:03:00Z"
+    "updated_at": "2016-06-08T15:22:57Z"
   }
 }
