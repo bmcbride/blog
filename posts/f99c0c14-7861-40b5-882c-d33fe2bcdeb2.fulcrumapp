@@ -1,0 +1,583 @@
+{
+  "form": {
+    "id": "f99c0c14-7861-40b5-882c-d33fe2bcdeb2",
+    "name": "Kitchen Sink",
+    "description": "",
+    "bounding_box": null,
+    "record_title_key": "b3b1",
+    "title_field_keys": [
+      "b3b1"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Good",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Good",
+          "value": "Good",
+          "color": "#87D30F"
+        },
+        {
+          "label": "Fair",
+          "value": "Fair",
+          "color": "#294184"
+        },
+        {
+          "label": "Poor",
+          "value": "Poor",
+          "color": "#CB0D0C"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 2,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('validate-record', function (event) {\n  if(!PROJECTNAME()) {\n  \tINVALID('Please select a project before saving!');\n  }\n})",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "ea98",
+        "label": "My Text",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_text",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": 0,
+        "max_length": 25,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "94c2",
+        "label": "My Numeric",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_numeric",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": 2,
+        "max": 10,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Label",
+        "key": "d780",
+        "label": "My Label",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_label",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null
+      },
+      {
+        "type": "YesNoField",
+        "key": "df13",
+        "label": "My Yes No",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_yes_no",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "266b",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "1d13",
+            "operator": "equal_to",
+            "value": "m2"
+          }
+        ],
+        "required_conditions_type": "all",
+        "required_conditions": [
+          {
+            "field_key": "266b",
+            "operator": "equal_to",
+            "value": "1"
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "266b",
+        "label": "My Single Choice",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_single_choice",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choice_list_id": "3772bee2-4890-4ee7-9195-170aa6524367",
+        "default_previous_value": false
+      },
+      {
+        "type": "Section",
+        "key": "b304",
+        "label": "My Section",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_section",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "a12a",
+            "label": "My 2nd Single Choice",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "my_2nd_single_choice",
+            "default_value": "1",
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Choice 1",
+                "value": "1"
+              },
+              {
+                "label": "Choice 2",
+                "value": "2"
+              },
+              {
+                "label": "Choice 3",
+                "value": "3"
+              }
+            ],
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "ChoiceField",
+        "key": "1d13",
+        "label": "My Multiple Choice",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_multiple_choice",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": true,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "Multiple 1",
+            "value": "m1"
+          },
+          {
+            "label": "Multiple 2",
+            "value": "m2"
+          },
+          {
+            "label": "Multiple 3",
+            "value": "m3"
+          }
+        ],
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "ClassificationField",
+        "key": "af15",
+        "label": "My Classification",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_classification",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "allow_other": false,
+        "classification_set_id": "d98c0e79-2677-467f-9479-120fa863fa34",
+        "default_previous_value": false
+      },
+      {
+        "type": "PhotoField",
+        "key": "84d6",
+        "label": "My Photos",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_photos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "VideoField",
+        "key": "5606",
+        "label": "My Videos",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_videos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "track_enabled": true,
+        "audio_enabled": true,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "AudioField",
+        "key": "b906",
+        "label": "My Audio",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_audio",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "track_enabled": false,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "BarcodeField",
+        "key": "e308",
+        "label": "My Barcode",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_barcode",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "ebff",
+        "label": "My Date",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_date",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TimeField",
+        "key": "2b33",
+        "label": "My Time",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_time",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Repeatable",
+        "key": "c6c3",
+        "label": "My Repeatable",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_repeatable",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "CalculatedField",
+            "key": "0016",
+            "label": "My Repeatable Calc",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "my_repeatable_calc",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "$my_numeric",
+            "display": {
+              "style": "number",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "0129",
+            "label": "My Repeatable Text",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "my_repeatable_text",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "b8b2",
+            "label": "My Repeatable Photos",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "my_repeatable_photos",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "0129"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": false,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "AddressField",
+        "key": "eceb",
+        "label": "My Address",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_address",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "auto_populate": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "SignatureField",
+        "key": "5d37",
+        "label": "My Signature",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_signature",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "agreement_text": ""
+      },
+      {
+        "type": "HyperlinkField",
+        "key": "b316",
+        "label": "My Hyperlink",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_hyperlink",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "default_url": ""
+      },
+      {
+        "type": "CalculatedField",
+        "key": "b3b1",
+        "label": "My Calculation",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_calculation",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "if ($my_multiple_choice && $my_multiple_choice.other_values.length > 0) {\n  SETRESULT($my_multiple_choice.other_values);\n} else if ($my_multiple_choice.choice_values.length > 0) {\n  SETRESULT($my_multiple_choice.choice_values.slice(-1)[0]);\n} else {\n  SETRESULT(null);\n}",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "756e",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "c64b",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code);",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2015-07-09T14:46:02Z",
+    "updated_at": "2016-06-20T14:29:11Z"
+  }
+}
