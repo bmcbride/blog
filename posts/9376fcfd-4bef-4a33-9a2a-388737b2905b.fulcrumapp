@@ -133,6 +133,27 @@
             "required_conditions": null,
             "auto_populate": true,
             "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "cec1",
+            "label": "Distance",
+            "description": null,
+            "required": false,
+            "disabled": true,
+            "hidden": false,
+            "data_name": "distance",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
           }
         ],
         "title_field_key": null,
@@ -145,30 +166,9 @@
         "geometry_required": true,
         "min_length": 1,
         "max_length": 1
-      },
-      {
-        "type": "TextField",
-        "key": "cec1",
-        "label": "Distance",
-        "description": null,
-        "required": false,
-        "disabled": true,
-        "hidden": false,
-        "data_name": "distance",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-06-21T20:52:23Z",
-    "updated_at": "2016-06-21T21:03:11Z"
+    "updated_at": "2016-06-21T21:04:26Z"
   }
 }
