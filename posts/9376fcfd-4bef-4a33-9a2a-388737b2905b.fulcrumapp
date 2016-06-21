@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": true,
-    "script": "// source: https://www.geodatasource.com/developers/javascript\nfunction findDistance(lat1, lon1, lat2, lon2, unit) {\n  var radlat1 = Math.PI * lat1 / 180;\n  var radlat2 = Math.PI * lat2 / 180;\n  var theta = lon1 - lon2;\n  var radtheta = Math.PI * theta / 180;\n  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);\n  dist = Math.acos(dist);\n  dist = dist * 180 / Math.PI;\n  dist = dist * 60 * 1.1515;\n  if (unit == \"K\") {\n    dist = dist * 1.609344;\n  }\n  if (unit == \"N\") {\n    dist = dist * 0.8684;\n  }\n  return dist;\n}\n\nON('change-geometry', 'drop_off_location', function (event) {\n  var distance = findDistance(event.value.latitude, event.value.longitude, LATITUDE(), LONGITUDE(), 'K');\n  SETVALUE('distance', Math.round(distance) + \" km\");\n})",
+    "script": "// source: https://www.geodatasource.com/developers/javascript\nfunction findDistance(lat1, lon1, lat2, lon2, unit) {\n  var radlat1 = Math.PI * lat1 / 180;\n  var radlat2 = Math.PI * lat2 / 180;\n  var theta = lon1 - lon2;\n  var radtheta = Math.PI * theta / 180;\n  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);\n  dist = Math.acos(dist);\n  dist = dist * 180 / Math.PI;\n  dist = dist * 60 * 1.1515;\n  if (unit == \"K\") {\n    dist = dist * 1.609344;\n  }\n  if (unit == \"N\") {\n    dist = dist * 0.8684;\n  }\n  return dist;\n}\n\nON('change-geometry', 'drop_off_location', function (event) {\n  var distance = findDistance(this.featureGeometry.coordinates[1], this.featureGeometry.coordinates[0], this.recordGeometry.coordinates[1], this.recordGeometry.coordinates[0], 'K');\n  SETVALUE('distance', Math.round(distance) + \" km\");\n})",
     "elements": [
       {
         "type": "TextField",
@@ -212,6 +212,6 @@
       }
     ],
     "created_at": "2016-06-21T20:52:23Z",
-    "updated_at": "2016-06-21T21:07:22Z"
+    "updated_at": "2016-06-21T21:09:56Z"
   }
 }
