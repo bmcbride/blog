@@ -42,12 +42,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": null,
+    "script": "ON('save-record', function (event) {\n  if ($1_do_i_have_the_necessary_training_and_knowledge_to_perform_this_task_safely == 'no' || $2_do_i_have_all_the_proper_tools_and_personal_protective_equipment == 'no' || $3_am_i_physically_and_mentally_prepared_to_perform_this_task_ == 'no') {\n    SETSTATUS('Training - Equipment Needed');\n  }\n});",
     "elements": [
       {
         "type": "Section",
@@ -980,6 +980,6 @@
       }
     ],
     "created_at": "2016-06-24T16:41:28Z",
-    "updated_at": "2016-06-24T16:42:24Z"
+    "updated_at": "2016-07-05T14:02:43Z"
   }
 }
