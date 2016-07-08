@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('load-record', function(event) {\n  var location = CURRENTLOCATION();\n  if (location) {\n    SETLOCATION(location.latitude, location.longitude);\n    ALERT(location.latitude + \",\" + location.longitude);\n  } \n});",
+    "script": "ON('load-record', function(event) {\n  var location = CURRENTLOCATION();\n  ALERT(location.latitude + \",\" + location.longitude);\n});",
     "elements": [
       {
         "type": "TextField",
@@ -66,6 +66,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-07-08T15:31:48Z"
+    "updated_at": "2016-07-08T15:38:05Z"
   }
 }
