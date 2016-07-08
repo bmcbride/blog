@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n\n    // if there is no location, display a special message\n    if (!location) {\n      SETLABEL('gps_info', 'No Location Available');\n      return;\n    }\n\n    // format the display of the location data\n    var message = [\n      'Latitude: ' + location.latitude,\n      'Longitude: ' + location.longitude,\n      'Accuracy: ' + location.accuracy,\n      'Altitude: ' + location.altitude,\n      'Course: ' + location.course,\n      'Speed: ' + location.speed,\n      'Time: ' + new Date(location.timestamp * 1000).toLocaleString()\n    ].join('\\n');\n\n    // set the label property of the label on the form\n    SETLABEL('gps_info', message);\n  };\n\n  // go ahead and update it now...\n  updateLocationInfo();\n\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});",
+    "script": "ON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n\n    // if there is no location, display a special message\n    if (!location) {\n      SETLABEL('gps_info', 'No Location Available');\n      return;\n    }\n\n    // format the display of the location data\n    var message = [\n      'Latitude: ' + location.latitude,\n      'Longitude: ' + location.longitude,\n      'Accuracy: ' + location.accuracy,\n      'Altitude: ' + location.altitude,\n      'Course: ' + location.course,\n      'Speed: ' + location.speed,\n      'Time: ' + new Date(location.timestamp * 1000).toLocaleString()\n    ].join('\\n');\n\n    // set the label property of the label on the form\n    SETLABEL('gps_info', message);\n  };\n\n  // go ahead and update it now...\n  updateLocationInfo();\n  SETLOCATION(location.latitude, location.longitude);\n\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});",
     "elements": [
       {
         "type": "TextField",
@@ -81,6 +81,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-07-08T15:40:14Z"
+    "updated_at": "2016-07-08T15:42:51Z"
   }
 }
