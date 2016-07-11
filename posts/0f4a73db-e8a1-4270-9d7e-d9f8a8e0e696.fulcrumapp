@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "0f4a73db-e8a1-4270-9d7e-d9f8a8e0e696",
-    "name": "Linear Digitizing",
+    "name": "Vector Digitizing",
     "description": null,
     "bounding_box": null,
     "record_title_key": "94f6",
@@ -25,12 +25,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 4,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "var lineCoords = [], digitizeLine;\n\n/*function digitizeLine() {\n  var currentLocation = CURRENTLOCATION();\n  if (currentLocation) {\n    lineCoords.push(currentLocation.longitude + ' ' + currentLocation.latitude)\n  }\n  SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n}*/\n\nON('click', 'start_digitizing', function (event) {\n  lineCoords = [];\n  digitizeLine = SETINTERVAL(function() {\n  if (CURRENTLOCATION()) {\n    lineCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n  }\n  SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n}, 1000);\n});\n\nON('click', 'stop_digitizing', function (event) {\n  CLEARINTERVAL(digitizeLine);\n});\n\n/*ON('new-record', function(ev) {\n  digitizeLine();\n  SETINTERVAL(digitizeLine, 1000);\n});*/\n",
+    "script": "var lineCoords = [], digitizeLine, polygonCoords = [], digitizePolygon;\n// line\nON('click', 'start_digitizing_line', function(event) {\n  lineCoords = [];\n  digitizeLine = SETINTERVAL(function() {\n    if (CURRENTLOCATION()) {\n      lineCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n    }\n    SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n  }, 1000);\n});\n\nON('click', 'stop_digitizing_line', function(event) {\n  CLEARINTERVAL(digitizeLine);\n});\n\n// polygon\nON('click', 'start_digitizing_polygon', function(event) {\n  polygonCoords = [];\n  digitizePolygon = SETINTERVAL(function() {\n    if (CURRENTLOCATION()) {\n      polygonCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n      // note that for polygons, the last coordinate pair must be the same as the first coordinate pair\n      polygonCoords.push(polygonCoords[0]);\n    }\n    SETVALUE('line', 'POLYGON (' + polygonCoords + ')');\n  }, 1000);\n});\n\nON('click', 'stop_digitizing_polygon', function(event) {\n  CLEARINTERVAL(digitizePolygon);\n});",
     "elements": [
       {
         "type": "TextField",
@@ -100,7 +100,7 @@
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "start_digitizing",
+            "data_name": "start_digitizing_line",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -116,7 +116,7 @@
             "required": false,
             "disabled": false,
             "hidden": false,
-            "data_name": "stop_digitizing",
+            "data_name": "stop_digitizing_line",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -133,6 +133,77 @@
             "disabled": false,
             "hidden": false,
             "data_name": "line",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "5b2f",
+        "label": "Polygon Feature",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "polygon_feature",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "HyperlinkField",
+            "key": "07ec",
+            "label": "Start Digitizing",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "start_digitizing_polygon",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "default_url": ""
+          },
+          {
+            "type": "HyperlinkField",
+            "key": "be69",
+            "label": "Stop Digitizing",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "stop_digitizing_polygon",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "default_url": ""
+          },
+          {
+            "type": "TextField",
+            "key": "44ef",
+            "label": "Line",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "polygon",
             "default_value": null,
             "visible_conditions_type": null,
             "visible_conditions": null,
@@ -192,6 +263,6 @@
       }
     ],
     "created_at": "2016-07-11T17:19:26Z",
-    "updated_at": "2016-07-11T17:43:51Z"
+    "updated_at": "2016-07-11T18:45:44Z"
   }
 }
