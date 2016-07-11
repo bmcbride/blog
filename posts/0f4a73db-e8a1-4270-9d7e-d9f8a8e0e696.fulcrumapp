@@ -4,9 +4,9 @@
     "name": "Vector Digitizing",
     "description": null,
     "bounding_box": null,
-    "record_title_key": "94f6",
+    "record_title_key": "a25f",
     "title_field_keys": [
-      "94f6"
+      "a25f"
     ],
     "status_field": {
       "type": "StatusField",
@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 4,
+    "record_count": 5,
     "geometry_types": [
       "Point"
     ],
@@ -34,44 +34,21 @@
     "elements": [
       {
         "type": "TextField",
-        "key": "94f6",
-        "label": "Latitude",
+        "key": "b603",
+        "label": "Name",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "latitude",
+        "data_name": "name",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": null,
-        "numeric": true,
-        "format": "decimal",
-        "min": null,
-        "max": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "TextField",
-        "key": "cb13",
-        "label": "Longitude",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "longitude",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": true,
-        "format": "decimal",
-        "min": null,
-        "max": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
@@ -198,7 +175,7 @@
           {
             "type": "TextField",
             "key": "44ef",
-            "label": "Line",
+            "label": "Polygon",
             "description": null,
             "required": false,
             "disabled": false,
@@ -217,52 +194,9 @@
             "default_previous_value": false
           }
         ]
-      },
-      {
-        "type": "TextField",
-        "key": "787d",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "8b2c",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-07-11T17:19:26Z",
-    "updated_at": "2016-07-11T18:48:53Z"
+    "updated_at": "2016-07-11T18:59:37Z"
   }
 }
