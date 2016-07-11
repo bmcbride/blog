@@ -34,28 +34,6 @@
     "elements": [
       {
         "type": "TextField",
-        "key": "cb8a",
-        "label": "Point Count",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "point_count",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": true,
-        "format": "integer",
-        "min": null,
-        "max": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "TextField",
         "key": "94f6",
         "label": "Latitude",
         "description": null,
@@ -97,9 +75,31 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "c745",
+        "label": "Line",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "line",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-07-11T17:19:26Z",
-    "updated_at": "2016-07-11T17:19:26Z"
+    "updated_at": "2016-07-11T17:20:20Z"
   }
 }
