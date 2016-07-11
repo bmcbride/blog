@@ -30,22 +30,29 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var lats = [], lngs = [], accs = [];\n\nfunction weighted_average(values, weights) {\n  var weighted_total = 0;\n  var total_weight = weights.reduce(function(a, b){return a+b;});\n  for (var i = 0; i < values.length; ++i) {\n    weighted_total += weights[i] * values[i];\n  }\n  return weighted_total / total_weight;\n}\n\nfunction updateLocation() {\n  var currentLocation = CURRENTLOCATION();\n  if(currentLocation) {\n    lats.push(currentLocation.latitude);\n    lngs.push(currentLocation.longitude);\n    accs.push(currentLocation.accuracy);\n    var lat = weighted_average(lats, accs);\n    var lng = weighted_average(lngs, accs);\n    SETVALUE('latitude', lat);\n    SETVALUE('longitude', lng);\n    SETLOCATION(lat, lng);\n  }\n}\n\nON('load-record', function(ev) {\n  updateLocation();\n  SETINTERVAL(updateLocation, 1000);\n});\n",
+    "script": "var lats = [], lngs = [], accs = [];\n\nfunction weighted_average(values, weights) {\n  var weighted_total = 0;\n  var total_weight = weights.reduce(function(a, b){return a+b;});\n  for (var i = 0; i < values.length; ++i) {\n    weighted_total += weights[i] * values[i];\n  }\n  return weighted_total / total_weight;\n}\n\nfunction updateLocation() {\n  var currentLocation = CURRENTLOCATION();\n  if (currentLocation) {\n    lats.push(currentLocation.latitude);\n    lngs.push(currentLocation.longitude);\n    accs.push(currentLocation.accuracy);\n    var lat = weighted_average(lats, accs);\n    var lng = weighted_average(lngs, accs);\n    SETVALUE('latitude', lat);\n    SETVALUE('longitude', lng);\n    SETVALUE('point_count', lats.length);\n    SETLOCATION(lat, lng);\n  }\n}\n\nON('load-record', function(ev) {\n  updateLocation();\n  SETINTERVAL(updateLocation, 1000);\n});\n",
     "elements": [
       {
-        "type": "Label",
-        "key": "6484",
-        "label": "GPS Info",
+        "type": "TextField",
+        "key": "cb8a",
+        "label": "Point Count",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "gps_info",
+        "data_name": "point_count",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
-        "required_conditions": null
+        "required_conditions": null,
+        "numeric": true,
+        "format": "integer",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
       },
       {
         "type": "TextField",
@@ -90,9 +97,52 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "3b19",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "2824",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-07-11T17:09:40Z",
-    "updated_at": "2016-07-11T17:09:40Z"
+    "updated_at": "2016-07-11T17:15:44Z"
   }
 }
