@@ -1,0 +1,98 @@
+{
+  "form": {
+    "id": "1dc3e9be-6d3d-4ee5-9ce1-082d7c194f4d",
+    "name": "Weighted Point AveragingLatitude",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "94f6",
+    "title_field_keys": [
+      "94f6"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "var lats = [], lngs = [], accs = [];\n\nfunction weighted_average(values, weights) {\n  var weighted_total = 0;\n  var total_weight = weights.reduce(function(a, b){return a+b;});\n  for (var i = 0; i < values.length; ++i) {\n    weighted_total += weights[i] * values[i];\n  }\n  return weighted_total / total_weight;\n}\n\nfunction updateLocation() {\n  var currentLocation = CURRENTLOCATION();\n  if(currentLocation) {\n    lats.push(currentLocation.latitude);\n    lngs.push(currentLocation.longitude);\n    accs.push(currentLocation.accuracy);\n    var lat = weighted_average(lats, accs);\n    var lng = weighted_average(lngs, accs);\n    SETVALUE('latitude', lat);\n    SETVALUE('longitude', lng);\n    SETLOCATION(lat, lng);\n  }\n}\n\nON('load-record', function(ev) {\n  updateLocation();\n  SETINTERVAL(updateLocation, 1000);\n});\n",
+    "elements": [
+      {
+        "type": "Label",
+        "key": "6484",
+        "label": "GPS Info",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "gps_info",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null
+      },
+      {
+        "type": "TextField",
+        "key": "94f6",
+        "label": "Latitude",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "latitude",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "cb13",
+        "label": "Longitude",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "longitude",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-07-11T17:09:40Z",
+    "updated_at": "2016-07-11T17:09:40Z"
+  }
+}
