@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var lineCoords = [];\n\nfunction digitizeLine() {\n  var currentLocation = CURRENTLOCATION();\n  if (currentLocation) {\n    lineCoords.push(currentLocation.longitude + ' ' + currentLocation.latitude)\n  }\n  SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n}\n\nON('load-record', function(ev) {\n  digitizeLine();\n  SETINTERVAL(digitizeLine, 1000);\n});\n",
+    "script": "var lineCoords = [];\n\nfunction digitizeLine() {\n  var currentLocation = CURRENTLOCATION();\n  if (currentLocation) {\n    lineCoords.push(currentLocation.longitude + ' ' + currentLocation.latitude)\n  }\n  SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n}\n\nON('new-record', function(ev) {\n  digitizeLine();\n  SETINTERVAL(digitizeLine, 1000);\n});\n",
     "elements": [
       {
         "type": "TextField",
@@ -142,6 +142,6 @@
       }
     ],
     "created_at": "2016-07-11T17:19:26Z",
-    "updated_at": "2016-07-11T17:31:16Z"
+    "updated_at": "2016-07-11T17:32:58Z"
   }
 }
