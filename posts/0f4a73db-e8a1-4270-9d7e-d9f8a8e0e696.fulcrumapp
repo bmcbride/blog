@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var lineCoords = [], digitizeLine, polygonCoords = [], digitizePolygon;\n// line\nON('click', 'start_digitizing_line', function(event) {\n  lineCoords = [];\n  digitizeLine = SETINTERVAL(function() {\n    if (CURRENTLOCATION()) {\n      lineCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n    }\n    SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n  }, 1000);\n});\n\nON('click', 'stop_digitizing_line', function(event) {\n  CLEARINTERVAL(digitizeLine);\n});\n\n// polygon\nON('click', 'start_digitizing_polygon', function(event) {\n  polygonCoords = [];\n  digitizePolygon = SETINTERVAL(function() {\n    if (CURRENTLOCATION()) {\n      polygonCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n      // note that for polygons, the last coordinate pair must be the same as the first coordinate pair\n      polygonCoords.push(polygonCoords[0]);\n    }\n    SETVALUE('polygon', 'POLYGON (' + polygonCoords + ')');\n  }, 1000);\n});\n\nON('click', 'stop_digitizing_polygon', function(event) {\n  CLEARINTERVAL(digitizePolygon);\n});\n\nON('click', 'polygon_map', function(event) {\n  console.log($polygon);\n});",
+    "script": "var lineCoords = [], digitizeLine, polygonCoords = [], digitizePolygon;\n// line\nON('click', 'start_digitizing_line', function(event) {\n  lineCoords = [];\n  digitizeLine = SETINTERVAL(function() {\n    if (CURRENTLOCATION()) {\n      lineCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n    }\n    SETVALUE('line', 'LINESTRING (' + lineCoords + ')');\n  }, 1000);\n});\n\nON('click', 'stop_digitizing_line', function(event) {\n  CLEARINTERVAL(digitizeLine);\n});\n\n// polygon\nON('click', 'start_digitizing_polygon', function(event) {\n  polygonCoords = [];\n  digitizePolygon = SETINTERVAL(function() {\n    if (CURRENTLOCATION()) {\n      polygonCoords.push(CURRENTLOCATION().longitude + ' ' + CURRENTLOCATION().latitude);\n      // note that for polygons, the last coordinate pair must be the same as the first coordinate pair\n      polygonCoords.push(polygonCoords[0]);\n    }\n    SETVALUE('polygon', 'POLYGON (' + polygonCoords + ')');\n  }, 1000);\n});\n\nON('click', 'stop_digitizing_polygon', function(event) {\n  CLEARINTERVAL(digitizePolygon);\n});\n\nON('click', 'polygon_map', function(event) {\n  var polygon = $polygon;\n  polygon = polygon.replace('POLYGON (', '').replace(')', '');\n  console.log(polygon);\n});",
     "elements": [
       {
         "type": "TextField",
@@ -213,6 +213,6 @@
       }
     ],
     "created_at": "2016-07-11T17:19:26Z",
-    "updated_at": "2016-07-11T19:16:09Z"
+    "updated_at": "2016-07-11T19:18:26Z"
   }
 }
