@@ -22,7 +22,8 @@
       "description": "",
       "choices": [],
       "required": false,
-      "disabled": false
+      "disabled": false,
+      "default_previous_value": false
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
@@ -126,7 +127,7 @@
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": [],
-        "expression": "var proj4Text = CHOICEVALUE($projection);\n\n// or hardcode a proj4 value:\n// var proj4Text = \"+proj=utm +zone=18 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs\";\n\nif (proj4Text) {\n  var result = this.proj4(proj4Text).forward([LONGITUDE(), LATITUDE()]);\n  SETRESULT(result[0]);\n}\nelse {\n  SETRESULT(null);\n}",
+        "expression": "//var proj4Text = CHOICEVALUE($projection);\n\n// or hardcode a proj4 value:\nvar proj4Text = \"+proj=lcc +lat_1=42.68333333333333 +lat_2=41.71666666666667 +lat_0=41 +lon_0=-71.5 +x_0=200000 +y_0=750000 +ellps=GRS80 +datum=NAD83 +units=m +no_defs \";\n\nif (proj4Text) {\n  var result = this.proj4(proj4Text).forward([LONGITUDE(), LATITUDE()]);\n  SETRESULT(result[0]);\n}\nelse {\n  SETRESULT(null);\n}",
         "display": {
           "style": "number",
           "currency": null
@@ -148,7 +149,7 @@
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": [],
-        "expression": "var proj4Text = CHOICEVALUE($projection);\n\n// or hardcode a proj4 value:\n// var proj4Text = \"+proj=utm +zone=18 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs\";\n\nif (proj4Text) {\n  var result = this.proj4(proj4Text).forward([LONGITUDE(), LATITUDE()]);\n  SETRESULT(result[1]);\n}\nelse {\n  SETRESULT(null);\n}",
+        "expression": "//var proj4Text = CHOICEVALUE($projection);\n\n// or hardcode a proj4 value:\nvar proj4Text = \"+proj=lcc +lat_1=42.68333333333333 +lat_2=41.71666666666667 +lat_0=41 +lon_0=-71.5 +x_0=200000 +y_0=750000 +ellps=GRS80 +datum=NAD83 +units=m +no_defs\";\n\nif (proj4Text) {\n  var result = this.proj4(proj4Text).forward([LONGITUDE(), LATITUDE()]);\n  SETRESULT(result[1]);\n}\nelse {\n  SETRESULT(null);\n}",
         "display": {
           "style": "number",
           "currency": null
@@ -158,6 +159,6 @@
       }
     ],
     "created_at": "2016-07-12T04:25:47Z",
-    "updated_at": "2016-07-12T04:25:47Z"
+    "updated_at": "2016-07-12T04:32:04Z"
   }
 }
