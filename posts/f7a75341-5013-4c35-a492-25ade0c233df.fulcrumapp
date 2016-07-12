@@ -1,0 +1,423 @@
+{
+  "form": {
+    "id": "f7a75341-5013-4c35-a492-25ade0c233df",
+    "name": "2. Day and Night Inspection",
+    "description": "Day and night time inspections",
+    "bounding_box": null,
+    "record_title_key": "01e4",
+    "title_field_keys": [
+      "01e4"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Not Inspected",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Completed",
+          "value": "Completed",
+          "color": "#87D30F"
+        },
+        {
+          "label": "Day Inspected",
+          "value": "Day Inspected",
+          "color": "#FFD300"
+        },
+        {
+          "label": "Not Inspected",
+          "value": "Not Inspected",
+          "color": "#CB0D0C"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "01e4",
+        "label": "Street Light ID#",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "streetligh",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "PhotoField",
+        "key": "04a4",
+        "label": "Photos",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "photos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "f173",
+        "label": "Notes",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "notes",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "Section",
+        "key": "d607",
+        "label": "Day Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "day_inspection",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "YesNoField",
+            "key": "0ecd",
+            "label": "Pole access hole is properly covered",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "pole_access_hole_is_properly_covered",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "49c6",
+            "label": "Pole is not leaning",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "pole_is_not_leaning",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "21b1",
+            "label": "Elephant ears are in place and secured",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "elephant_ears_are_in_place_and_secured",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "ddb0",
+            "label": "T-Base is structurally sound",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "t_base_is_structurally_sound",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "181c",
+            "label": "Wood pole is structurally sound",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "wood_pole_is_structurally_sound",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "312b",
+            "label": "Manhole is within 1/2\" of pavement grade",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "manhole_is_within_12_of_pavement_grade",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "e436",
+            "label": "Manhole cover is structurally sound",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "manhole_cover_is_structurally_sound",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "ac62",
+            "label": "Manhole is free of dirt",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "manhole_is_free_of_dirt",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": true,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "a098",
+        "label": "Night Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "night_inspection",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "drilldown",
+        "elements": [
+          {
+            "type": "YesNoField",
+            "key": "367b",
+            "label": "Light is functioning",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "light_is_functioning",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Day Inspected"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Day Inspected"
+              }
+            ],
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2016-07-12T15:13:35Z",
+    "updated_at": "2016-07-12T15:13:35Z"
+  }
+}
