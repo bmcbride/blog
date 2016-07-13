@@ -1,0 +1,174 @@
+{
+  "form": {
+    "id": "6edd1a14-b857-4e36-91d0-7e4a5ea1dc0c",
+    "name": "Dynamic App Translation",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "ad66",
+    "title_field_keys": [
+      "ad66"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "var labels = {\n  'name': {\n    'Spanish': 'Nombre',\n    'French': 'Nom'\n  },\n  'age': {\n    'Spanish': 'A?os',\n    'French': '?ge'\n  },\n  'in_service': {\n    'Spanish': 'In Service',\n    'French': '?????????????',\n  },\n  'gender': {\n    'Spanish': 'G?nero',\n    'French': 'Sexe'\n  }\n};\n\n/*var choices = {\n  'gender': {\n    'Spanish': [\n      {\n        'label': 'Yes',\n        'value': 'yes'\n      },\n      {\n        'label': 'No',\n        'value': 'no'\n      },\n      {\n        'label': 'Maybe',\n        'value': 'maybe'\n      }\n    ],\n    'Khmer': [\n      {\n        'label': '???',\n        'value': 'yes'\n      },\n      {\n        'label': '?????',\n        'value': 'no'\n      },\n      {\n        'label': '??????',\n        'value': 'maybe'\n      }\n    ]\n  }\n};*/\n\nfunction translate(e) {\n  var language = CHOICEVALUE($language);\n  for (var dataName in this.elementsByDataName) {\n    // Update field labels\n    if (labels[dataName]) {\n      SETLABEL(dataName, labels[dataName][language]);\n    } else {\n      SETLABEL(dataName, null);\n    }\n    // Update choice values\n    /*if (choices[dataName]) {\n      SETCHOICES(dataName, choices[dataName][language]);\n    }*/\n  }\n}\n\nON('change', 'language', translate);",
+    "elements": [
+      {
+        "type": "ChoiceField",
+        "key": "830d",
+        "label": "Language",
+        "description": "Idioma / La langue",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "language",
+        "default_value": "English",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "English",
+            "value": "English"
+          },
+          {
+            "label": "Espanol",
+            "value": "Spanish"
+          },
+          {
+            "label": "Fran?ais",
+            "value": "French"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "ad66",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "8fa4",
+        "label": "Age",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "age",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "integer",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "0642",
+        "label": "Gender",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "gender",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "Male",
+            "value": "Male"
+          },
+          {
+            "label": "Female",
+            "value": "Female"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "570c",
+        "label": "In service",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "in_service",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": false,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "Yes",
+            "value": "yes"
+          },
+          {
+            "label": "No",
+            "value": "no"
+          },
+          {
+            "label": "Maybe",
+            "value": "maybe"
+          }
+        ],
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-07-13T20:00:47Z",
+    "updated_at": "2016-07-13T20:00:47Z"
+  }
+}
