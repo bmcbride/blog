@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var labels = {\n  'name': {\n    'Spanish': 'Nombre',\n    'French': 'Nom'\n  },\n  'age': {\n    'Spanish': 'A?os',\n    'French': '?ge'\n  },\n  'in_service': {\n    'Spanish': 'In Service',\n    'French': '?????????????',\n  },\n  'gender': {\n    'Spanish': 'G?nero',\n    'French': 'Sexe'\n  }\n};\n\n/*var choices = {\n  'gender': {\n    'Spanish': [\n      {\n        'label': 'Yes',\n        'value': 'yes'\n      },\n      {\n        'label': 'No',\n        'value': 'no'\n      },\n      {\n        'label': 'Maybe',\n        'value': 'maybe'\n      }\n    ],\n    'Khmer': [\n      {\n        'label': '???',\n        'value': 'yes'\n      },\n      {\n        'label': '?????',\n        'value': 'no'\n      },\n      {\n        'label': '??????',\n        'value': 'maybe'\n      }\n    ]\n  }\n};*/\n\nfunction translate(e) {\n  var language = CHOICEVALUE($language);\n  for (var dataName in this.elementsByDataName) {\n    // Update field labels\n    if (labels[dataName]) {\n      SETLABEL(dataName, labels[dataName][language]);\n    } else {\n      SETLABEL(dataName, null);\n    }\n    // Update choice values\n    /*if (choices[dataName]) {\n      SETCHOICES(dataName, choices[dataName][language]);\n    }*/\n  }\n}\n\nON('change', 'language', translate);",
+    "script": "var labels = {\n  'name': {\n    'Spanish': 'Nombre',\n    'French': 'Nom'\n  },\n  'age': {\n    'Spanish': 'A?os',\n    'French': '?ge'\n  },\n  'gender': {\n    'Spanish': 'G?nero',\n    'French': 'Sexe'\n  }\n};\n\nvar choices = {\n  'gender': {\n    'English': [\n      {\n        'label': 'Male',\n        'value': 'Male'\n      },\n      {\n        'label': 'Female',\n        'value': 'Female'\n      }\n    ],\n    'Spanish': [\n      {\n        'label': 'Var?n',\n        'value': 'Male'\n      },\n      {\n        'label': 'Hembra',\n        'value': 'Female'\n      }\n    ],\n    'French': [\n      {\n        'label': 'M?le',\n        'value': 'Male'\n      },\n      {\n        'label': 'Femelle',\n        'value': 'Female'\n      }\n    ]\n  }\n};\n\nfunction translate(e) {\n  var language = CHOICEVALUE($language);\n  for (var dataName in this.elementsByDataName) {\n    // Update field labels\n    if (labels[dataName]) {\n      SETLABEL(dataName, labels[dataName][language]);\n    } else {\n      SETLABEL(dataName, null);\n    }\n    // Update choice values\n    if (choices[dataName]) {\n      SETCHOICES(dataName, choices[dataName][language]);\n    }\n  }\n}\n\nON('load-record', translate);\nON('change', 'language', translate);",
     "elements": [
       {
         "type": "ChoiceField",
@@ -134,41 +134,9 @@
           }
         ],
         "default_previous_value": false
-      },
-      {
-        "type": "ChoiceField",
-        "key": "570c",
-        "label": "In service",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "in_service",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "multiple": false,
-        "allow_other": false,
-        "choices": [
-          {
-            "label": "Yes",
-            "value": "yes"
-          },
-          {
-            "label": "No",
-            "value": "no"
-          },
-          {
-            "label": "Maybe",
-            "value": "maybe"
-          }
-        ],
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-07-13T20:00:47Z",
-    "updated_at": "2016-07-13T20:00:47Z"
+    "updated_at": "2016-07-13T20:21:27Z"
   }
 }
