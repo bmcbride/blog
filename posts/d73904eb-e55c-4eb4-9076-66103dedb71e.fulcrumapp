@@ -39,7 +39,7 @@
         "description": null,
         "required": false,
         "disabled": false,
-        "hidden": false,
+        "hidden": true,
         "data_name": "hospitals",
         "default_value": null,
         "visible_conditions_type": null,
@@ -530,96 +530,9 @@
             "default_previous_value": false
           }
         ]
-      },
-      {
-        "type": "ChoiceField",
-        "key": "cf0d",
-        "label": "Site ID",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "site_id",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "multiple": false,
-        "allow_other": false,
-        "choices": [
-          {
-            "label": "BART",
-            "value": "BART"
-          },
-          {
-            "label": "HOMER",
-            "value": "HOMER"
-          }
-        ],
-        "default_previous_value": false
-      },
-      {
-        "type": "DateTimeField",
-        "key": "9058",
-        "label": "Date",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "date",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "TextField",
-        "key": "c2cb",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
-        "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "d562",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
       }
     ],
     "created_at": "2016-06-02T17:08:44Z",
-    "updated_at": "2016-07-13T17:52:55Z"
+    "updated_at": "2016-07-13T18:14:13Z"
   }
 }
