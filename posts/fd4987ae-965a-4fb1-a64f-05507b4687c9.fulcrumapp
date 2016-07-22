@@ -1,0 +1,2012 @@
+{
+  "form": {
+    "id": "fd4987ae-965a-4fb1-a64f-05507b4687c9",
+    "name": "East Safety Site Inspection (A3)",
+    "description": "do not delete",
+    "bounding_box": null,
+    "record_title_key": "a0c1",
+    "title_field_keys": [
+      "a0c1",
+      "5094"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Inspection Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "A3",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "A3",
+          "value": "A3",
+          "color": "#87D30F"
+        },
+        {
+          "label": "Vehicle Inspection",
+          "value": "Vehicle Inspection",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Training - Equipment Needed",
+          "value": "Training - Equipment Needed",
+          "color": "#FFD300"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "Section",
+        "key": "6319",
+        "label": "General Information",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "general_information",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "e57a",
+            "label": "State",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "state",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "NJ",
+                "value": "NJ"
+              },
+              {
+                "label": "NY",
+                "value": "NY"
+              },
+              {
+                "label": "OH",
+                "value": "OH"
+              },
+              {
+                "label": "RI",
+                "value": "RI"
+              },
+              {
+                "label": "FL",
+                "value": "FL"
+              },
+              {
+                "label": "PA",
+                "value": "PA"
+              },
+              {
+                "label": "NC",
+                "value": "NC"
+              },
+              {
+                "label": "MI",
+                "value": "MI"
+              },
+              {
+                "label": "IN",
+                "value": "IN"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "a0c1",
+            "label": "Division",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "division",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Specialty Services",
+                "value": "Specialty Services"
+              },
+              {
+                "label": "Electrical Services",
+                "value": "Electrical Services"
+              },
+              {
+                "label": "Vacuum Excavation",
+                "value": "Vacuum Excavation"
+              },
+              {
+                "label": "Gas Services",
+                "value": "Gas Services"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "AddressField",
+            "key": "7d7d",
+            "label": "Address",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "address",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "auto_populate": true,
+            "default_previous_value": false
+          },
+          {
+            "type": "DateTimeField",
+            "key": "75a3",
+            "label": "Date",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "date",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TimeField",
+            "key": "01d5",
+            "label": "Time",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "time",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "3f44",
+        "label": "Technician - Work Information",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "technician_work_information",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "equal_to",
+            "value": "A3"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "5094",
+            "label": "Select Your Name",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "name",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choice_list_id": "ce075a74-277b-4347-8487-807f361b9275",
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "d520",
+            "label": "Select Your Supervisor-Lead",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "supervisor_lead",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Christoper Jerome",
+                "value": "Christoper Jerome"
+              },
+              {
+                "label": "Daniel Carter",
+                "value": "Daniel Carter"
+              },
+              {
+                "label": "Daryl Schwarting",
+                "value": "Daryl Schwarting"
+              },
+              {
+                "label": "Donald McPherson",
+                "value": "Donald McPherson"
+              },
+              {
+                "label": "John Gallagher",
+                "value": "John Gallagher"
+              },
+              {
+                "label": "Patrick Milks",
+                "value": "Patrick Milks"
+              },
+              {
+                "label": "Robert Loefler",
+                "value": "Robert Loefler"
+              },
+              {
+                "label": "Ryan Chrisman",
+                "value": "Ryan Chrisman"
+              },
+              {
+                "label": "Thomas Cramer",
+                "value": "Thomas Cramer"
+              },
+              {
+                "label": "Timothy Banta",
+                "value": "Timothy Banta"
+              },
+              {
+                "label": "Vincent Spitalsky",
+                "value": "Vincent Spitalsky"
+              },
+              {
+                "label": "Vincent Marchese III",
+                "value": "Vincent Marchese III"
+              },
+              {
+                "label": "Chris Schmidtmann",
+                "value": "Chris Schmidtmann"
+              },
+              {
+                "label": "Blake Spears",
+                "value": "Blake Spears"
+              },
+              {
+                "label": "Robert Williams",
+                "value": "Robert Williams"
+              },
+              {
+                "label": "David Baird",
+                "value": "David Baird"
+              },
+              {
+                "label": "Mitch Richard",
+                "value": "Mitch Richard"
+              },
+              {
+                "label": "Scott Lawyer",
+                "value": "Scott Lawyer"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "aaa0",
+            "label": "Weather-Outside Conditions",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "weather_conditions",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": true,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "Clear Day",
+                "value": "Clear Day"
+              },
+              {
+                "label": "Cloudy",
+                "value": "Cloudy"
+              },
+              {
+                "label": "Extreme Cold",
+                "value": "Extreme Cold"
+              },
+              {
+                "label": "Extreme Conditions (Heavy storms, Ice, Thunderstorms)",
+                "value": "Extreme Conditions (Heavy storms, Ice, Thunderstorms)"
+              },
+              {
+                "label": "Extreme Heat",
+                "value": "Extreme Heat"
+              },
+              {
+                "label": "Rain - Heavy",
+                "value": "Rain - Heavy"
+              },
+              {
+                "label": "Rain-Light",
+                "value": "Rain-Light"
+              },
+              {
+                "label": "Rain-Moderate",
+                "value": "Rain-Moderate"
+              },
+              {
+                "label": "Snow-Heavy",
+                "value": "Snow-Heavy"
+              },
+              {
+                "label": "Snow-Light",
+                "value": "Snow-Light"
+              },
+              {
+                "label": "Snow-Moderate",
+                "value": "Snow-Moderate"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "26b2",
+            "label": "Work Type",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "work_type",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Damage Prevention Advisors",
+                "value": "Damage Prevention Advisors"
+              },
+              {
+                "label": "Electrical Inspection (URD-S/L-MH)",
+                "value": "Electrical Inspection (URD-S/L-MH)"
+              },
+              {
+                "label": "Gas Leak Survey",
+                "value": "Gas Leak Survey"
+              },
+              {
+                "label": "Mobile-Frost Survey",
+                "value": "Mobile-Frost Survey"
+              },
+              {
+                "label": "Storm-Specialty Work",
+                "value": "Storm-Specialty Work"
+              },
+              {
+                "label": "Vacuum Excavation",
+                "value": "Vacuum Excavation"
+              },
+              {
+                "label": "Watch Guard (Critical Utilities)",
+                "value": "Watch Guard (Critical Utilities)"
+              },
+              {
+                "label": "Cast Iron Inspectors",
+                "value": "Cast Iron Inspectors"
+              },
+              {
+                "label": "Corrosion Testers",
+                "value": "Corrosion Testers"
+              },
+              {
+                "label": "ALT-Private Locate",
+                "value": "ALT-Private Locate"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "ea1f",
+            "label": "General Hazards Identifier",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "general_hazards_identifier",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "multiple": true,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Bio Hazards (Poisonous Plants, Bees, Ticks, Insects)",
+                "value": "Bio Hazards (Poisonous Plants, Bees, Ticks, Insects)"
+              },
+              {
+                "label": "Confined Space (Manholes, Utility Tunnels, etc.)",
+                "value": "Confined Space (Manholes, Utility Tunnels, etc.)"
+              },
+              {
+                "label": "Construction Equipment (Backhoe, Bulldozer, etc.)",
+                "value": "Construction Equipment (Backhoe, Bulldozer, etc.)"
+              },
+              {
+                "label": "Dwelling/Building Hazard (Stairs, Low Ceilings, etc.)",
+                "value": "Dwelling/Building Hazard (Stairs, Low Ceilings, etc.)"
+              },
+              {
+                "label": "Electrical Hazard (Transformers, Enclosures, Power cords)",
+                "value": "Electrical Hazard (Transformers, Enclosures, Power cords)"
+              },
+              {
+                "label": "General Machinery-Tools (Jackhammer, Grinding Wheel, Drills, Lump Hammers, etc.)",
+                "value": "General Machinery-Tools (Jackhammer, Grinding Wheel, Drills, Lump Hammers, etc.)"
+              },
+              {
+                "label": "Noise (Loud Machinery, Construction Sites)",
+                "value": "Noise (Loud Machinery, Construction Sites)"
+              },
+              {
+                "label": "Roadway-Highway (Traffic)",
+                "value": "Roadway-Highway (Traffic)"
+              },
+              {
+                "label": "Slips-Trips-Falls (curbs, uneven terrain, etc)",
+                "value": "Slips-Trips-Falls (curbs, uneven terrain, etc)"
+              },
+              {
+                "label": "Trench - Open Excavations / Holes",
+                "value": "Trench - Open Excavations / Holes"
+              },
+              {
+                "label": "Weather (Snow, Wind, Rain, etc.)",
+                "value": "Weather (Snow, Wind, Rain, etc.)"
+              },
+              {
+                "label": "Wildlife/Animals (Dogs, Deer, Snakes, etc.)",
+                "value": "Wildlife/Animals (Dogs, Deer, Snakes, etc.)"
+              },
+              {
+                "label": "Lacerations - Pinch Points",
+                "value": "Lacerations - Pinch Points"
+              },
+              {
+                "label": "Lifting - Bending",
+                "value": "Lifting - Bending"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "6b26",
+            "label": "Select The Emails You Wish To Send This Safety Form To",
+            "description": "basic selection yourself and supervisor.",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "emails",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "multiple": true,
+            "allow_other": true,
+            "choices": [
+              {
+                "label": "christopherjerome@usicllc.com",
+                "value": "christopherjerome@usicllc.com"
+              },
+              {
+                "label": "danielcarter@usicllc.com",
+                "value": "danielcarter@usicllc.com"
+              },
+              {
+                "label": "darylschwarting@usicllc.com",
+                "value": "darylschwarting@usicllc.com"
+              },
+              {
+                "label": "donaldmcpherson@usicllc.com",
+                "value": "donaldmcpherson@usicllc.com"
+              },
+              {
+                "label": "johngallagher@usicllc.com",
+                "value": "johngallagher@usicllc.com"
+              },
+              {
+                "label": "patrickmilks@usicllc.com",
+                "value": "patrickmilks@usicllc.com"
+              },
+              {
+                "label": "robertloefler@usicllc.com",
+                "value": "robertloefler@usicllc.com"
+              },
+              {
+                "label": "ryanchrisman@usicllc.com",
+                "value": "ryanchrisman@usicllc.com"
+              },
+              {
+                "label": "thomascramer@usicllc.com",
+                "value": "thomascramer@usicllc.com"
+              },
+              {
+                "label": "timothybanta@usicllc.com",
+                "value": "timothybanta@usicllc.com"
+              },
+              {
+                "label": "vincentspitalsky@usicllc.com",
+                "value": "vincentspitalsky@usicllc.com"
+              }
+            ],
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "f46f",
+        "label": "A3 Safety Information",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "a3_safety_information",
+        "default_value": null,
+        "visible_conditions_type": "any",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "equal_to",
+            "value": "A3"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "PhotoField",
+            "key": "c531",
+            "label": "*Assess your job / task for hazards *",
+            "description": "Take a picture of the hazard you are assessing",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "assess_your_job",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "min_length": 1,
+            "max_length": 5
+          },
+          {
+            "type": "TextField",
+            "key": "e83f",
+            "label": "What is the specific hazard?",
+            "description": "This is where you should be specific, IE bulldozer, dog, hornets nest...",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "specific_hazard",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "840b",
+            "label": "What could go wrong with this hazard?",
+            "description": "Based on the Hazards you indicated in the above picture what could go wrong?",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "go_wrong",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "1286",
+            "label": "2.) What will you do to mitigate this hazard?",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": true,
+            "data_name": "mitigation",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "ad21",
+        "label": "Training & Equipment",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "training_equipment",
+        "default_value": null,
+        "visible_conditions_type": "any",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "not_equal_to",
+            "value": "Vehicle Inspection"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "YesNoField",
+            "key": "5302",
+            "label": "1.) Do I have the necessary training and knowledge to perform this task safely?",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "training_and_knowledge",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "not_equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "6240",
+            "label": "2.) Do I have all the proper tools and personal protective equipment?",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "tools_and_ppe",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "not_equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "6867",
+            "label": "3.) Am I physically and mentally prepared to perform this task? ",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "prepared_to_perform",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "not_equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "e1a6",
+            "label": "If you answered NO to any of the above, please explain.",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "explain_no",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "5302",
+                "operator": "equal_to",
+                "value": "no"
+              },
+              {
+                "field_key": "6240",
+                "operator": "equal_to",
+                "value": "no"
+              },
+              {
+                "field_key": "6867",
+                "operator": "equal_to",
+                "value": "no"
+              },
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "key": "6944",
+        "label": "Hazard Documentation",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "hazard_documentation",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "equal_to",
+            "value": "A3"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "ChoiceField",
+            "key": "a214",
+            "label": "Severity of Hazard",
+            "description": "How harmful or critical is the hazard recognized by you?",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "severity_of_hazard",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "1. Not Harmful",
+                "value": "1. Not Harmful"
+              },
+              {
+                "label": "2. Proceed with Caution",
+                "value": "2. Proceed with Caution"
+              },
+              {
+                "label": "3. Severe Danger",
+                "value": "3. Severe Danger"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "7e33",
+            "label": "Based On Your Work Type, Describe the probability of the issue(s) leading to damage/injury.",
+            "description": "How likely is it that the hazard will cause injury or damage?",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "likelihood_of_damage",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "Highly Likely",
+                "value": "Highly Likely"
+              },
+              {
+                "label": "Probable",
+                "value": "Probable"
+              },
+              {
+                "label": "Eventual",
+                "value": "Eventual"
+              },
+              {
+                "label": "Remote",
+                "value": "Remote"
+              },
+              {
+                "label": "Very Remote",
+                "value": "Very Remote"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "8652",
+            "label": "What is your recommended action to ensure hazard is mitigated?",
+            "description": "Examples: Take alternative route, call for assistance, etc.",
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "recommended_action",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "8c87",
+            "label": "Picture of Recommended Action (if available)",
+            "description": "IE: If a different route is recommended try to take a picture of safer route.",
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "recommended_action_photo",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "A3"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "min_length": null,
+            "max_length": null
+          }
+        ]
+      },
+      {
+        "type": "SignatureField",
+        "key": "ac1d",
+        "label": "Technician Signature",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "technician_signature",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "agreement_text": ""
+      },
+      {
+        "type": "Section",
+        "key": "a93b",
+        "label": "Vehicle Inspection",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "vehicle_inspection",
+        "default_value": null,
+        "visible_conditions_type": "any",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "equal_to",
+            "value": "Vehicle Inspection"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "TextField",
+            "key": "aee2",
+            "label": "Driver Name",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "driver_name",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": "all",
+            "required_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "ChoiceField",
+            "key": "94c1",
+            "label": "Select Supervisor-Lead-Technician Conducting Inspection",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "supervisor_inspecting",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "multiple": false,
+            "allow_other": false,
+            "choices": [
+              {
+                "label": "John Gallagher",
+                "value": "John Gallagher"
+              },
+              {
+                "label": "Pat Milks",
+                "value": "Pat Milks"
+              },
+              {
+                "label": "Christopher Jerome",
+                "value": "Christopher Jerome"
+              },
+              {
+                "label": "Tim Banta",
+                "value": "Tim Banta"
+              },
+              {
+                "label": "Joe Young",
+                "value": "Joe Young"
+              },
+              {
+                "label": "Vince Spitalsky",
+                "value": "Vince Spitalsky"
+              },
+              {
+                "label": "Robert Loefler",
+                "value": "Robert Loefler"
+              },
+              {
+                "label": "Don McPherson",
+                "value": "Don McPherson"
+              },
+              {
+                "label": "Daniel Carter",
+                "value": "Daniel Carter"
+              },
+              {
+                "label": "Ryan Chrisman",
+                "value": "Ryan Chrisman"
+              },
+              {
+                "label": "Thomas Cramer",
+                "value": "Thomas Cramer"
+              },
+              {
+                "label": "Chris Schmidtmann",
+                "value": "Chris Schmidtmann"
+              },
+              {
+                "label": "Blake Spears",
+                "value": "Blake Spears"
+              },
+              {
+                "label": "Dave Baird",
+                "value": "Dave Baird"
+              },
+              {
+                "label": "Robert Williams",
+                "value": "Robert Williams"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "a04e",
+            "label": "Company Vehicle #",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "company_vehicle",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "integer",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "BarcodeField",
+            "key": "8655",
+            "label": "Scan Vehicle Vin",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "vehicle_vin",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "4e2b",
+            "label": "Current Mileage",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "current_mileage",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "integer",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "89fe",
+            "label": "Registration Expiration Date",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "registration_expiration",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "8155",
+            "label": "Inspection Expiration Month",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "inspection_expiration",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "483b",
+            "label": "Date or Mileage of last Oil Change",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "last_oil_change",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "8d95",
+            "label": "Free of garbage?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "free_of_garbage",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "9fde",
+            "label": "Storage of Equipment proper?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "proper_storage",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "8191",
+            "label": "Emergency Contact #'s present on dash?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "emergency_contacts",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "82bd",
+            "label": "Vehicle GPS working properly?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "gps_working",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "2cd6",
+            "label": "Does the vehicle horn work properly?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "horn_working",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "9f3f",
+            "label": "Does the beacon light work properly?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "beacon_light_working",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "f199",
+            "label": "Deer Whistles Installed?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "whistles_installed",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "0d07",
+            "label": "Windows Clean, good visability?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "windows_clean",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "9349",
+            "label": "Tires, Wipers, Lights in working condition?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "tires_wipers_lights_working",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "9a65",
+            "label": "Damage to Vehicle?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "vehicle_damage",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "cef8",
+            "label": "Vehicle Damage Photo",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "vehicle_damage_photo",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "9a65",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "9a65",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "YesNoField",
+            "key": "2ff2",
+            "label": "Window Damage?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "window_damage",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "PhotoField",
+            "key": "0798",
+            "label": "Window Damage Photo",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "window_damage_photo",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "2ff2",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "2ff2",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "min_length": null,
+            "max_length": null
+          },
+          {
+            "type": "TextField",
+            "key": "c2d1",
+            "label": "Length of Crack",
+            "description": null,
+            "required": true,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "length_of_crack",
+            "default_value": null,
+            "visible_conditions_type": "any",
+            "visible_conditions": [
+              {
+                "field_key": "2ff2",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "required_conditions_type": "any",
+            "required_conditions": [
+              {
+                "field_key": "2ff2",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "numeric": true,
+            "format": "decimal",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "e8e0",
+            "label": "Has the vehicle passed the inspection?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "vehicle_passed_inspection",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "@status",
+                "operator": "equal_to",
+                "value": "Vehicle Inspection"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "a5d7",
+            "label": "Additional Comments",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "additional_comments",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      }
+    ],
+    "created_at": "2016-07-22T18:44:55Z",
+    "updated_at": "2016-07-22T18:44:55Z"
+  }
+}
