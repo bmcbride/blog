@@ -1153,7 +1153,7 @@
         "key": "ac1d",
         "label": "Technician Signature",
         "description": null,
-        "required": true,
+        "required": false,
         "disabled": false,
         "hidden": false,
         "data_name": "technician_signature",
@@ -2001,6 +2001,6 @@
       }
     ],
     "created_at": "2016-07-22T18:44:55Z",
-    "updated_at": "2016-07-22T18:50:50Z"
+    "updated_at": "2016-07-22T18:52:27Z"
   }
 }
