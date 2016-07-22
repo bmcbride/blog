@@ -42,7 +42,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -586,6 +586,14 @@
             "multiple": true,
             "allow_other": true,
             "choices": [
+              {
+                "label": "bryan@fulcrumapp.com",
+                "value": "bryan@fulcrumapp.com"
+              },
+              {
+                "label": "bryan@spatialnetworks.com",
+                "value": "bryan@spatialnetworks.com"
+              },
               {
                 "label": "christopherjerome@usicllc.com",
                 "value": "christopherjerome@usicllc.com"
@@ -2001,6 +2009,6 @@
       }
     ],
     "created_at": "2016-07-22T18:44:55Z",
-    "updated_at": "2016-07-22T18:52:27Z"
+    "updated_at": "2016-07-22T18:55:20Z"
   }
 }
