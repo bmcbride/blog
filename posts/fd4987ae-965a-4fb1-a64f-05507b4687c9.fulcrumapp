@@ -664,7 +664,7 @@
             "key": "c531",
             "label": "*Assess your job / task for hazards *",
             "description": "Take a picture of the hazard you are assessing",
-            "required": true,
+            "required": false,
             "disabled": false,
             "hidden": false,
             "data_name": "assess_your_job",
@@ -677,14 +677,8 @@
                 "value": "A3"
               }
             ],
-            "required_conditions_type": "any",
-            "required_conditions": [
-              {
-                "field_key": "@status",
-                "operator": "equal_to",
-                "value": "A3"
-              }
-            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
             "min_length": 1,
             "max_length": 5
           },
@@ -2007,6 +2001,6 @@
       }
     ],
     "created_at": "2016-07-22T18:44:55Z",
-    "updated_at": "2016-07-22T18:48:39Z"
+    "updated_at": "2016-07-22T18:50:50Z"
   }
 }
