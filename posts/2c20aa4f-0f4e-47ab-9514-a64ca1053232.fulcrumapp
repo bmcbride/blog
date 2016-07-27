@@ -1,0 +1,78 @@
+{
+  "form": {
+    "id": "2c20aa4f-0f4e-47ab-9514-a64ca1053232",
+    "name": "Beer Types",
+    "description": "A lookup table of beer types",
+    "bounding_box": null,
+    "record_title_key": "59dd",
+    "title_field_keys": [
+      "59dd"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": true,
+    "record_count": 0,
+    "geometry_types": [],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "59dd",
+        "label": "Name",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "1e1e",
+        "label": "Description",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "description",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-07-27T03:34:04Z",
+    "updated_at": "2016-07-27T03:34:04Z"
+  }
+}
