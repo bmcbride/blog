@@ -1,0 +1,71 @@
+{
+  "form": {
+    "id": "e26ef997-6eb4-4f2c-acdc-fbdb8366b223",
+    "name": "Status Test",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "2cf7",
+    "title_field_keys": [
+      "2cf7"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "New",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "New",
+          "value": "New",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Saved",
+          "value": "Saved",
+          "color": "#294184"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('save-record', function (event) {\n  SETSTATUS('Saved');\n});",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "2cf7",
+        "label": "Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-07-28T14:32:10Z",
+    "updated_at": "2016-07-28T14:32:10Z"
+  }
+}
