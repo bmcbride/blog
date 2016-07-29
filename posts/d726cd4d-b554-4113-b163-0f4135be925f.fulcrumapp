@@ -1,0 +1,55 @@
+{
+  "form": {
+    "id": "d726cd4d-b554-4113-b163-0f4135be925f",
+    "name": "StreetView Testing",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "83c9",
+    "title_field_keys": [
+      "83c9"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('click', 'show_streetview', function (event) {\n  if (this.platform == 'Android') {\n    OPENURL('http://maps.google.com/maps?q=&layer=c&cbll=' + LATITUDE() + ',' + LONGITUDE())\n  } else if (this.platform == 'iOS') {\n    OPENURL('comgooglemaps://?center=' + LATITUDE() + ',' + LONGITUDE() + '&mapmode=streetview')\n  }\n});",
+    "elements": [
+      {
+        "type": "HyperlinkField",
+        "key": "83c9",
+        "label": "Show StreetView",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "show_streetview",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "default_url": null
+      }
+    ],
+    "created_at": "2016-07-29T13:48:50Z",
+    "updated_at": "2016-07-29T13:48:50Z"
+  }
+}
