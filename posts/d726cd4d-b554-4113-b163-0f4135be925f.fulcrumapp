@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('click', 'show_streetview', function (event) {\n  if (this.platform == 'Android') {\n    OPENURL('http://maps.google.com/maps?q=&layer=c&cbll=' + LATITUDE() + ',' + LONGITUDE())\n  } else if (this.platform == 'iOS') {\n    OPENURL('comgooglemaps://?center=' + LATITUDE() + ',' + LONGITUDE() + '&mapmode=streetview')\n  }\n});",
+    "script": "ON('click', 'show_streetview', function (event) {\n  if (this.platform == 'Android') {\n    OPENURL('http://maps.google.com/maps?q=&layer=c&cbll=' + LATITUDE() + ',' + LONGITUDE())\n  } else if (this.platform == 'iOS') {\n    //OPENURL('comgooglemaps://?center=' + LATITUDE() + ',' + LONGITUDE() + '&mapmode=streetview')\n    OPENURL('http://maps.google.com/maps?q=&layer=c&cbll=' + LATITUDE() + ',' + LONGITUDE())\n  }\n});",
     "elements": [
       {
         "type": "HyperlinkField",
@@ -46,10 +46,10 @@
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": [],
-        "default_url": null
+        "default_url": ""
       }
     ],
     "created_at": "2016-07-29T13:48:50Z",
-    "updated_at": "2016-07-29T13:48:50Z"
+    "updated_at": "2016-07-29T13:51:54Z"
   }
 }
