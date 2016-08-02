@@ -1,0 +1,131 @@
+{
+  "form": {
+    "id": "c629af0e-0ee1-4219-ac2d-48ce636858ec",
+    "name": "Bridge Inspections",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "cb11",
+    "title_field_keys": [
+      "cb11"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "RecordLinkField",
+        "key": "16e3",
+        "label": "Bridge",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "bridge",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "allow_creating_records": false,
+        "allow_existing_records": true,
+        "allow_updating_records": false,
+        "allow_multiple_records": false,
+        "form_id": "de256cf4-d013-42d2-877a-d4a7c634d7a8",
+        "record_conditions_type": null,
+        "record_conditions": null,
+        "record_defaults": [
+          {
+            "source_field_key": "4383",
+            "destination_field_key": "8823"
+          },
+          {
+            "source_field_key": "b478",
+            "destination_field_key": "c1fe"
+          }
+        ],
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "8823",
+        "label": "Bridge ID",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "bridge_id",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "c1fe",
+        "label": "Bridge Name",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "bridge_name",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "cb11",
+        "label": "Date",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "date",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-08-02T16:50:23Z",
+    "updated_at": "2016-08-02T16:50:23Z"
+  }
+}
