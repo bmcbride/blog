@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "b66a50e3-2ffd-41e2-922c-af0dfa93713f",
-    "name": "Data Events QA/QC",
+    "name": "Photo Location",
     "description": null,
     "bounding_box": null,
     "record_title_key": "9010",
@@ -41,7 +41,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var currentLatitude, currentLongitude;\n\n// source: https://www.geodatasource.com/developers/javascript\nfunction findDistance(lat1, lon1, lat2, lon2, unit) {\n  var radlat1 = Math.PI * lat1 / 180;\n  var radlat2 = Math.PI * lat2 / 180;\n  var theta = lon1 - lon2;\n  var radtheta = Math.PI * theta / 180;\n  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);\n  dist = Math.acos(dist);\n  dist = dist * 180 / Math.PI;\n  dist = dist * 60 * 1.1515;\n  if (unit == 'K') {\n    dist = dist * 1.609344;\n  }\n  if (unit == 'N') {\n    dist = dist * 0.8684;\n  }\n  return dist;\n}\n\nON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n    // if there is no location, stop\n    if (!location) {\n      return;\n    }\n    // set current location values\n    currentLatitude = location.latitude;\n    currentLongitude = location.longitude;\n  };\n  // go ahead and update it now...\n  updateLocationInfo();\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});\n\nON('save-record', function(event) {\n  // check to see if initial record location was not captured by GPS (imported or created on the web)\n  var recordAccuracy = this.recordHorizontalAccuracy;\n  if (!recordAccuracy && currentLatitude && currentLongitude) {\n    var kilometers = findDistance(currentLatitude, currentLongitude, LATITUDE(), LONGITUDE(), 'K');\n    var meters = Math.round(kilometers * 1000);\n    // if record was not captured by GPS and current location is less than 100 meters from record location, update with current location\n    if (meters < 100) {\n      SETLOCATION(currentLatitude, currentLongitude);\n    }\n  }\n});\n",
+    "script": "// source: https://www.geodatasource.com/developers/javascript\nfunction findDistance(lat1, lon1, lat2, lon2, unit) {\n  var radlat1 = Math.PI * lat1 / 180;\n  var radlat2 = Math.PI * lat2 / 180;\n  var theta = lon1 - lon2;\n  var radtheta = Math.PI * theta / 180;\n  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);\n  dist = Math.acos(dist);\n  dist = dist * 180 / Math.PI;\n  dist = dist * 60 * 1.1515;\n  if (unit == \"K\") {\n    dist = dist * 1.609344;\n  }\n  if (unit == \"N\") {\n    dist = dist * 0.8684;\n  }\n  return dist;\n}\n\nfunction validateDistance(event) {\n  if (event.value.latitude && event.value.longitude) {\n    var kilometers = findDistance(event.value.latitude, event.value.longitude, LATITUDE(), LONGITUDE(), 'K');\n    var meters = Math.round(kilometers * 1000);\n    if (meters > 20) {\n      ALERT('This photo is over 20 meters from the record location. (' + meters + ' meters)');\n    }\n  }\n}\n\nON('load-record', function(event) {\n  var elements = this.elementsByDataName;\n  // loop through the form elements\n  for (var dataName in elements) {\n    // we only care about photo fields\n    if (elements[dataName].type == 'PhotoField') {\n      // listen for add-photo event\n      ON('add-photo', dataName, validateDistance);\n    }\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -65,65 +65,24 @@
         "default_previous_value": false
       },
       {
-        "type": "Label",
-        "key": "08a7",
-        "label": "GPS Info",
+        "type": "PhotoField",
+        "key": "35c9",
+        "label": "Photos",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "gps_info",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": null
-      },
-      {
-        "type": "TextField",
-        "key": "a769",
-        "label": "Code",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "code",
+        "data_name": "photos",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": null,
-        "numeric": false,
-        "pattern": null,
-        "pattern_description": null,
         "min_length": null,
-        "max_length": null,
-        "default_previous_value": false
-      },
-      {
-        "type": "CalculatedField",
-        "key": "d274",
-        "label": "Eval",
-        "description": null,
-        "required": false,
-        "disabled": false,
-        "hidden": false,
-        "data_name": "eval",
-        "default_value": null,
-        "visible_conditions_type": null,
-        "visible_conditions": null,
-        "required_conditions_type": null,
-        "required_conditions": [],
-        "expression": "eval($code)",
-        "display": {
-          "style": "text",
-          "currency": null
-        },
-        "default_values": null,
-        "default_previous_value": false
+        "max_length": null
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-07-12T18:40:36Z"
+    "updated_at": "2016-08-03T19:37:16Z"
   }
 }
