@@ -14,7 +14,7 @@
       "key": "@status",
       "data_name": "status",
       "default_value": "Status 1",
-      "enabled": true,
+      "enabled": false,
       "read_only": false,
       "hidden": false,
       "description": "",
@@ -83,6 +83,6 @@
       }
     ],
     "created_at": "2016-05-24T20:18:52Z",
-    "updated_at": "2016-08-03T19:37:16Z"
+    "updated_at": "2016-08-03T19:40:45Z"
   }
 }
