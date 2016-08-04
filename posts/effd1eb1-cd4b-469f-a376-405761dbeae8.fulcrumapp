@@ -1,7 +1,7 @@
 {
   "form": {
     "id": "effd1eb1-cd4b-469f-a376-405761dbeae8",
-    "name": "Repeatable Polygons & Lines",
+    "name": "Repeatable Vector Geometries",
     "description": "Generate WKT point & line geometries from repeatable vertices.",
     "bounding_box": null,
     "record_title_key": "750c",
@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 3,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -169,6 +169,6 @@
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-08-04T14:42:55Z"
+    "updated_at": "2016-08-04T14:44:53Z"
   }
 }
