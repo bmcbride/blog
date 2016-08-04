@@ -1,0 +1,667 @@
+{
+  "form": {
+    "id": "ecd3ebf1-a7af-40ff-9e49-86d77a38e977",
+    "name": "IV Observation Tool",
+    "description": "Data collection module for IV Access Quality Improvement study",
+    "bounding_box": null,
+    "record_title_key": "5f7d",
+    "title_field_keys": [
+      "5f7d"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [],
+    "geometry_required": false,
+    "script": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "5f7d",
+        "label": "Name of Facility",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "name_of_facility",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": 100,
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "832c",
+        "label": "Date",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "date",
+        "default_value": "now",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "2a65",
+        "label": "Was proper patient skin antisepsis performed?",
+        "description": "Guideline: Prepare clean skin with an antiseptic (70% alcohol, tincture of iodine, an iodophor or\nchlorhexidine gluconate) before peripheral venous catheter insertion. CDC.\n",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "was_proper_patient_skin_antisepsis_performed",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "3e2e",
+        "label": "Is CHG based skin prep used?",
+        "description": "Practice Recommendation",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_chg_based_skin_prep_used",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "d47c",
+        "label": "Are IV safety catheters used?",
+        "description": "Standard: Engineering and work practice controls shall be used to eliminate or minimize employee exposure.\"OSHA defines Engineering Controls as \"Controls (e.g., sharps disposal containers, self-sheathing needles, safer medical devices, such as sharps with engineered sharps injury protections and needleless systems) that isolate or remove the bloodborne pathogens hazard from the workplace. OSHA.\nGuideline:  Perioperative team members should use IV catheters that incorporate safety-engineered features.  AORN",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "are_iv_safety_catheters_used",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "64d9",
+        "label": "Choose type of catheter",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "choose_type_of_catheter",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": true,
+        "allow_other": false,
+        "choices": [
+          {
+            "label": "BD Insyte? Autoguard?",
+            "value": "BD Insyte? Autoguard?"
+          },
+          {
+            "label": "BD Insyte? Autoguard? BC",
+            "value": "BD Insyte? Autoguard? BC"
+          },
+          {
+            "label": "BD Nexiva? Single Port",
+            "value": "BD Nexiva? Single Port"
+          },
+          {
+            "label": "BD Nexiva? Dual Port",
+            "value": "BD Nexiva? Dual Port"
+          },
+          {
+            "label": "BD Nexiva? Diffusics?",
+            "value": "BD Nexiva? Diffusics?"
+          },
+          {
+            "label": "BD Saf-T-Intima?",
+            "value": "BD Saf-T-Intima?"
+          },
+          {
+            "label": "B. Braun Introcan Safety?",
+            "value": "B. Braun Introcan Safety?"
+          },
+          {
+            "label": "B. Braun Introcan Safety? 3",
+            "value": "B. Braun Introcan Safety? 3"
+          },
+          {
+            "label": "Smiths ProtectIV?",
+            "value": "Smiths ProtectIV?"
+          },
+          {
+            "label": "Smiths ViaValve?",
+            "value": "Smiths ViaValve?"
+          },
+          {
+            "label": "Terumo SurFlash?",
+            "value": "Terumo SurFlash?"
+          },
+          {
+            "label": "Terumo SurFlash? Plus",
+            "value": "Terumo SurFlash? Plus"
+          }
+        ],
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "64ba",
+        "label": "Was a new flush used for each patient?",
+        "description": "Standard:   Single dose medication vials are used for only one patient. Multi-dose vials used for more than one patient are stored appropriately and do not enter the immediate patient care area. NOTE:  If a multi-dose vial enters the immediate patient care area, they must be dedicated for single patient use and discarded immediately after use. CMS.\n",
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "was_a_new_flush_used_for_each_patient",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "493f",
+        "label": "Are prefilled flush syringes used?",
+        "description": "Practice Recommendation",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "are_prefilled_flush_syringes_used",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "ChoiceField",
+        "key": "6262",
+        "label": "If prefilled flush used, type?",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "if_prefilled_flush_used_type",
+        "default_value": "Medefil Saline",
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "multiple": true,
+        "allow_other": true,
+        "choices": [
+          {
+            "label": "BD PosiFlush? Saline",
+            "value": "BD PosiFlush? Saline"
+          },
+          {
+            "label": "BD PosiFlush? SureScrub?",
+            "value": "BD PosiFlush? SureScrub?"
+          },
+          {
+            "label": "Covidien Monoject? Saline",
+            "value": "Covidien Monoject? Saline"
+          },
+          {
+            "label": "Medefil Saline",
+            "value": "Medefil Saline"
+          },
+          {
+            "label": "Medline/Excelsior Medical",
+            "value": "Medline/Excelsior Medical"
+          }
+        ],
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "ba30",
+        "label": "If prefilled flush NOT used, was new needle used for each flush?",
+        "description": "Standard: Medication vials are always entered with a new needle. CMS\nA syringe and needle should be used only once to administer a medication to a single patient, after which the syringe and needle should be discarded.  AORN.\nGuideline:  One syringe, one needle, one patient.  CDC.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "if_prefilled_flush_not_used_was_new_needle_used_for_each_flush",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "b8dd",
+        "label": "If prefilled flush NOT used, was new syringe used for each flush?",
+        "description": "Standard.  Syringes are used for only one patient.  CMS.\nA syringe and needle should be used only once to administer a medication to a single patient, after which the syringe and needle should be discarded.  AORN.\nGuideline:  One syringe, one needle, one patient.  CDC.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "if_prefilled_flush_not_used_was_new_syringe_used_for_each_flush",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "ed66",
+        "label": "If flush NOT pre-filled, was new flush container used for each patient?",
+        "description": "Standard: Multi-dose vials used for more than one patient are stored appropriately and do not enter the immediate patient care area. CMS.\nGuideline:  IV solution containers or supplies for more than one patient increases the risk of cross contamination.  AORN.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "if_flush_not_pre_filled_was_new_flush_container_used_for_each_patient",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "ec65",
+        "label": "Are IV connections needleless?",
+        "description": "Standard:  Connectors use devices other than needles to connect one IV\nto another. Examples of needleless connectors include 3-way\nstopcocks and plunger-type systems. OSHA.\nGuideline:  Needleless systems should be used for administration of medications and fluids.  AORN",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "are_iv_connections_needleless",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "a5a9",
+        "label": "Are you evaluating new sharps safety products on an annual basis?",
+        "description": "Standard:  Document annually consideration and implementation of appropriate commercially available and effective safer medical devices designed to eliminate or minimize occupational exposure. Employers, in their written Exposure Control Plans, account for innovations in procedure and technological developments that reduce the risk of exposure incidents. This would include, but would not be limited to, newly available medical devices designed to reduce the risk of percutaneous exposure to blood borne pathogens. Consideration and implementation of safer medical devices could be documented in the Exposure Control Plan by describing the safer devices Identified as candidates for adoption; the method or methods used to evaluate devices and the results of evaluations; and justification for selection decisions. This Information must updated at least annually.  OSHA.\nGuideline:  Sharps safety should be included in organization's annual bloodborne pathogens training program.  The organization should perform periodic audits for compliance with policies and use of safety engineered devices, work practice controls, and barrier protection methods. AORN.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "are_you_evaluating_new_sharps_safety_products_on_an_annual_basis",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "de19",
+        "label": "Was hand hygiene performed prior to IV insertion?",
+        "description": "Guideline:   Hand Hygiene and Aseptic Technique:\n1. Perform hand hygiene procedures, either by washing hands with conventional soap and water or with alcohol-based hand rubs (ABHR). Hand hygiene should be performed before and after palpating catheter insertion sites as well as before and after inserting, replacing, accessing, repairing, or dressing an intravascular catheter. Palpation of the insertion site should not be performed after the application of antiseptic, unless aseptic technique is maintained . CDC",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "was_hand_hygiene_performed_prior_to_iv_insertion",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "b58c",
+        "label": "Were gloves donned prior to IV insertion?",
+        "description": "Standard: Staff wear gloves for procedures that might involve contact with blood or body fluids. CMS.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "were_gloves_donned_prior_to_iv_insertion",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "9724",
+        "label": "Were sharps disposed of  in an appropriate container?",
+        "description": "Standard: All sharps are disposed of in a puncture resistant sharps container. CMS.\nGuideline:  Disposable sharps contaminated with blood or other potentially infectious materials should be disposed of in a closeable, puncture-resistant container that is leak-proof on its sides and bottom, and is labeled or color coded.  AORN.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "were_sharps_disposed_of_in_an_appropriate_container",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "d31c",
+        "label": "Was sharps container more than 2/3 full?",
+        "description": " Standard: Sharps containers are replaced when the fill line is reached. CMS.\nGuideline:  Sharps disposal receptacles should be routinely replaced and not overfilled.  AORN.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "was_sharps_container_more_than_23_full",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "3415",
+        "label": "Was sharps container located in convenient location of IV start?",
+        "description": "Standard:  Sharps disposal containers must be readily accessible\nand located as close as feasible to the area\nwhere sharps will be used. OSHA\nGuideline:  Sharps disposal receptacles should be located close to the point of use.",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "was_sharps_container_located_in_convenient_location_of_iv_start",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "8070",
+        "label": "Was there blood extravasation during IV start?",
+        "description": "Standard:  In order to reduce or eliminate the hazards of occupational exposure to bloodborne pathogens, an employer must implement an exposure control plan for the worksite with details on employee protection measures. OSHA.\n\n",
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "was_there_blood_extravasation_during_iv_start",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "PhotoField",
+        "key": "ea4b",
+        "label": "Photos",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "photos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "min_length": null,
+        "max_length": null
+      }
+    ],
+    "created_at": "2016-08-04T18:18:32Z",
+    "updated_at": "2016-08-04T18:18:32Z"
+  }
+}
