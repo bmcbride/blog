@@ -1,8 +1,8 @@
 {
   "form": {
     "id": "effd1eb1-cd4b-469f-a376-405761dbeae8",
-    "name": "Repeatable WKT",
-    "description": null,
+    "name": "Repeatable Polygons & Lines",
+    "description": "Generate WKT point & line geometries from repeatable vertices.",
     "bounding_box": null,
     "record_title_key": "750c",
     "title_field_keys": [
@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 1,
+    "record_count": 3,
     "geometry_types": [
       "Point"
     ],
@@ -194,20 +194,90 @@
         "max_length": null
       },
       {
+        "type": "Repeatable",
+        "key": "24d9",
+        "label": "Vector Vertices",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "vector_vertices",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "elements": [
+          {
+            "type": "CalculatedField",
+            "key": "5293",
+            "label": "Vertex ID",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "vertex_id",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "REPEATABLENUMBER();",
+            "display": {
+              "style": "number",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "11dd",
+            "label": "Vertex Label",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "vertex_label",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ],
+        "title_field_key": null,
+        "title_field_keys": [
+          "5293"
+        ],
+        "geometry_types": [
+          "Point"
+        ],
+        "geometry_required": true,
+        "min_length": 2,
+        "max_length": null
+      },
+      {
         "type": "CalculatedField",
         "key": "5d61",
         "label": "Polygon Geometry",
         "description": null,
         "required": false,
         "disabled": false,
-        "hidden": true,
+        "hidden": false,
         "data_name": "polygon_wkt",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": [],
-        "expression": "var coords = [];\nif ($polygon_vertices) {\n  for (var i = 0; i < $polygon_vertices.length; ++i) {\n    coords.push($polygon_vertices[i].geometry.coordinates[0] + ' ' + $polygon_vertices[i].geometry.coordinates[1]);\n  }\n  coords.push($polygon_vertices[0].geometry.coordinates[0] + ' ' + $polygon_vertices[0].geometry.coordinates[1]);\n  SETRESULT('POLYGON ((' + coords + '))');\n} else {\n  SETRESULT(null);\n}",
+        "expression": "var coords = [];\nif ($vector_vertices && $vector_vertices.length > 2) {\n  for (var i = 0; i < $vector_vertices.length; ++i) {\n    coords.push($vector_vertices[i].geometry.coordinates[0] + ' ' + $vector_vertices[i].geometry.coordinates[1]);\n  }\n  coords.push($vector_vertices[0].geometry.coordinates[0] + ' ' + $vector_vertices[0].geometry.coordinates[1]);\n  SETRESULT('POLYGON ((' + coords + '))');\n} else {\n  SETRESULT(null);\n}",
         "display": {
           "style": "text",
           "currency": null
@@ -222,14 +292,14 @@
         "description": null,
         "required": false,
         "disabled": false,
-        "hidden": true,
+        "hidden": false,
         "data_name": "line_wkt",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
         "required_conditions": [],
-        "expression": "var coords = [];\nif ($line_vertices) {\n  for (var i = 0; i < $line_vertices.length; ++i) {\n    coords.push($line_vertices[i].geometry.coordinates[0] + ' ' + $line_vertices[i].geometry.coordinates[1]);\n  }\n  SETRESULT('LINESTRING (' + coords + ')');\n} else {\n  SETRESULT(null);\n}",
+        "expression": "var coords = [];\nif ($vector_vertices) {\n  for (var i = 0; i < $vector_vertices.length; ++i) {\n    coords.push($vector_vertices[i].geometry.coordinates[0] + ' ' + $vector_vertices[i].geometry.coordinates[1]);\n  }\n  SETRESULT('LINESTRING (' + coords + ')');\n} else {\n  SETRESULT(null);\n}",
         "display": {
           "style": "text",
           "currency": null
@@ -239,6 +309,6 @@
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-04-08T15:26:44Z"
+    "updated_at": "2016-08-04T14:38:16Z"
   }
 }
