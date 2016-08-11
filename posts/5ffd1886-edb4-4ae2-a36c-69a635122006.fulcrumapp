@@ -25,12 +25,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": null,
+    "script": "ON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n\n    // if there is no location, display a special message\n    if (!location) {\n      SETLABEL('gps_info', 'No Location Available');\n      return;\n    }\n\n    // format the display of the location data\n    var message = [\n      'Latitude: ' + location.latitude,\n      'Longitude: ' + location.longitude,\n      'Accuracy: ' + location.accuracy,\n      'Altitude: ' + location.altitude,\n      'Course: ' + location.course,\n      'Speed: ' + location.speed,\n      'Time: ' + new Date(location.timestamp * 1000).toLocaleString()\n    ].join('\\n');\n\n    // set the label property of the label on the form\n    SETLABEL('gps_info', message);\n  };\n\n  // go ahead and update it now...\n  updateLocationInfo();\n\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});",
     "elements": [
       {
         "type": "TextField",
@@ -52,9 +52,24 @@
         "min_length": null,
         "max_length": null,
         "default_previous_value": false
+      },
+      {
+        "type": "Label",
+        "key": "c48c",
+        "label": "GPS Info",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "gps_info",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-05-16T19:48:55Z"
+    "updated_at": "2016-08-11T21:16:09Z"
   }
 }
