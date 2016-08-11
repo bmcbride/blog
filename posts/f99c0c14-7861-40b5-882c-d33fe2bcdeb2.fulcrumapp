@@ -46,7 +46,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('validate-record', function (event) {\n  if(!PROJECTNAME()) {\n  \tINVALID('Please select a project before saving!');\n  }\n})\n\nON('load-repeatable', function (event) {\n  SETLABEL('my_repeatable_choice', 'Label set from data event');\n})\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'TextField') {\n      //console.log(VALUE(dataName));\n      if (VALUE(dataName)) {\n        var val = VALUE(dataName).replace(/\\n|\\r/g, '');\n        console.log(val);\n        SETVALUE(dataName, value);\n      }\n    }\n  }\n});",
+    "script": "ON('validate-record', function (event) {\n  if(!PROJECTNAME()) {\n  \tINVALID('Please select a project before saving!');\n  }\n})\n\nON('load-repeatable', function (event) {\n  SETLABEL('my_repeatable_choice', 'Label set from data event');\n})\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'TextField') {\n      //console.log(VALUE(dataName));\n      if (VALUE(dataName)) {\n        var val = VALUE(dataName).replace(/\\n|\\r/g, '');\n        console.log(val);\n        SETVALUE(dataName, val);\n      }\n    }\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -580,6 +580,6 @@
       }
     ],
     "created_at": "2015-07-09T14:46:02Z",
-    "updated_at": "2016-08-11T18:41:05Z"
+    "updated_at": "2016-08-11T18:41:56Z"
   }
 }
