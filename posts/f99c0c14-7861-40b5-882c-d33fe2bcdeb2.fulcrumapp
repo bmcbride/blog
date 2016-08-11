@@ -41,12 +41,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 2,
+    "record_count": 3,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('validate-record', function (event) {\n  if(!PROJECTNAME()) {\n  \tINVALID('Please select a project before saving!');\n  }\n})\n\nON('load-repeatable', function (event) {\n  SETLABEL('my_repeatable_choice', 'Label set from data event');\n})",
+    "script": "ON('validate-record', function (event) {\n  if(!PROJECTNAME()) {\n  \tINVALID('Please select a project before saving!');\n  }\n})\n\nON('load-repeatable', function (event) {\n  SETLABEL('my_repeatable_choice', 'Label set from data event');\n})\n\nON('load-record', function (event) {\n  var elements = this.elementsByDataName;\n  for (var dataName in elements) {\n    if (elements[dataName].type == 'TextField') {\n      //SETVALUE(dataName, 'Your new value')\n      console.log(elements[dataName]);\n    }\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -580,6 +580,6 @@
       }
     ],
     "created_at": "2015-07-09T14:46:02Z",
-    "updated_at": "2016-08-01T13:29:10Z"
+    "updated_at": "2016-08-11T17:17:27Z"
   }
 }
