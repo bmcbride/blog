@@ -47,7 +47,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "function updateStatus(event) {\n  if ($training_and_knowledge == 'no' || $tools_and_ppe == 'no' || $prepared_to_perform == 'no') {\n    SETSTATUS('Training - Equipment Needed');\n  }\n  \n  sendEmail();\n}\n\nfunction sendEmail() {\n  options = {\n    url: 'https://crossorigin.me/https://script.google.com/macros/s/AKfycbzYPS0FU2GPvUZUl2CpbjWtgMqQj5FjMiM-z-BXhGkAgvihg0jc/exec?record=' + RECORDID(),\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + INSPECT(error));\n    } else {\n      ALERT(INSPECT(body));\n    }\n  });\n}\n\nON('save-record', updateStatus);",
+    "script": "function updateStatus(event) {\n  if ($training_and_knowledge == 'no' || $tools_and_ppe == 'no' || $prepared_to_perform == 'no') {\n    SETSTATUS('Training - Equipment Needed');\n  }\n  \n  sendEmail();\n}\n\nfunction sendEmail() {\n  options = {\n    url: 'https://script.google.com/macros/s/AKfycbzYPS0FU2GPvUZUl2CpbjWtgMqQj5FjMiM-z-BXhGkAgvihg0jc/exec?record=' + RECORDID(),\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + INSPECT(error));\n    } else {\n      ALERT(INSPECT(body));\n    }\n  });\n}\n\nON('save-record', updateStatus);",
     "elements": [
       {
         "type": "Section",
@@ -2009,6 +2009,6 @@
       }
     ],
     "created_at": "2016-07-22T18:44:55Z",
-    "updated_at": "2016-08-12T03:48:38Z"
+    "updated_at": "2016-08-12T03:49:46Z"
   }
 }
