@@ -51,7 +51,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('save-record', function (event) {\n  if ((ISBLANK($work_order_number)) && (ISBLANK($qced))) {\n    SETSTATUS('Inspected');   \n    ALERT('INSPECTED');\n  } else if (ISNOTBLANK($qced)){\n    SETSTATUS('QCed');\n  \tALERT('QCed');\n  } else {\n    SETSTATUS('Work Order Created');\n  }\n});",
+    "script": "ON('save-record', function (event) {\n  if ((ISBLANK($work_order_number)) && (ISBLANK($qced))) {\n    SETSTATUS('Inspected');   \n    ALERT('INSPECTED');\n  } else if (!ISBLANK($qced)){\n    SETSTATUS('QCed');\n  \tALERT('QCed');\n  } else {\n    SETSTATUS('Work Order Created');\n  }\n});",
     "elements": [
       {
         "type": "TextField",
@@ -176,6 +176,6 @@
       }
     ],
     "created_at": "2016-08-15T13:07:49Z",
-    "updated_at": "2016-08-15T13:18:00Z"
+    "updated_at": "2016-08-15T13:19:47Z"
   }
 }
