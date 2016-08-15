@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "var username = 'geohost',\n  api_key = 'cb82726439f40108687d2625c745f9d21777ea5c',\n  type = '';\n\nON('new-record', function(event) {\n  type = 'create';\n});\n\nON('save-record', function(event) {\n  if (type == 'create') {\n    query = 'INSERT INTO repeatable_vector_geometries (fulcrum_id, feature_name, line_wkt, polygon_wkt, the_geom) VALUES ($$' + RECORDID() + '$$, $$' + $feature_name + '$$, ' + $line_wkt + ', $$' + $polygon_wkt + '$$, ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326))';\n    postToCDB(query);\n  } else if (type == 'update') {\n    query = 'UPDATE repeatable_vector_geometries SET feature_name=$$' + $feature_name + '$$, line_wkt=' + $line_wkt + ', polygon_wkt=$$' + $polygon_wkt + '$$, the_geom=ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326) WHERE fulcrum_id=$$' + RECORDID() + '$$';\n    postToCDB(query);\n  }\n});\n\nfunction postToCDB(query) {\n  options = {\n    url: 'https://' + username + '.cartodb.com/api/v2/sql?q=' + encodeURIComponent(query) + '&api_key=' + api_key,\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      ALERT('This record has been successfully posted to CartoDB!');\n    }\n  });\n}",
+    "script": "var username = 'geohost',\n  api_key = 'cb82726439f40108687d2625c745f9d21777ea5c',\n  type = '';\n\nON('new-record', function(event) {\n  type = 'create';\n});\n\nON('save-record', function(event) {\n  if (type == 'create' || type == 'update') {\n    query = 'INSERT INTO repeatable_vector_geometries (fulcrum_id, feature_name, line_wkt, polygon_wkt, the_geom) VALUES ($$' + RECORDID() + '$$, $$' + $feature_name + '$$, $$' + $line_wkt + '$$, $$' + $polygon_wkt + '$$, ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326))';\n    postToCDB(query);\n  } /*else if (type == 'update') {\n    query = 'UPDATE repeatable_vector_geometries SET feature_name=$$' + $feature_name + '$$, line_wkt=' + $line_wkt + ', polygon_wkt=$$' + $polygon_wkt + '$$, the_geom=ST_SetSRID(ST_Point(' + LONGITUDE() + ', ' + LATITUDE() + '),4326) WHERE fulcrum_id=$$' + RECORDID() + '$$';\n    postToCDB(query);\n  }*/\n});\n\nfunction postToCDB(query) {\n  options = {\n    url: 'https://' + username + '.cartodb.com/api/v2/sql?q=' + encodeURIComponent(query) + '&api_key=' + api_key,\n    method: 'POST'\n  };\n\n  REQUEST(options, function(error, response, body) {\n    if (error) {\n      ALERT('Error with request: ' + error);\n    } else {\n      ALERT('This record has been successfully posted to CartoDB!');\n    }\n  });\n}",
     "elements": [
       {
         "type": "TextField",
@@ -169,6 +169,6 @@
       }
     ],
     "created_at": "2016-02-25T19:30:19Z",
-    "updated_at": "2016-08-15T19:15:47Z"
+    "updated_at": "2016-08-15T19:21:19Z"
   }
 }
