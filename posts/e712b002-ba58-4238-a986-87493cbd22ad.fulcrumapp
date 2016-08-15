@@ -1,0 +1,117 @@
+{
+  "form": {
+    "id": "e712b002-ba58-4238-a986-87493cbd22ad",
+    "name": "DDOT Test",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "c4ef",
+    "title_field_keys": [
+      "c4ef"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Not Inspected",
+      "enabled": true,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Work Order Created",
+          "value": "Work Order Created",
+          "color": "#FF8819"
+        },
+        {
+          "label": "Inspected",
+          "value": "Inspected",
+          "color": "#FFD300"
+        },
+        {
+          "label": "Not Inspected",
+          "value": "Not Inspected",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "QCed",
+          "value": "QCed",
+          "color": "#CB0D0C"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('save-record', function (event) {\n  if ((ISBLANK($work_order_number)) && (ISBLANK($qced))) {\n    SETSTATUS('Inspected');   \n    \n  } else if (ISNOTBLANK($qced)){\n    SETSTATUS('QCed');\n  \n  } else {\n    SETSTATUS('Work Order Created');\n  }\n});",
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "a1cf",
+        "label": "Work Order Number",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "work_order_number",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "integer",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "c4ef",
+        "label": "Qc'ed",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "qced",
+        "default_value": null,
+        "visible_conditions_type": "all",
+        "visible_conditions": [
+          {
+            "field_key": "@status",
+            "operator": "equal_to",
+            "value": "Work Order Created"
+          }
+        ],
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Pass",
+          "value": "Pass"
+        },
+        "negative": {
+          "label": "Fail",
+          "value": "Fail"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-08-15T13:07:49Z",
+    "updated_at": "2016-08-15T13:07:49Z"
+  }
+}
