@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 1,
+    "record_count": 2,
     "geometry_types": [
       "Point"
     ],
@@ -342,7 +342,7 @@
             "description": null,
             "required": false,
             "disabled": false,
-            "hidden": true,
+            "hidden": false,
             "data_name": "polygon_geometry",
             "default_value": null,
             "visible_conditions_type": null,
@@ -835,6 +835,6 @@
       }
     ],
     "created_at": "2016-08-23T19:23:58Z",
-    "updated_at": "2016-08-23T19:26:33Z"
+    "updated_at": "2016-08-23T19:27:44Z"
   }
 }
