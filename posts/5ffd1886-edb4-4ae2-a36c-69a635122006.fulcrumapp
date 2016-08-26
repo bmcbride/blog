@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "/*ON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n\n    // if there is no location, display a special message\n    if (!location) {\n      SETLABEL('gps_info', 'No Location Available');\n      return;\n    }\n\n    // format the display of the location data\n    var message = [\n      'Latitude: ' + location.latitude,\n      'Longitude: ' + location.longitude,\n      'Accuracy: ' + location.accuracy,\n      'Altitude: ' + location.altitude,\n      'Course: ' + location.course,\n      'Speed: ' + location.speed,\n      'Time: ' + new Date(location.timestamp * 1000).toLocaleString()\n    ].join('\\n');\n\n    // set the label property of the label on the form\n    SETLABEL('gps_info', message);\n  };\n\n  // go ahead and update it now...\n  updateLocationInfo();\n\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});*/\n\nON('load-record', function() {\n  var config = {\n    // auto-sync this record after saving, default: user-preference\n    auto_sync_enabled: true,\n    \n    // auto-populate the record location, default: true\n    auto_location_enabled: true,\n    \n    // minimum accuracy in meters for the auto-populated location, default: 1500m\n    auto_location_minimum_accuracy: 10,\n    \n    // allow manually changing the record location, default: true\n    manual_location_enabled: false,\n    \n    // allow media from the gallery or camera roll, default: true\n    media_gallery_enabled: false,\n    \n    // allow media from the camera, default: true\n    media_capture_enabled: true,\n    \n    // maximum dimension of photos in pixels, or 'native', default: user-preference\n    photo_quality: '2048',\n    \n    // video resolution, one of: 480p, 720p, 1080p, 2160p, default: user-preference\n    video_quality: '720p',\n    \n    // allow saving record as a draft, default: true\n    drafts_enabled: false\n  };\n  \n  //SETFORMATTRIBUTES(config);\n});",
+    "script": "/*ON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n\n    // if there is no location, display a special message\n    if (!location) {\n      SETLABEL('gps_info', 'No Location Available');\n      return;\n    }\n\n    // format the display of the location data\n    var message = [\n      'Latitude: ' + location.latitude,\n      'Longitude: ' + location.longitude,\n      'Accuracy: ' + location.accuracy,\n      'Altitude: ' + location.altitude,\n      'Course: ' + location.course,\n      'Speed: ' + location.speed,\n      'Time: ' + new Date(location.timestamp * 1000).toLocaleString()\n    ].join('\\n');\n\n    // set the label property of the label on the form\n    SETLABEL('gps_info', message);\n  };\n\n  // go ahead and update it now...\n  updateLocationInfo();\n\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});*/\n\nON('load-record', function() {\n  var config = {\n    // auto-sync this record after saving, default: user-preference\n    auto_sync_enabled: true,\n    \n    // auto-populate the record location, default: true\n    auto_location_enabled: true,\n    \n    // minimum accuracy in meters for the auto-populated location, default: 1500m\n    auto_location_minimum_accuracy: 10,\n    \n    // allow manually changing the record location, default: true\n    manual_location_enabled: false,\n    \n    // allow media from the gallery or camera roll, default: true\n    media_gallery_enabled: false,\n    \n    // allow media from the camera, default: true\n    media_capture_enabled: true,\n    \n    // maximum dimension of photos in pixels, or 'native', default: user-preference\n    photo_quality: '2048',\n    \n    // video resolution, one of: 480p, 720p, 1080p, 2160p, default: user-preference\n    video_quality: '720p',\n    \n    // allow saving record as a draft, default: true\n    drafts_enabled: false\n  };\n  \n  //SETFORMATTRIBUTES(config);\n});\n\n\nfunction updateLabel() {\n  var elements = FIELD('animals').elements;\n  var blankCount = 0;\n  for (var i = 0; i < elements.length; i++) {\n    if (ISBLANK(VALUE(elements[i].data_name))) {\n      blankCount += 1;\n    }\n  }\n  if (blankCount > 0) {\n    SETLABEL('animals', 'Animals (' + blankCount + ' unanswered questions)');\n  } else {\n    SETLABEL('animals', null);\n  }\n}\n\n\nDATANAMES().forEach(function(dataName) {\n  ON('change', dataName, updateLabel);\n});",
     "projects_enabled": null,
     "assignment_enabled": null,
     "elements": [
@@ -86,9 +86,214 @@
         "required_conditions": null,
         "min_length": null,
         "max_length": null
+      },
+      {
+        "type": "Section",
+        "key": "9bf2",
+        "label": "Animals",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "animals",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "YesNoField",
+            "key": "546b",
+            "label": "Do you have a dog?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "has_dog",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "9138",
+            "label": "Does your dog have fleas?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "dog_has_fleas",
+            "default_value": null,
+            "visible_conditions_type": "all",
+            "visible_conditions": [
+              {
+                "field_key": "546b",
+                "operator": "equal_to",
+                "value": "yes"
+              }
+            ],
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "c5ba",
+            "label": "Do you have a cat?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "has_cat",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "YesNoField",
+            "key": "6a8b",
+            "label": "Do you have a pig?",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "has_pig",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "positive": {
+              "label": "Yes",
+              "value": "yes"
+            },
+            "negative": {
+              "label": "No",
+              "value": "no"
+            },
+            "neutral": {
+              "label": "N/A",
+              "value": "n/a"
+            },
+            "neutral_enabled": false,
+            "default_previous_value": false
+          },
+          {
+            "type": "CalculatedField",
+            "key": "b5df",
+            "label": "Unanswered Animals",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "unanswered_animals",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": [],
+            "expression": "var elements = FIELD('animals').elements;\n\nvar blankCount = 0;\n\nfor (var i = 0; i < elements.length; i++) {\n  if (ISBLANK(VALUE(elements[i].data_name))) {\n    blankCount += 1;\n  }\n}\n\nSETRESULT(blankCount);",
+            "display": {
+              "style": "number",
+              "currency": null
+            },
+            "default_values": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
+        "type": "TextField",
+        "key": "fec0",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "eb66",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-08-26T16:06:56Z"
+    "updated_at": "2016-08-26T21:02:54Z"
   }
 }
