@@ -25,12 +25,14 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 2,
+    "record_count": 4,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
     "script": "/*ON('load-record', function(event) {\n  var updateLocationInfo = function() {\n    // get the current device location\n    var location = CURRENTLOCATION();\n\n    // if there is no location, display a special message\n    if (!location) {\n      SETLABEL('gps_info', 'No Location Available');\n      return;\n    }\n\n    // format the display of the location data\n    var message = [\n      'Latitude: ' + location.latitude,\n      'Longitude: ' + location.longitude,\n      'Accuracy: ' + location.accuracy,\n      'Altitude: ' + location.altitude,\n      'Course: ' + location.course,\n      'Speed: ' + location.speed,\n      'Time: ' + new Date(location.timestamp * 1000).toLocaleString()\n    ].join('\\n');\n\n    // set the label property of the label on the form\n    SETLABEL('gps_info', message);\n  };\n\n  // go ahead and update it now...\n  updateLocationInfo();\n\n  // ... and every 3 seconds\n  SETINTERVAL(updateLocationInfo, 3000);\n});*/\n\nON('load-record', function() {\n  var config = {\n    // auto-sync this record after saving, default: user-preference\n    auto_sync_enabled: true,\n    \n    // auto-populate the record location, default: true\n    auto_location_enabled: true,\n    \n    // minimum accuracy in meters for the auto-populated location, default: 1500m\n    auto_location_minimum_accuracy: 10,\n    \n    // allow manually changing the record location, default: true\n    manual_location_enabled: false,\n    \n    // allow media from the gallery or camera roll, default: true\n    media_gallery_enabled: false,\n    \n    // allow media from the camera, default: true\n    media_capture_enabled: true,\n    \n    // maximum dimension of photos in pixels, or 'native', default: user-preference\n    photo_quality: '2048',\n    \n    // video resolution, one of: 480p, 720p, 1080p, 2160p, default: user-preference\n    video_quality: '720p',\n    \n    // allow saving record as a draft, default: true\n    drafts_enabled: false\n  };\n  \n  //SETFORMATTRIBUTES(config);\n});",
+    "projects_enabled": null,
+    "assignment_enabled": null,
     "elements": [
       {
         "type": "TextField",
@@ -87,6 +89,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-08-11T21:23:17Z"
+    "updated_at": "2016-08-26T16:06:56Z"
   }
 }
