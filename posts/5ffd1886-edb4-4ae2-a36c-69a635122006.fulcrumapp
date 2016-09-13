@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('edit-repeatable', 'inspections', function(event) {\n  ALERT('editing inspections');\n  if (ISUPDATE() && $lock_form == 'yes') {\n    ALERT('readonly');\n    var repeatables = FIELD('inspections').elements;\n    repeatables.forEach(function(element) {\n      SETREADONLY(element.data_name, true);\n    });\n  } else {\n    ALERT('not readonly');\n    var repeatables = FIELD('inspections').elements;\n    repeatables.forEach(function(element) {\n      SETREADONLY(element.data_name, false);\n    });\n  }\n});",
+    "script": "ON('edit-repeatable', 'inspections', function(event) {\n  if ($lock_form == 'yes') {\n    ALERT('readonly');\n    var repeatables = FIELD('inspections').elements;\n    repeatables.forEach(function(element) {\n      SETREADONLY(element.data_name, true);\n    });\n  }\n});",
     "projects_enabled": null,
     "assignment_enabled": null,
     "elements": [
@@ -400,6 +400,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-09-13T18:11:00Z"
+    "updated_at": "2016-09-13T18:13:54Z"
   }
 }
