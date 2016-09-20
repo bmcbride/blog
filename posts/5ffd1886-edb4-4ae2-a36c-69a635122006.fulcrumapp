@@ -50,76 +50,7 @@
         "required_conditions": null,
         "multiple": false,
         "allow_other": false,
-        "choices": [
-          {
-            "label": "Acton, Joshua",
-            "value": "{\"tech\":\"Acton, Joshua\",\"supervisor\":\"QUICK, MICHAEL\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Acton, Richard",
-            "value": "{\"tech\":\"Acton, Richard\",\"supervisor\":\"QUICK, MICHAEL\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Albert, Floyd",
-            "value": "{\"tech\":\"Albert, Floyd\",\"supervisor\":\"VILLELLA, JOSEPH\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Albino, Stephen",
-            "value": "{\"tech\":\"Albino, Stephen\",\"supervisor\":\"KOZIOL, ERIC\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Austin, Ronald",
-            "value": "{\"tech\":\"Austin, Ronald\",\"supervisor\":\"MUCHA, CHRISTOPHER\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Baldwin, Edward",
-            "value": "{\"tech\":\"Baldwin, Edward\",\"supervisor\":\"GUZMAN, TOMMY\",\"project\":\"Video Auditing DNY\"}"
-          },
-          {
-            "label": "Barnes, James",
-            "value": "{\"tech\":\"Barnes, James\",\"supervisor\":\"OPIO, ED\",\"project\":\"Video Auditing DNY\"}"
-          },
-          {
-            "label": "Barone, Kenneth",
-            "value": "{\"tech\":\"Barone, Kenneth\",\"supervisor\":\"MUCHA, CHRISTOPHER\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Barretta, Anthony",
-            "value": "{\"tech\":\"Barretta, Anthony\",\"supervisor\":\"KOZIOL, ERIC\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Barretta, Matt",
-            "value": "{\"tech\":\"Barretta, Matt\",\"supervisor\":\"KOZIOL, ERIC\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Barrow, Elijah",
-            "value": "{\"tech\":\"Barrow, Elijah\",\"supervisor\":\"CARRERAS, HIRAM\",\"project\":\"Video Auditing DNY\"}"
-          },
-          {
-            "label": "Batsche, Thomas",
-            "value": "{\"tech\":\"Batsche, Thomas\",\"supervisor\":\"CARR, ADAM\",\"project\":\"Video Auditing DNY\"}"
-          },
-          {
-            "label": "Belmore, Wesley",
-            "value": "{\"tech\":\"Belmore, Wesley\",\"supervisor\":\"VILLELLA, JOSEPH\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Brown, Donald",
-            "value": "{\"tech\":\"Brown, Donald\",\"supervisor\":\"QUICK, MICHAEL\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Brown, Michael",
-            "value": "{\"tech\":\"Brown, Michael\",\"supervisor\":\"BELMORE, WESLEY\",\"project\":\"Video Auditing UNY\"}"
-          },
-          {
-            "label": "Callahan, Paul",
-            "value": "{\"tech\":\"Callahan, Paul\",\"supervisor\":\"OPIO, ED\",\"project\":\"Video Auditing DNY\"}"
-          },
-          {
-            "label": "Camal, Eustace",
-            "value": "{\"tech\":\"Camal, Eustace\",\"supervisor\":\"GUZMAN, TOMMY\",\"project\":\"Video Auditing DNY\"}"
-          }
-        ],
+        "choice_list_id": "b8f28766-9f1c-4382-b5db-79d40a00b543",
         "default_previous_value": false
       },
       {
@@ -673,6 +604,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-09-20T18:59:59Z"
+    "updated_at": "2016-09-20T19:08:33Z"
   }
 }
