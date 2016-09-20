@@ -35,6 +35,125 @@
     "assignment_enabled": null,
     "elements": [
       {
+        "type": "Section",
+        "key": "0e0d",
+        "label": "Employee Info",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "employee_info",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "display": "inline",
+        "elements": [
+          {
+            "type": "RecordLinkField",
+            "key": "c468",
+            "label": "Employee Link",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "employee_link",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "allow_creating_records": false,
+            "allow_existing_records": true,
+            "allow_updating_records": false,
+            "allow_multiple_records": false,
+            "form_id": "f1f845b6-7086-4036-baa9-43627b4d5e63",
+            "record_conditions_type": null,
+            "record_conditions": null,
+            "record_defaults": [
+              {
+                "source_field_key": "877b",
+                "destination_field_key": "30db"
+              },
+              {
+                "source_field_key": "e6ed",
+                "destination_field_key": "6b3d"
+              },
+              {
+                "source_field_key": "15cf",
+                "destination_field_key": "b444"
+              }
+            ],
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "30db",
+            "label": "Employee Name",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "employee_name",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "6b3d",
+            "label": "Employee Email",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "employee_email",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": false,
+            "pattern": null,
+            "pattern_description": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          },
+          {
+            "type": "TextField",
+            "key": "b444",
+            "label": "Employee ID",
+            "description": null,
+            "required": false,
+            "disabled": false,
+            "hidden": false,
+            "data_name": "employee_id",
+            "default_value": null,
+            "visible_conditions_type": null,
+            "visible_conditions": null,
+            "required_conditions_type": null,
+            "required_conditions": null,
+            "numeric": true,
+            "format": "integer",
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "default_previous_value": false
+          }
+        ]
+      },
+      {
         "type": "TextField",
         "key": "a76e",
         "label": "Name",
@@ -424,6 +543,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-09-16T20:16:39Z"
+    "updated_at": "2016-09-20T16:24:59Z"
   }
 }
