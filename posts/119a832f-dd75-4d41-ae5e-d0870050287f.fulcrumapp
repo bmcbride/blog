@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": null,
+    "script": "ON('load-record', function (event) {\n  SETPROJECT('Project 1');\n});",
     "projects_enabled": null,
     "assignment_enabled": null,
     "elements": [
@@ -100,6 +100,6 @@
       }
     ],
     "created_at": "2016-09-22T14:17:18Z",
-    "updated_at": "2016-09-22T14:37:52Z"
+    "updated_at": "2016-09-22T14:39:53Z"
   }
 }
