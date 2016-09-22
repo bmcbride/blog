@@ -56,6 +56,28 @@
         "default_previous_value": false
       },
       {
+        "type": "CalculatedField",
+        "key": "cb53",
+        "label": "User",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "user",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "EMAIL();",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
+      },
+      {
         "type": "TextField",
         "key": "02f7",
         "label": "Notes",
@@ -78,6 +100,6 @@
       }
     ],
     "created_at": "2016-09-22T14:17:18Z",
-    "updated_at": "2016-09-22T14:17:18Z"
+    "updated_at": "2016-09-22T14:19:03Z"
   }
 }
