@@ -13,12 +13,28 @@
       "label": "Status",
       "key": "@status",
       "data_name": "status",
-      "default_value": "",
-      "enabled": false,
+      "default_value": "Red",
+      "enabled": true,
       "read_only": false,
       "hidden": false,
       "description": "",
-      "choices": [],
+      "choices": [
+        {
+          "label": "Red",
+          "value": "Red",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Green",
+          "value": "Green",
+          "color": "#87D30F"
+        },
+        {
+          "label": "Blue",
+          "value": "Blue",
+          "color": "#1891C9"
+        }
+      ],
       "required": false,
       "disabled": false,
       "default_previous_value": false
@@ -530,6 +546,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-09-30T01:53:09Z"
+    "updated_at": "2016-09-30T01:55:21Z"
   }
 }
