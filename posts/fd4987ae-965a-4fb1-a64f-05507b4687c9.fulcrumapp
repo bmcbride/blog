@@ -48,6 +48,8 @@
     ],
     "geometry_required": false,
     "script": "function updateStatus(event) {\n  if ($training_and_knowledge == 'no' || $tools_and_ppe == 'no' || $prepared_to_perform == 'no') {\n    SETSTATUS('Training - Equipment Needed');\n  }\n}\n\nON('save-record', updateStatus);",
+    "projects_enabled": null,
+    "assignment_enabled": null,
     "elements": [
       {
         "type": "Section",
@@ -2006,9 +2008,52 @@
             "default_previous_value": false
           }
         ]
+      },
+      {
+        "type": "TextField",
+        "key": "36c8",
+        "label": "Code",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "code",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "7a2a",
+        "label": "Eval",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "eval",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "eval($code)",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
+        "default_previous_value": false
       }
     ],
     "created_at": "2016-07-22T18:44:55Z",
-    "updated_at": "2016-08-15T14:41:30Z"
+    "updated_at": "2016-10-03T14:56:16Z"
   }
 }
