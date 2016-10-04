@@ -42,12 +42,12 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 4,
+    "record_count": 7,
     "geometry_types": [
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('save-record', function (event) {\n  // Update Status\n  if ($training_and_knowledge == 'no' || $tools_and_ppe == 'no' || $prepared_to_perform == 'no') {\n    SETSTATUS('Training - Equipment Needed');\n  }\n\n  // Email Report\n  if (/*ISNEW() &&*/ CHOICEVALUES($emails)) {\n    var url = 'https://script.google.com/macros/s/AKfycbywCKOY31NCv2Xa4iPmSoLFFX-Xxmt-Ccy5vPq482gD3STXgww/exec';\n    // use cors/https proxy for web requests\n    if (!ISMOBILE()) {\n      url = 'https://crossorigin.me/' + url;\n    }\n    var options = {\n      url: url,\n      method: 'GET',\n      qs: {\n        'id': RECORDID(),\n        'emails': CHOICEVALUES($emails),\n      }\n    };\n\n    REQUEST(options, function(error, response, body) {\n      if (error) {\n        ALERT('Error with request: ' + INSPECT(error));\n      } else {\n        ALERT('Success!');\n      }\n    });\n  }\n});",
+    "script": "ON('save-record', function (event) {\n  // Update Status\n  if ($training_and_knowledge == 'no' || $tools_and_ppe == 'no' || $prepared_to_perform == 'no') {\n    SETSTATUS('Training - Equipment Needed');\n  }\n});",
     "projects_enabled": null,
     "assignment_enabled": null,
     "elements": [
@@ -2054,6 +2054,6 @@
       }
     ],
     "created_at": "2016-07-22T18:44:55Z",
-    "updated_at": "2016-10-03T16:07:32Z"
+    "updated_at": "2016-10-04T13:11:09Z"
   }
 }
