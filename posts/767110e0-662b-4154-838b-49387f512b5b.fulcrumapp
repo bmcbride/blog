@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 2,
     "geometry_types": [
       "Point"
     ],
@@ -96,6 +96,22 @@
         "pattern_description": null,
         "min_length": null,
         "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "DateTimeField",
+        "key": "9646",
+        "label": "LASTTREETRIMDATE2",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "lasttreetrimdate2",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
         "default_previous_value": false
       },
       {
@@ -227,6 +243,6 @@
       }
     ],
     "created_at": "2016-10-06T17:53:43Z",
-    "updated_at": "2016-10-06T17:53:43Z"
+    "updated_at": "2016-10-07T13:11:20Z"
   }
 }
