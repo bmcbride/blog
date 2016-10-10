@@ -1,0 +1,83 @@
+{
+  "form": {
+    "id": "a39fd4a5-1d99-40eb-af16-66e98288c6b5",
+    "name": "Location Alert",
+    "description": null,
+    "bounding_box": null,
+    "record_title_key": "88e9",
+    "title_field_keys": [
+      "88e9"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "",
+      "enabled": false,
+      "read_only": false,
+      "hidden": false,
+      "description": "",
+      "choices": [],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": false,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('load-record', function (event) { \n  SETTIMEOUT(function() {\n    var location = CURRENTLOCATION();\n    if (!location) {\n      ALERT('Warning!', 'Location could not be determined.');\n    } else {\n      ALERT('Location', location.latitude);\n      SETVALUE('lat',location.latitude);\n      SETVALUE('lng',location.longitude);\n    }\n  }, 2000);\n});",
+    "projects_enabled": null,
+    "assignment_enabled": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "88e9",
+        "label": "Lat",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "lat",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "d9be",
+        "label": "Lng",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "lng",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-10-10T15:45:04Z",
+    "updated_at": "2016-10-10T15:45:04Z"
+  }
+}
