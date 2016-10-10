@@ -30,7 +30,7 @@
       "Point"
     ],
     "geometry_required": false,
-    "script": "ON('load-record', function (event) { \n  SETTIMEOUT(function() {\n    var location = CURRENTLOCATION();\n    if (!location) {\n      ALERT('Warning!', 'Location could not be determined.');\n    } else {\n      ALERT('Location', location.latitude.toFixed(6) + ', ' + location.longitude);\n      SETVALUE('lat',location.latitude.toFixed(6));\n      SETVALUE('lng',location.longitude);\n    }\n  }, 2000);\n});",
+    "script": "ON('load-record', function (event) { \n  SETTIMEOUT(function() {\n    var location = CURRENTLOCATION();\n    if (!location) {\n      ALERT('Warning!', 'Location could not be determined.');\n    } else {\n      var lat = location.latitude.toFixed(6);\n      var lng = location.longitude.toFixed(6);\n      ALERT('Location', lat + ', ' + lng);\n      SETVALUE('lat', lat);\n      SETVALUE('lng', lng);\n    }\n  }, 2000);\n});",
     "projects_enabled": null,
     "assignment_enabled": null,
     "elements": [
@@ -78,6 +78,6 @@
       }
     ],
     "created_at": "2016-10-10T15:45:04Z",
-    "updated_at": "2016-10-10T15:47:53Z"
+    "updated_at": "2016-10-10T15:50:17Z"
   }
 }
