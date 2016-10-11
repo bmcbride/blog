@@ -478,27 +478,25 @@
         "max_length": null
       },
       {
-        "type": "ChoiceField",
-        "key": "26ad",
-        "label": "Technician",
+        "type": "CalculatedField",
+        "key": "925c",
+        "label": "Test",
         "description": null,
         "required": false,
         "disabled": false,
         "hidden": false,
-        "data_name": "technician1",
+        "data_name": "test",
         "default_value": null,
         "visible_conditions_type": null,
         "visible_conditions": null,
         "required_conditions_type": null,
-        "required_conditions": null,
-        "multiple": false,
-        "allow_other": false,
-        "choices": [
-          {
-            "label": "N/A",
-            "value": "N/A"
-          }
-        ],
+        "required_conditions": [],
+        "expression": "ONCE(USERFULLNAME());",
+        "display": {
+          "style": "text",
+          "currency": null
+        },
+        "default_values": null,
         "default_previous_value": false
       },
       {
@@ -546,6 +544,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-10-10T15:00:06Z"
+    "updated_at": "2016-10-11T03:37:59Z"
   }
 }
