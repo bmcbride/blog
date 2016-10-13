@@ -41,7 +41,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 1,
     "geometry_types": [
       "Point"
     ],
@@ -250,7 +250,7 @@
         "type": "TextField",
         "key": "5fe7",
         "label": "High Point",
-        "description": null,
+        "description": "Whole numbers representing 1/8th inches",
         "required": false,
         "disabled": false,
         "hidden": false,
@@ -261,7 +261,7 @@
         "required_conditions_type": null,
         "required_conditions": null,
         "numeric": true,
-        "format": "decimal",
+        "format": "integer",
         "min": null,
         "max": null,
         "min_length": null,
@@ -272,7 +272,7 @@
         "type": "TextField",
         "key": "98c5",
         "label": "Low Point",
-        "description": null,
+        "description": "Whole numbers representing 1/8th inches",
         "required": false,
         "disabled": false,
         "hidden": false,
@@ -283,7 +283,7 @@
         "required_conditions_type": null,
         "required_conditions": null,
         "numeric": true,
-        "format": "decimal",
+        "format": "integer",
         "min": null,
         "max": null,
         "min_length": null,
@@ -294,7 +294,7 @@
         "type": "TextField",
         "key": "d4fc",
         "label": "Length",
-        "description": null,
+        "description": "Feet",
         "required": false,
         "disabled": false,
         "hidden": false,
@@ -310,6 +310,28 @@
         "max": null,
         "min_length": null,
         "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "CalculatedField",
+        "key": "5c89",
+        "label": "Inch Feet",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "inch_feet",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": [],
+        "expression": "((($high_point + $low_point) / 2) / 8) * $length;",
+        "display": {
+          "style": "number",
+          "currency": null
+        },
+        "default_values": null,
         "default_previous_value": false
       },
       {
@@ -536,6 +558,6 @@
       }
     ],
     "created_at": "2016-10-13T16:39:00Z",
-    "updated_at": "2016-10-13T16:54:43Z"
+    "updated_at": "2016-10-13T17:16:11Z"
   }
 }
