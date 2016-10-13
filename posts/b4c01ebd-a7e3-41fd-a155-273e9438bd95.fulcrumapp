@@ -2,7 +2,7 @@
   "form": {
     "id": "b4c01ebd-a7e3-41fd-a155-273e9438bd95",
     "name": "Employees",
-    "description": null,
+    "description": "",
     "bounding_box": null,
     "record_title_key": "9779",
     "title_field_keys": [
@@ -25,7 +25,7 @@
     },
     "auto_assign": false,
     "hidden_on_dashboard": false,
-    "record_count": 0,
+    "record_count": 3,
     "geometry_types": [],
     "geometry_required": false,
     "script": null,
@@ -55,6 +55,6 @@
       }
     ],
     "created_at": "2016-10-13T17:17:28Z",
-    "updated_at": "2016-10-13T17:18:56Z"
+    "updated_at": "2016-10-13T17:22:03Z"
   }
 }
