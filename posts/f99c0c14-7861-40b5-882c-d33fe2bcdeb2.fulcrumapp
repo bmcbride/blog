@@ -596,7 +596,7 @@
         "required_conditions": [],
         "expression": "eval($code);",
         "display": {
-          "style": "date",
+          "style": "text",
           "currency": null
         },
         "default_values": null,
@@ -604,6 +604,6 @@
       }
     ],
     "created_at": "2015-07-09T14:46:02Z",
-    "updated_at": "2016-10-19T02:00:36Z"
+    "updated_at": "2016-10-19T02:00:53Z"
   }
 }
