@@ -560,6 +560,30 @@
         "default_url": ""
       },
       {
+        "type": "RecordLinkField",
+        "key": "3a07",
+        "label": "My Record Link",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "my_record_link",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "allow_creating_records": false,
+        "allow_existing_records": true,
+        "allow_updating_records": false,
+        "allow_multiple_records": false,
+        "form_id": "b4c01ebd-a7e3-41fd-a155-273e9438bd95",
+        "record_conditions_type": null,
+        "record_conditions": null,
+        "record_defaults": null,
+        "default_previous_value": false
+      },
+      {
         "type": "TextField",
         "key": "756e",
         "label": "Code",
@@ -604,6 +628,6 @@
       }
     ],
     "created_at": "2015-07-09T14:46:02Z",
-    "updated_at": "2016-10-19T14:25:59Z"
+    "updated_at": "2016-10-19T14:29:37Z"
   }
 }
