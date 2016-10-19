@@ -39,7 +39,7 @@
       "disabled": false,
       "default_previous_value": false
     },
-    "auto_assign": false,
+    "auto_assign": true,
     "hidden_on_dashboard": false,
     "record_count": 8,
     "geometry_types": [
@@ -544,6 +544,6 @@
       }
     ],
     "created_at": "2016-05-16T19:48:55Z",
-    "updated_at": "2016-10-11T03:37:59Z"
+    "updated_at": "2016-10-19T13:30:55Z"
   }
 }
