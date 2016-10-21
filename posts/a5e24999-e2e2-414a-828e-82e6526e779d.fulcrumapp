@@ -1,0 +1,615 @@
+{
+  "form": {
+    "id": "a5e24999-e2e2-414a-828e-82e6526e779d",
+    "name": "October Ward Samples",
+    "description": "All sampling, all wards.",
+    "bounding_box": null,
+    "record_title_key": "01e4",
+    "title_field_keys": [
+      "01e4",
+      "3952"
+    ],
+    "status_field": {
+      "type": "StatusField",
+      "label": "Status",
+      "key": "@status",
+      "data_name": "status",
+      "default_value": "Not Inspected",
+      "enabled": true,
+      "read_only": true,
+      "hidden": false,
+      "description": "",
+      "choices": [
+        {
+          "label": "Night Inspected",
+          "value": "Night Inspected",
+          "color": "#FF8819"
+        },
+        {
+          "label": "Day Inspected",
+          "value": "Day Inspected",
+          "color": "#FFD300"
+        },
+        {
+          "label": "Not Inspected",
+          "value": "Not Inspected",
+          "color": "#CB0D0C"
+        },
+        {
+          "label": "Completed",
+          "value": "Completed",
+          "color": "#87D30F"
+        }
+      ],
+      "required": false,
+      "disabled": false,
+      "default_previous_value": false
+    },
+    "auto_assign": true,
+    "hidden_on_dashboard": false,
+    "record_count": 0,
+    "geometry_types": [
+      "Point"
+    ],
+    "geometry_required": false,
+    "script": "ON('save-record', function (event) {\n   if ((!ISBLANK($is_light_functioning_properly)) && (ISBLANK($is_manhole_cover_good_no_defects))) {\n    SETSTATUS('Night Inspected');\n   \n  } else if ((ISBLANK($is_light_functioning_properly)) && (!ISBLANK($is_manhole_cover_good_no_defects))) {\n    SETSTATUS('Day Inspected');  \n    \n  } else if ((!ISBLANK($is_light_functioning_properly)) && (!ISBLANK($is_manhole_cover_good_no_defects))) {\n    SETSTATUS('Completed');\n  } else if ((ISBLANK($is_light_functioning_properly)) && (ISBLANK($is_manhole_cover_good_no_defects))) {\n    SETSTATUS('Not Inspected');\n  }\n});\n\n\n\n\n\n\n",
+    "projects_enabled": null,
+    "assignment_enabled": null,
+    "elements": [
+      {
+        "type": "TextField",
+        "key": "01e4",
+        "label": "Street Light ID#",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "streetligh",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "3952",
+        "label": "Grouping #",
+        "description": null,
+        "required": false,
+        "disabled": true,
+        "hidden": false,
+        "data_name": "grouping_",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "TextField",
+        "key": "a4e2",
+        "label": "Position",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": true,
+        "data_name": "position",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": true,
+        "format": "decimal",
+        "min": null,
+        "max": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "PhotoField",
+        "key": "04a4",
+        "label": "Photos",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "photos",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "min_length": null,
+        "max_length": null
+      },
+      {
+        "type": "TextField",
+        "key": "f173",
+        "label": "Notes",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "notes",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "numeric": false,
+        "pattern": null,
+        "pattern_description": null,
+        "min_length": null,
+        "max_length": null,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "367b",
+        "label": "Is Light Functioning Properly?",
+        "description": null,
+        "required": false,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_light_functioning_properly",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": null,
+        "required_conditions": null,
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "0ecd",
+        "label": "Is Pole Access Hole Properly Covered?",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_pole_access_hole_properly_covered",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "49c6",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "21b1",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "ddb0",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "181c",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "312b",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "e436",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "49c6",
+        "label": "Is Pole Completely Vertical and Upright?",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_pole_completely_vertical_and_upright",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "0ecd",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "21b1",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "ddb0",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "181c",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "312b",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "e436",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": false,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "21b1",
+        "label": "Are ALL Elephant Ears In Place and Secure?",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "are_all_elephant_ears_in_place_and_secure",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "0ecd",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "49c6",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "ddb0",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "181c",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "312b",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "e436",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "ddb0",
+        "label": "Is T-Base Good (No Rust & No Defects)?",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_t_base_good_no_rust_no_defects",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "0ecd",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "49c6",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "21b1",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "181c",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "312b",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "e436",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "181c",
+        "label": "Is Wood Pole Good (No Defects)?",
+        "description": null,
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_wood_pole_good_no_defects",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "0ecd",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "49c6",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "21b1",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "ddb0",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "312b",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "e436",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "312b",
+        "label": "Is Manhole Within 1/2\" of Pavement Grade?",
+        "description": "If you cannot inspect without proper safety equipment, please enter N/A",
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_manhole_within_12_of_pavement_grade",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "0ecd",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "49c6",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "21b1",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "ddb0",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "181c",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "e436",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      },
+      {
+        "type": "YesNoField",
+        "key": "e436",
+        "label": "Is Manhole Cover Good (No Defects)?",
+        "description": "If you cannot properly inspect without safety equipment, please enter N/A",
+        "required": true,
+        "disabled": false,
+        "hidden": false,
+        "data_name": "is_manhole_cover_good_no_defects",
+        "default_value": null,
+        "visible_conditions_type": null,
+        "visible_conditions": null,
+        "required_conditions_type": "any",
+        "required_conditions": [
+          {
+            "field_key": "0ecd",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "49c6",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "21b1",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "ddb0",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "181c",
+            "operator": "is_not_empty",
+            "value": ""
+          },
+          {
+            "field_key": "312b",
+            "operator": "is_not_empty",
+            "value": ""
+          }
+        ],
+        "positive": {
+          "label": "Yes",
+          "value": "yes"
+        },
+        "negative": {
+          "label": "No",
+          "value": "no"
+        },
+        "neutral": {
+          "label": "N/A",
+          "value": "n/a"
+        },
+        "neutral_enabled": true,
+        "default_previous_value": false
+      }
+    ],
+    "created_at": "2016-10-21T13:45:42Z",
+    "updated_at": "2016-10-21T13:45:42Z"
+  }
+}
